@@ -47,7 +47,7 @@ public:
             return -1;
         }
         const auto entry = cache.find(key);
-        auto result = entry != cache.end() ? entry->second->value : -1;
+        const auto result = entry != cache.end() ? entry->second->value : -1;
         std::cout << "get: key = " << key << " val = " << result << std::endl;
         return entry != cache.end() ? entry->second->value : -1;
     }

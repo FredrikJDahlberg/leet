@@ -12,7 +12,7 @@ public:
         const auto size = nums.size();
         for (int j = 0; j < k; ++j)
         {
-            auto tmp = nums[size - 1];
+            const auto tmp = nums[size - 1];
             for (auto i = size - 1; i >= 1; --i)
             {
                 nums[i] = nums[i - 1];

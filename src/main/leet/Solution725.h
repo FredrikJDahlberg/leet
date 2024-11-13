@@ -11,7 +11,7 @@ namespace Solution725
         int val;
         ListNode *next;
         ListNode() : val(0), next(nullptr) {}
-        ListNode(int x) : val(x), next(nullptr) {}
+        explicit ListNode(int x) : val(x), next(nullptr) {}
         ListNode(int x, ListNode *next) : val(x), next(next) {}
     };
 
@@ -21,7 +21,7 @@ namespace Solution725
        {
            std::vector<ListNode*> result;
            int remaining = 0;
-           for (ListNode* node = head; node != nullptr; node = node->next)
+           for (const ListNode* node = head; node != nullptr; node = node->next)
            {
                ++remaining;
            }

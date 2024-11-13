@@ -25,7 +25,7 @@ public:
         }
     }
 
-    bool search(std::string searchWord)
+    bool search(std::string searchWord) const
     {
         for (auto &word: words)
         {

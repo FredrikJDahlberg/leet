@@ -28,7 +28,7 @@ public:
                     std::cout << "false\n";
                     return false;
                 }
-                auto match = stack.top();
+                const auto match = stack.top();
                 stack.pop();
                 if ((match != '(' || ch != ')') && (match != '{' || ch != '}') && (match != '[' || ch != ']'))
                 {

@@ -13,7 +13,7 @@ public:
     {
         constexpr size_t MAX = 50'000;
         int counts[MAX];
-        for (auto num: nums)
+        for (const auto num: nums)
         {
             ++counts[num];
         }
@@ -45,11 +45,11 @@ public:
         }
 
         const auto limit = nums.size() / 2;
-        for (auto count: counts)
+        for (auto [fst, snd]: counts)
         {
-            if (count.second > limit)
+            if (snd > limit)
             {
-                return count.first;
+                return fst;
             }
         }
         return 0;

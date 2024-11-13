@@ -16,20 +16,20 @@ class Solution1050
 
         Token() = default;
 
-        Token(Type t, long val) : type(t), value(val)
+        Token(const Type t, const long val) : type(t), value(val)
         {
         }
     };
 
     std::stack<Token> stack;
 
-    long term(std::string &str)
+    long term(const std::string &str)
     {
         return std::strtol(str.c_str(), nullptr, 10);
     }
 
 public:
-    int evalRPN(std::vector<std::string> &tokens)
+    int evalRPN(const std::vector<std::string> &tokens)
     {
         for (auto &str: tokens)
         {

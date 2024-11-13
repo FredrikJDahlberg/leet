@@ -12,7 +12,7 @@ public:
     {
         enum class State { NEW, SKIP, KEEP };
 
-        State state = State::NEW;
+        auto state = State::NEW;
         int value = 0;
         int position = 0;
         int length = 0;

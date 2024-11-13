@@ -99,8 +99,7 @@ TEST(Leet, Solution25)
 {
     Solution25 solution25{1,2,3,4,5};
 
-    auto* rev1 = solution25.reverse(4);
-    int p = 0;
+    const auto* rev1 = solution25.reverse(4);
     //int expected[] = {5,4,3,2,1};
     for (auto node = rev1; node != nullptr; node = node->next)
     {
@@ -170,7 +169,7 @@ TEST(Leet, Solution27)
 
 TEST(Leet, Solution69)
 {
-    std::vector nums{3, 2, 3};
+    const std::vector nums{3, 2, 3};
     ASSERT_EQ(3, Solution69::majorityElement(nums));
     ASSERT_EQ(3, Solution69::majorityElement2(nums));
 }
@@ -190,7 +189,7 @@ TEST(Leet, DISABLED_Solution88)
     std::vector nums1 = {1, 2, 3, 0, 0, 0};
     std::vector nums2 = {2, 5, 6};
     Solution88::merge(nums1, 3, nums2, 3);
-    std::vector res = std::vector<int>{1, 2, 2, 3, 5, 6};
+    const auto res = std::vector<int>{1, 2, 2, 3, 5, 6};
     ASSERT_EQ(nums1, res);
 
     // FIXME
@@ -214,7 +213,7 @@ TEST(Leet, Solution135)
 
 TEST(Leet, DISABLED_Solution1116)
 {
-    auto print = [](int number) {
+    auto print = [](const int number) {
         std::cout << number << std::endl;
     };
 
@@ -230,7 +229,7 @@ TEST(Leet, DISABLED_Solution1116)
 
 TEST(Leet, Solution36)
 {
-    std::vector<std::vector<char>> board1 =
+    const std::vector<std::vector<char>> board1 =
     {
         {'5','3','.','.','7','.','.','.','.'},
         {'6','.','.','1','9','5','.','.','.'},
@@ -244,7 +243,7 @@ TEST(Leet, Solution36)
     };
     ASSERT_TRUE(Solution36::isValidSudoku(board1));
 
-    std::vector<std::vector<char>> board2 =
+    const std::vector<std::vector<char>> board2 =
     {
         {'5','3','.','.','7','.','.','.','.'},
         {'6','.','.','1','9','5','.','.','.'},
@@ -335,10 +334,10 @@ TEST(Leet, DISABLED_Solution40)
 
 TEST(Leet, Solution63)
 {
-    auto c1 = Solution63::uniquePathsWithObstacles({{0,0,0},{0,1,0},{0,0,0}});
+    const auto c1 = Solution63::uniquePathsWithObstacles({{0,0,0},{0,1,0},{0,0,0}});
     std::cout << "res = " << c1 << std::endl;
 
-    auto c2 = Solution63::uniquePathsWithObstacles({{0,1},{0,0}});
+    const auto c2 = Solution63::uniquePathsWithObstacles({{0,1},{0,0}});
     std::cout << "res = " << c2 << std::endl;
 }
 
@@ -346,7 +345,7 @@ TEST(Leet, DISABLED_Solution900)
 {
     // FIXME
     std::vector<std::vector<int>> grid = {{1,0,0,0},{0,0,0,0},{0,0,2,-1}};
-    auto c = Solution980::uniquePathsWithObstacles(grid);
+    const auto c = Solution980::uniquePathsWithObstacles(grid);
     std::cout << "res = " << c << std::endl;
 }
 
@@ -372,8 +371,8 @@ TEST(Leet, DISABLED_Solution410)
 TEST(Leet, DISABLED_2547)
 {
     Solution2547 solution;
-    std::vector<int> v = {1, 2, 1, 2, 1, 3, 3};
-    auto minVal = solution.minCost(v, 2);
+    std::vector v = {1, 2, 1, 2, 1, 3, 3};
+    const auto minVal = solution.minCost(v, 2);
     std::cout << "min cost = " << minVal << std::endl;
 }
 
@@ -413,11 +412,11 @@ TEST(Leet, DISABLED_Solution725)
     using Solution725::ListNode;
     using Solution725::Solution;
     //ListNode* list = new ListNode(1, new ListNode(2, new ListNode(3, nullptr)));
-    ListNode* list = new ListNode(1, nullptr);
+    auto* list = new ListNode(1, nullptr);
     ListNode* prev = list;
     for (int i = 2; i <= 10; ++i)
     {
-        auto node = new ListNode(i, nullptr);
+        const auto node = new ListNode(i, nullptr);
         prev->next = node;
         prev = node;
     }
@@ -447,7 +446,7 @@ TEST(Leet, DISABLED_Solution61)
     }
     std::cout << std::endl;
 
-    auto res = Solution::rotateRight(list, 2);
+    const auto res = Solution::rotateRight(list, 2);
     for (auto node = res; node != nullptr; node = node->next)
     {
         std::cout << "{" << node->val << "} ";
@@ -457,9 +456,9 @@ TEST(Leet, DISABLED_Solution61)
 
 TEST(Leet, DISABLED_Solution53)
 {
-    auto c = Solution53::maxSubArray({-2,1,-3,4,-1,2,1,-5,4});
+    const auto c = Solution53::maxSubArray({-2,1,-3,4,-1,2,1,-5,4});
     std::cout << "count = " << c << std::endl;
-    auto d = Solution53::maxSubArray({5,4,-1,7,8});
+    const auto d = Solution53::maxSubArray({5,4,-1,7,8});
     std::cout << "count = " << d << std::endl;
 }
 

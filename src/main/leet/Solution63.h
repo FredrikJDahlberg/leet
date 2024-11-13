@@ -46,8 +46,8 @@ public:
     {
         Path path;
         std::vector<Path> paths;
-        auto m = grid[0].size();
-        auto n = grid.size();
+        const auto m = grid[0].size();
+        const auto n = grid.size();
         uniquePathsWithObstacles(m - 1, n - 1, 0, 0, grid, path, paths);
         for (auto &p: paths)
         {

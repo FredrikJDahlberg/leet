@@ -14,14 +14,14 @@ public:
     // {2,0} = 0010 {2,1} = 0110
     static bool makeStringsEqual(std::string s, std::string target)
     {
-        auto len = s.size();
+        const auto len = s.size();
         auto x = s;
         for (int i = 0; i < len; ++i)
         {
             for (int j = i + 1; j < len; ++j)
             {
-                char n1 = x[i] | x[j];
-                char n2 = x[i] ^ x[j];
+                const char n1 = x[i] | x[j];
+                const char n2 = x[i] ^ x[j];
                 x[i] = n1;
                 x[j] = n2;
                 if (x == target)
@@ -35,8 +35,8 @@ public:
         {
             for (int j = i + 1; j < len; ++j)
             {
-                char n1 = y[j] | y[i];
-                char n2 = y[j] ^ y[i];
+                const char n1 = y[j] | y[i];
+                const char n2 = y[j] ^ y[i];
                 std::printf("i = %d, j = %d\n", i, j);
                 y[j] = n1;
                 y[i] = n2;

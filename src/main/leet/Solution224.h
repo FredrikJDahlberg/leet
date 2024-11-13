@@ -123,11 +123,11 @@ public:
             // return false;
         }
         int term2 = 0;
-        Token token = tokens[position];
-        switch (token.type)
+        auto [value, type] = tokens[position];
+        switch (type)
         {
             case Type::NUMBER:
-                result = token.value;
+                result = value;
                 ++position;
                 if (!eval(position, result))
                 {

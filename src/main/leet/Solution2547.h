@@ -9,9 +9,9 @@ class Solution2547
 {
 private:
     std::vector<int> lengths;
-    std::array<std::uint8_t, 1000> used; // 0 = zero, 1 = once, 2 = more
+    std::array<std::uint8_t, 1000> used{}; // 0 = zero, 1 = once, 2 = more
 
-    int importance(int offset, int length, int k, std::vector<int> &nums)
+    int importance(const int offset, const int length, const int k, const std::vector<int> &nums)
     {
         used.fill(0);
         for (int i = offset; i < offset + length; ++i)
@@ -35,7 +35,7 @@ private:
         return cost;
     }
 
-    int minCost(int offset, int length, int k1, int k, std::vector<int> &nums)
+    int minCost(const int offset, const int length, const int k1, const int k, std::vector<int> &nums)
     {
         if (k1 == 1)
         {
@@ -45,7 +45,7 @@ private:
 
             int pos = 0;
             int cost = 0;
-            for (auto len: lengths)
+            for (const auto len: lengths)
             {
                 cost += importance(pos, len, k, nums);
                 pos += len;

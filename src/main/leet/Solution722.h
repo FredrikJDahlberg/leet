@@ -17,13 +17,13 @@ public:
             std::cout << s << std::endl;
         }
 
-        State state = State::KEEP;
+        auto state = State::KEEP;
         int line = 0;
         int col = 0;
         while (state != State::DONE)
         {
-            auto ch = source[line][col];
-            std::cout << "c = " << ch << " " << int(state) << std::endl;
+            const auto ch = source[line][col];
+            std::cout << "c = " << ch << " " << static_cast<int>(state) << std::endl;
             switch (state)
             {
                 case State::KEEP:

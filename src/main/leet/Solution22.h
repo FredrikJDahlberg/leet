@@ -19,7 +19,7 @@ public:
         return std::vector<std::string>{};
     }
 
-    static void generate(int n, std::vector<std::string> &result)
+    static void generate(const int n, std::vector<std::string> &result)
     {
         for (int i = 0; i < n -1; ++i)
         {
@@ -38,7 +38,7 @@ public:
         }
     }
 
-    static void fibonacci(int n)
+    static void fibonacci(const int n)
     {
         std::vector sequence = { 0, 1 };
         for (auto i = sequence.size(); i < n; ++i)

@@ -9,7 +9,7 @@ namespace Solution208 {
 class Trie
 {
 private:
-    static const int EMPTY = 0;
+    static constexpr int EMPTY = 0;
 
     struct Node
     {
@@ -17,7 +17,7 @@ private:
         {
         }
 
-        Node(char ch, bool last) : value{ch}, complete{last}
+        Node(const char ch, const bool last) : value{ch}, complete{last}
         {
         }
 
@@ -28,10 +28,10 @@ private:
 
     Node *root;
 
-    Node *find(Node *node, std::string &word, int &offset)
+    static Node *find(Node *node, std::string &word, int &offset)
     {
         auto next = node;
-        auto size = word.size();
+        const auto size = word.size();
         while (next != nullptr && next->value == word[offset])
         {
             if (next->value == word[offset])
@@ -42,7 +42,7 @@ private:
                 }
                 ++offset;
 
-                auto child = next->children[word[offset]];
+                const auto child = next->children[word[offset]];
                 ++offset;
                 if (child == nullptr)
                 {
@@ -54,7 +54,7 @@ private:
         return next;
     }
 
-    bool insert(Node *node, std::string &word, int offset)
+    static bool insert(Node *node, std::string &word, int offset)
     {
         std::cout << "offset = " << offset << " " << node->value << std::endl;
 
@@ -64,8 +64,8 @@ private:
             {
                 ++offset;
 
-                auto child = node->children[word[offset]];
-                auto ch = word[offset];
+                const auto child = node->children[word[offset]];
+                const auto ch = word[offset];
                 if (child == nullptr)
                 {
                     node->children[ch] = new Node(ch, word.size() == offset);
@@ -100,14 +100,14 @@ public:
     bool search(std::string word)
     {
         int offset = 0;
-        auto node = find(root, word, offset);
+        const auto node = find(root, word, offset);
         return node != nullptr ? node->complete : false;
     }
 
     bool startsWith(std::string prefix)
     {
         int offset = 0;
-        auto node = find(root, prefix, offset);
+        const auto node = find(root, prefix, offset);
         return node != nullptr;
     }
 };

@@ -1,16 +1,10 @@
 #include <iostream>
 #include <map>
-#include <numeric>
-#include <set>
-#include <vector>
 #include <thread>
-#include "Print.h"
 
 //
 // Created by Fredrik Dahlberg on 2024-09-28.
 //
-
-
 void changeWords(std::string& word)
 {
     int first = 0;
@@ -52,11 +46,11 @@ int main(int argc, const char *argv[])
 {
 
     std::array aa = { 1,2,3,4,5 };
-    for (auto a : aa)
+    for (const auto a : aa)
     {
         std::cout << "a = " << a << std::endl;
     }
-    std::for_each(aa.begin(), aa.end(), [](auto v) {
+    std::ranges::for_each(aa, [](auto v) {
         std::cout << "b = " << v << std::endl;
     });
     std::ranges::for_each(aa, [](auto v) {

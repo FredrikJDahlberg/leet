@@ -78,8 +78,8 @@ private:
                     break;
             }
 
-            const auto &row = grid[y];
-            auto newValue = grid[y + deltaY][x + deltaX];
+            //const auto &row = grid[y];
+            //auto newValue = grid[y + deltaY][x + deltaX];
             if (std::ranges::find(path, std::make_pair(y, x)) == path.end())
             {
                 path.emplace_back(y, x);
@@ -127,8 +127,8 @@ public:
     {
         std::vector<Path> paths;
         Path path;
-        auto m = grid[0].size();
-        auto n = grid.size();
+        const auto m = grid[0].size();
+        const auto n = grid.size();
         int startX = 0;
         int startY = 0;
         int stopX = 0;
@@ -139,8 +139,7 @@ public:
             for (int y = 0; y < n; ++y)
             {
                 auto &row = grid[y];
-                auto &ch = row[x];
-                switch (ch)
+                switch (auto &ch = row[x])
                 {
                     case 0:
                         ++count;

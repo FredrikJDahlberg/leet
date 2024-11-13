@@ -27,7 +27,7 @@ bool Parser::valid() const
 
 int Parser::calculate(const std::string_view& str)
 {
-    size_t size = str.size();
+    const size_t size = str.size();
     count = 0;
     int offset = 0;
     while (offset < size && tokenize(str, offset, tokens[count]))
@@ -96,12 +96,11 @@ bool Parser::tokenize(const std::string_view& string, int& offset, Token& token)
 {
     token.type = Type::SPACE;
     token.value = 0;
-    auto size = string.size();
+    const auto size = string.size();
     while (offset < size)
     {
-        auto ch = string[offset];
-        Type type = typeByChar[ch];
-        switch (type)
+        const auto ch = string[offset];
+        switch (Type type = typeByChar[ch])
         {
             case Type::NUMBER:
                 token.type = type;

@@ -27,7 +27,7 @@ private:
     };
 
 public:
-    std::vector<std::string> letterCombinations(const std::string& digits)
+    [[nodiscard]] std::vector<std::string> letterCombinations(const std::string& digits) const
     {
         std::vector<std::string> results = { "" };
         for (const auto digit : digits)

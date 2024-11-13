@@ -63,7 +63,7 @@ namespace coro_iterator
 
         iterator() = default;
 
-        iterator(std::coroutine_handle<PT>* handle) : mRoutine(handle)
+        explicit iterator(std::coroutine_handle<PT>* handle) : mRoutine(handle)
         {
             resume();
         }

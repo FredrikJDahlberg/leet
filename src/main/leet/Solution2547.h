@@ -64,7 +64,7 @@ private:
     }
 
 public:
-    Solution()
+    Solution2547()
     {
     }
 

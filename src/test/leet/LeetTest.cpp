@@ -19,6 +19,7 @@
 #include "../../main/leet/Solution39.h"
 #include "../../main/leet/Solution40.h"
 #include "../../main/leet/Solution60.h"
+#include "../../main/leet/Solution61.h"
 #include "../../main/leet/Solution62.h"
 #include "../../main/leet/Solution63.h"
 #include "../../main/leet/Solution69.h"
@@ -28,8 +29,11 @@
 #include "../../main/leet/Solution135.h"
 #include "../../main/leet/Solution146.h"
 #include "../../main/leet/Solution188.h"
+#include "../../main/leet/Solution208.h"
 #include "../../main/leet/Solution224.h"
 #include "../../main/leet/Solution410.h"
+#include "../../main/leet/Solution722.h"
+#include "../../main/leet/Solution725.h"
 #include "../../main/leet/Solution980.h"
 #include "../../main/leet/Solution1050.h"
 #include "../../main/leet/Solution1116.h"
@@ -329,4 +333,82 @@ TEST(Leet, DISABLED_2547)
     std::vector<int> v = {1, 2, 1, 2, 1, 3, 3};
     auto minVal = solution.minCost(v, 2);
     std::cout << "min cost = " << minVal << std::endl;
+}
+
+TEST(Leet, Solution722)
+{
+    std::vector<std::string> source =
+    {"/*Test program */", "int main()",
+        "{ ",
+        "  // variable declaration ",
+        "int a, b, c;",
+        "/* This is a test",
+        "   multiline  ",
+        "   comment for ",
+        "   testing */",
+        "a = b + c;",
+        "}"};
+    Solution722::removeComments(source);
+    for (auto s : source)
+    {
+        std::cout << s << std::endl;
+    }
+}
+
+TEST(Leet, Solution208)
+{
+    auto trie = Solution208::Trie();
+    trie.insert("apple");
+    ASSERT_TRUE(trie.search("apple"));   // return True
+    ASSERT_FALSE(trie.search("app"));     // return False
+    ASSERT_TRUE(trie.startsWith("app")); // return True
+    trie.insert("app");
+    trie.search("app");
+}
+
+TEST(Leet, DISABLED_Solution725)
+{
+    using Solution725::ListNode;
+    using Solution725::Solution;
+    //ListNode* list = new ListNode(1, new ListNode(2, new ListNode(3, nullptr)));
+    ListNode* list = new ListNode(1, nullptr);
+    ListNode* prev = list;
+    for (int i = 2; i <= 10; ++i)
+    {
+        auto node = new ListNode(i, nullptr);
+        prev->next = node;
+        prev = node;
+    }
+    auto res = Solution::splitListToParts(list, 3);
+    for (auto list : res)
+    {
+        std::cout << "[";
+        for (auto node = list; node != nullptr; node = node->next)
+        {
+            std::cout << "{" << node->val << "} ";
+        }
+        std::cout << "]" << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+TEST(Leet, DISABLED_Solution61)
+{
+    using Solution61::ListNode;
+    using Solution61::Solution;
+
+    // new ListNode(3, new ListNode(4, new ListNode(5, nullptr)))));
+    ListNode* list = new ListNode(1, nullptr); // new ListNode(2, nullptr));
+    for (auto node = list; node != nullptr; node = node->next)
+    {
+        std::cout << "{" << node->val << "} ";
+    }
+    std::cout << std::endl;
+
+    auto res = Solution::rotateRight(list, 2);
+    for (auto node = res; node != nullptr; node = node->next)
+    {
+        std::cout << "{" << node->val << "} ";
+    }
+    std::cout << std::endl;
 }

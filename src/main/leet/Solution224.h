@@ -23,7 +23,7 @@ private:
     };
 
     std::array<Token, 32> tokens{};
-    int paren;
+    int paren{};
 
     static int tokenize(const std::string_view &str, const size_t position, size_t remaining, Token &token)
     {
@@ -77,6 +77,8 @@ private:
     }
 
 public:
+    Solution224() = default;
+
     int calculate(const std::string &expr) // copy
     {
         std::cout << expr << std::endl;

@@ -390,7 +390,7 @@ TEST(Leet, Solution722)
         "a = b + c;",
         "}"};
     Solution722::removeComments(source);
-    for (auto s : source)
+    for (const auto& s : source)
     {
         std::cout << s << std::endl;
     }
@@ -404,7 +404,7 @@ TEST(Leet, Solution208)
     ASSERT_FALSE(trie.search("app"));     // return False
     ASSERT_TRUE(trie.startsWith("app")); // return True
     trie.insert("app");
-    trie.search("app");
+    ASSERT_TRUE(trie.search("app"));
 }
 
 TEST(Leet, DISABLED_Solution725)
@@ -439,7 +439,7 @@ TEST(Leet, DISABLED_Solution61)
     using Solution61::Solution;
 
     // new ListNode(3, new ListNode(4, new ListNode(5, nullptr)))));
-    ListNode* list = new ListNode(1, nullptr); // new ListNode(2, nullptr));
+    auto list = new ListNode(1, nullptr); // new ListNode(2, nullptr));
     for (auto node = list; node != nullptr; node = node->next)
     {
         std::cout << "{" << node->val << "} ";

@@ -17,7 +17,7 @@ private:
         {
         }
 
-        Node(const char ch, const bool last) : value{ch}, complete{last}
+        Node(const char ch, const bool last) : value{ch}, complete{last}, children{}
         {
         }
 
@@ -28,7 +28,7 @@ private:
 
     Node *root;
 
-    static Node *find(Node *node, std::string &word, int &offset)
+    static Node *find(Node *node, const std::string &word, int &offset)
     {
         auto next = node;
         const auto size = word.size();
@@ -54,7 +54,7 @@ private:
         return next;
     }
 
-    static bool insert(Node *node, std::string &word, int offset)
+    static bool insert(Node *node, const std::string &word, int offset)
     {
         std::cout << "offset = " << offset << " " << node->value << std::endl;
 
@@ -81,30 +81,30 @@ private:
     }
 
 public:
-    Trie()
+    Trie(): root(nullptr)
     {
     }
 
-    void insert(std::string word)
+    void insert(const std::string &word)
     {
-        int offset = 0;
         if (root == nullptr)
         {
+            int offset = 0;
             root = new Node(word[0], word.size() == 1);
             ++offset;
         }
 
-        Node *node = find(root, word, offset);
+        // Node *node = find(root, word, offset);
     }
 
-    bool search(std::string word)
+    [[nodiscard]] bool search(const std::string& word) const
     {
         int offset = 0;
         const auto node = find(root, word, offset);
         return node != nullptr ? node->complete : false;
     }
 
-    bool startsWith(std::string prefix)
+    [[nodiscard]] bool startsWith(const std::string& prefix) const
     {
         int offset = 0;
         const auto node = find(root, prefix, offset);

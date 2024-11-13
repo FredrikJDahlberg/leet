@@ -54,7 +54,6 @@ public:
         }
         return 0;
     }
-
 };
 
 #endif //SOLUTION69_H

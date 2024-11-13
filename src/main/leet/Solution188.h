@@ -6,10 +6,9 @@
 #define SOLUTION188_H
 
 #include <vector>
-#include <mach/host_info.h>
 
-class Solution188 {
-
+class Solution188
+{
     struct Position
     {
         int buyPrice = std::numeric_limits<int>::min();
@@ -17,9 +16,10 @@ class Solution188 {
     };
 
 public:
-    static int maxProfit(const int k, const std::vector<int>& prices) {
+    static int maxProfit(const int k, const std::vector<int> &prices)
+    {
         std::vector<Position> positions(k);
-        for(const auto price : prices)
+        for (const auto price: prices)
         {
             auto pos = positions.rbegin();
             while (pos != positions.rend() - 1)
@@ -36,4 +36,3 @@ public:
 };
 
 #endif //SOLUTION188_H
-

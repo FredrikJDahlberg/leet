@@ -64,9 +64,7 @@ private:
     }
 
 public:
-    Solution2547()
-    {
-    }
+    Solution2547() = default;
 
     int minCost(std::vector<int> &nums, int k)
     {

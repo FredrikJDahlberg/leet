@@ -11,157 +11,6 @@
 //
 
 
-namespace example26
-{
-    static size_t removeDuplicates(std::vector<int> &nums)
-    {
-        auto value = nums.front();
-        for (auto it = nums.begin() + 1; it != nums.end(); ++it)
-        {
-            if (value == *it)
-            {
-                nums.erase(it);
-            }
-            else
-            {
-                value = *it;
-            }
-        }
-        return nums.size();
-    }
-
-    static int removeDuplicates2(std::vector<int> &nums)
-    {
-        if (nums.empty())
-        {
-            return 0;
-        }
-
-        auto value = nums.front();
-        auto in = nums.begin() + 1;
-        auto out = nums.begin();
-        int count = 1;
-        while (in != nums.end())
-        {
-            if (value != *in)
-            {
-                value = *in;
-                *++out = *in;
-                ++count;
-            }
-            ++in;
-        }
-        return count;
-    }
-
-
-    void test1()
-    {
-        std::vector nums{1, 1, 2};
-        std::cout << nums << std::endl;
-        int count = removeDuplicates2(nums);
-        std::cout << "c = " << count << nums << std::endl;
-    }
-
-    void test2()
-    {
-        std::vector nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-        std::cout << nums << std::endl;
-        int count = removeDuplicates2(nums);
-        std::cout << "c = " << count << nums << std::endl;
-    }
-}
-
-namespace example27
-{
-    size_t removeElement(std::vector<int> &nums, int val)
-    {
-        auto it = nums.begin();
-        while (it != nums.end())
-        {
-            if (*it == val)
-            {
-                nums.erase(it);
-            } else
-            {
-                ++it;
-            }
-        }
-        for (int num: nums)
-        {
-            printf("val = %d\n", num);
-        }
-        return nums.size();
-    }
-
-    void test1()
-    {
-        std::vector<int> v = {0, 1, 2, 2, 3, 0, 4, 2};
-        removeElement(v, 2);
-    }
-}
-
-namespace example69
-{
-    int majorityElement(const std::vector<int> &nums)
-    {
-        constexpr size_t MAX = 50'000;
-        int counts[MAX];
-        for (auto num: nums)
-        {
-            ++counts[num];
-        }
-
-        const auto limit = nums.size() / 2;
-        for (auto majority = 0; majority < MAX; ++majority)
-        {
-            if (counts[majority] > limit)
-            {
-                return majority;
-            }
-        }
-        return 0;
-    }
-
-    int majorityElement2(const std::vector<int> &nums)
-    {
-        std::map<int, int> counts;
-        for (auto num: nums)
-        {
-            auto count = counts.find(num);
-            if (count == counts.end())
-            {
-                counts.insert(std::make_pair(num, 1));
-            } else
-            {
-                ++count->second;
-            }
-        }
-
-        const auto limit = nums.size() / 2;
-        for (auto count: counts)
-        {
-            if (count.second > limit)
-            {
-                return count.first;
-            }
-        }
-        return 0;
-    }
-
-    void test1()
-    {
-        std::vector nums{3, 2, 3};
-        std::cout << "majority = " << majorityElement(nums) << std::endl;
-    }
-
-    void test2()
-    {
-        std::vector nums{3, 2, 3};
-        std::cout << "majority = " << majorityElement2(nums) << std::endl;
-    }
-}
-
 namespace example88
 {
     void merge(std::vector<int> &nums1, const int m, std::vector<int> &nums2, const int n)
@@ -197,92 +46,6 @@ namespace example88
 
 namespace example80
 {
-    int removeDuplicates(int nums[], int count)
-    {
-        enum class State { NEW, SKIP, KEEP };
-
-        State state = State::NEW;
-        int value = 0;
-        int position = 0;
-        int length = 0;
-        int remaining = 0;
-        while (position < count)
-        {
-            switch (state)
-            {
-                case State::NEW:
-                    value = nums[position];
-                    nums[remaining++] = nums[position++];
-                    state = State::KEEP;
-                    break;
-                case State::KEEP:
-                    if (++length < 2 && nums[position] == value)
-                    {
-                        nums[remaining++] = nums[position++];
-                    } else
-                    {
-                        state = State::SKIP;
-                        length = 0;
-                    }
-                    break;
-                case State::SKIP:
-                    if (value == nums[position])
-                    {
-                        ++position;
-                    } else
-                    {
-                        state = State::NEW;
-                    }
-                    break;
-            }
-        }
-        return remaining;
-    }
-
-    static int removeDuplicates2(std::vector<int> &nums)
-    {
-        int length = 1;
-        int count = 1;
-        auto value = nums.front();
-        auto out = nums.begin();
-        for (auto in = nums.begin() + 1; in != nums.end(); ++in)
-        {
-            const auto equal = value == *in;
-            if (equal && ++length <= 2 || !equal)
-            {
-                *++out = *in;
-                ++count;
-            }
-            if (!equal)
-            {
-                length = 1;
-                value = *in;
-            }
-            ++in;
-        }
-        return count;
-    }
-
-    void test1()
-    {
-        // 1 1 2 2 3
-        int values[] = {1, 1, 1, 2, 2, 3};
-        int count = removeDuplicates(values, 6);
-        std::printf("count = %d\n", count);
-        for (int i = 0; i < count; ++i)
-        {
-            std::printf("values[%d] = %d\n", i, values[i]);
-        }
-    }
-
-    void test2()
-    {
-        // 1 1 2 2 3
-        std::vector values = {1, 1, 1, 2, 2, 3};
-        int count = removeDuplicates2(values);
-        std::printf("count = %d\n", count);
-        std::cout << values << std::endl;
-    }
 }
 
 namespace example135
@@ -2208,8 +1971,132 @@ void test()
     std::array<std::uint8_t, 256> data;
 }
 
+class A
+{
+    int a;
+
+public:
+    A() : a{0}
+    {
+    }
+
+    A(int value) : a{value}
+    {
+    }
+
+    A& operator=(const A& rhs)
+    {
+        a = rhs.a;
+        return *this;
+    }
+
+    ~A() = default;
+
+    auto getA() const
+    {
+        return a;
+    }
+};
+
+class B : public A
+{
+    int b;
+
+public:
+    explicit B(int value) : b{value}
+    {
+    }
+
+    B& operator=(const B& rhs)
+    {
+        A::operator=(rhs);
+        b = rhs.b;
+        return *this;
+    }
+};
+
+class C : public A
+{
+    int c;
+
+public:
+    C() : c{0}
+    {
+    }
+    explicit C(int value) : c(value)
+    {
+    }
+
+    C& operator=(const C& rhs)
+    {
+        A::operator=(rhs);
+        c = rhs.c;
+        return *this;
+    }
+
+    auto getC() const
+    {
+        return c;
+    }
+};
+
+std::ostream& operator<<(std::ostream& os, const A& rhs)
+{
+    os << "{A, c = " << rhs.getA() << " }";
+    return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const C& rhs)
+{
+    os << "{C, c = " << rhs.getC() << " }";
+    return os;
+}
+
+void init()
+{
+    A a;
+    std::cout << "hepp = " << a << std::endl;
+
+    C c;
+    std::cout << "hepp = " << c << std::endl;
+
+    int aa[3];
+    std::ranges::for_each(aa, [&aa](auto v) {
+        std::cout << "a = " << v << std::endl;
+    });
+
+    int bb[4] = {};
+    std::ranges::for_each(bb, [&aa](auto v) {
+        std::cout << "b = " << v << std::endl;
+    });
+
+    int cc[4]{};
+    std::ranges::for_each(cc, [&aa](auto v) {
+        std::cout << "c = " << v << std::endl;
+    });
+
+    std::vector vv = { 1, 2,3 };
+    std::ranges::for_each(vv, [&aa](auto v) {
+        std::cout << "v = " << v << std::endl;
+    });
+}
+
 int main(int argc, const char *argv[])
 {
+    init();
+
+    std::array aa = { 1,2,3,4,5 };
+    for (auto a : aa)
+    {
+        std::cout << "a = " << a << std::endl;
+    }
+    std::for_each(aa.begin(), aa.end(), [](auto v) {
+        std::cout << "b = " << v << std::endl;
+    });
+    std::ranges::for_each(aa, [](auto v) {
+        std::cout << "c = " << v << std::endl;
+    });
+
     //test2();
 
     //test();

@@ -4,9 +4,8 @@
 
 #ifndef BLOCKINGQUEUE_H
 #define BLOCKINGQUEUE_H
-#include <queue>
+
 #include <condition_variable>
-#include <mutex>
 
 template <typename T>
 class BlockingQueue

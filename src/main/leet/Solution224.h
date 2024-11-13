@@ -35,7 +35,7 @@ private:
         token.value = 0;
         token.type = Type::SPACE;
         int consumed = 0;
-        for (auto i = position; !i < position + remaining; ++i)
+        for (auto i = position; i < position + remaining; ++i)
         {
             auto ch = str[i];
             if (std::isdigit(ch))

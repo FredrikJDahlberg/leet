@@ -8,6 +8,7 @@
 #include <gtest/gtest.h>
 
 #include "../../main/leet/Print.h"
+#include "../../main/leet/Solution5.h"
 #include "../../main/leet/Solution12.h"
 #include "../../main/leet/Solution17.h"
 #include "../../main/leet/Solution20.h"
@@ -18,6 +19,7 @@
 #include "../../main/leet/Solution36.h"
 #include "../../main/leet/Solution39.h"
 #include "../../main/leet/Solution40.h"
+#include "../../main/leet/Solution53.h"
 #include "../../main/leet/Solution60.h"
 #include "../../main/leet/Solution61.h"
 #include "../../main/leet/Solution62.h"
@@ -30,15 +32,55 @@
 #include "../../main/leet/Solution146.h"
 #include "../../main/leet/Solution188.h"
 #include "../../main/leet/Solution208.h"
+#include "../../main/leet/Solution214.h"
 #include "../../main/leet/Solution224.h"
+#include "../../main/leet/Solution720.h"
+#include "../../main/leet/Solution396.h"
 #include "../../main/leet/Solution410.h"
+#include "../../main/leet/Solution676.h"
 #include "../../main/leet/Solution722.h"
+#include "../../main/leet/Solution724.h"
 #include "../../main/leet/Solution725.h"
+#include "../../main/leet/Solution930.h"
 #include "../../main/leet/Solution980.h"
 #include "../../main/leet/Solution1050.h"
 #include "../../main/leet/Solution1116.h"
 #include "../../main/leet/Solution2302.h"
+#include "../../main/leet/Solution2546.h"
 #include "../../main/leet/Solution2547.h"
+
+TEST(Leet, DISABLED_Solution676)
+{
+    Solution676::MagicDictionary dict;
+    dict.buildDict({"hello", "leetcode"});
+    std::cout << std::boolalpha << dict.search("hello") << std::endl;
+    std::cout << std::boolalpha << dict.search("leetcoded") << std::endl;
+    std::cout << std::boolalpha << dict.search("hhllo") << std::endl;
+}
+
+TEST(Leet, Solution720)
+{
+    std::vector<std::string> v{"w","wo","wor","worl","world"};
+    std::cout << "v = " << Solution720::longestWord(v) << std::endl;
+
+    std::vector<std::string> u{"a","banana","app","appl","ap","apply","apple"};
+    std::cout << "v = " << Solution720::longestWord(u) << std::endl;
+}
+
+TEST(Leet, Solution724)
+{
+    auto v = std::vector<int>({1,7,3,6,5,6});
+    std::cout << "i = " << Solution724::pivotIndex(v) << std::endl;
+    auto u = std::vector<int>({1,2,3});
+    std::cout << "i = " << Solution724::pivotIndex(u) << std::endl;
+}
+
+TEST(Leet, Solution5)
+{
+        //std::cout << s.longestPalindrome("babad") << std::endl;
+        Solution5::longestPalindrome("xxabay");
+        //std::cout << s.longestPalindrome("bbababd") << std::endl;
+}
 
 TEST(Leet, Solution2302)
 {
@@ -308,7 +350,7 @@ TEST(Leet, DISABLED_Solution900)
     std::cout << "res = " << c << std::endl;
 }
 
-TEST(Leet, Solution1050)
+TEST(Leet, DISABLED_Solution1050)
 {
     Solution1050 s;
     auto v1 = std::vector<std::string>{"2","1","+","3","*"};
@@ -411,4 +453,37 @@ TEST(Leet, DISABLED_Solution61)
         std::cout << "{" << node->val << "} ";
     }
     std::cout << std::endl;
+}
+
+TEST(Leet, DISABLED_Solution53)
+{
+    auto c = Solution53::maxSubArray({-2,1,-3,4,-1,2,1,-5,4});
+    std::cout << "count = " << c << std::endl;
+    auto d = Solution53::maxSubArray({5,4,-1,7,8});
+    std::cout << "count = " << d << std::endl;
+}
+
+TEST(Leet, DISABLED_Solution2546)
+{
+    Solution2546::makeStringsEqual("1010", "0110");
+}
+
+TEST(Leet, DISABLED_Solution930)
+{
+    Solution930::numSubarraysWithSum(std::vector<int>{1,0,1,0,1}, 2);
+}
+
+TEST(Leet, DISABLED_Solution214)
+{
+    std::cout << Solution214::shortestPalindrome("a") << std::endl;
+    std::cout << Solution214::shortestPalindrome("ab") << std::endl;
+    std::cout << Solution214::shortestPalindrome("abcd") << std::endl;
+    std::cout << Solution214::shortestPalindrome("aacecaaa") << std::endl;
+}
+
+TEST(Leet, DISABLED_Solution396)
+{
+    //std::vector<int> v = {4,3,2,6};
+    std::vector<int> v = {1,2,3,4,5};
+    Solution396::maxRotateFunction(v);
 }

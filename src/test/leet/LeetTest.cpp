@@ -4,21 +4,31 @@
 
 
 #include <iostream>
-
+#include <thread>
 #include <gtest/gtest.h>
+
+#include "../../main/leet/Print.h"
+#include "../../main/leet/Solution12.h"
+#include "../../main/leet/Solution17.h"
 #include "../../main/leet/Solution20.h"
+#include "../../main/leet/Solution22.h"
 #include "../../main/leet/Solution25.h"
 #include "../../main/leet/Solution26.h"
 #include "../../main/leet/Solution27.h"
+#include "../../main/leet/Solution36.h"
+#include "../../main/leet/Solution39.h"
 #include "../../main/leet/Solution60.h"
 #include "../../main/leet/Solution62.h"
 #include "../../main/leet/Solution69.h"
 #include "../../main/leet/Solution80.h"
+#include "../../main/leet/Solution88.h"
 #include "../../main/leet/Solution123.h"
+#include "../../main/leet/Solution135.h"
+#include "../../main/leet/Solution146.h"
 #include "../../main/leet/Solution188.h"
 #include "../../main/leet/Solution224.h"
+#include "../../main/leet/Solution1116.h"
 #include "../../main/leet/Solution2302.h"
-
 
 TEST(Leet, Solution2302)
 {
@@ -121,4 +131,132 @@ TEST(Leet, Solution80)
 
     std::vector values2 = {1, 1, 1, 2, 2, 3};
     ASSERT_EQ(3, Solution80::removeDuplicates2(values2));
+}
+
+TEST(Leet, Solution88)
+{
+    std::vector nums1 = {1, 2, 3, 0, 0, 0};
+    std::vector nums2 = {2, 5, 6};
+    Solution88::merge(nums1, 3, nums2, 3);
+    std::vector res = std::vector<int>{1, 2, 2, 3, 5, 6};
+    ASSERT_EQ(nums1, res);
+
+    // FIXME
+    std::vector nums3 = {1};
+    std::vector<int> nums4;
+    Solution88::merge(nums3, 1, nums4, 0);
+
+    std::vector<int> nums5 = {0};
+    std::vector<int> nums6 = {1};
+    Solution88::merge(nums5, 0, nums6, 1);
+}
+
+TEST(Leet, Solution135)
+{
+    constexpr int ratings1[3] = {1, 0, 2};
+    ASSERT_EQ(5, Solution135::candy(ratings1, 3));
+
+    constexpr int ratings2[3] = {1, 2, 2};
+    ASSERT_EQ(4, Solution135::candy(ratings2, 3));
+}
+
+TEST(Leet, Solution1116)
+{
+    auto print = [](int number) {
+        std::cout << number << std::endl;
+    };
+
+    // FIXME
+    ZeroEvenOdd zeo{5};
+    std::thread thread0([&]() { zeo.zero(print); });
+    std::thread thread1([&]() { zeo.odd(print); });
+    std::thread thread2([&]() { zeo.even(print); });
+    thread0.join();
+    thread1.join();
+    thread2.join();
+}
+
+TEST(Leet, Solution36)
+{
+    std::vector<std::vector<char>> board1 =
+    {
+        {'5','3','.','.','7','.','.','.','.'},
+        {'6','.','.','1','9','5','.','.','.'},
+        {'.','9','8','.','.','.','.','6','.'},
+        {'8','.','.','.','6','.','.','.','3'},
+        {'4','.','.','8','.','3','.','.','1'},
+        {'7','.','.','.','2','.','.','.','6'},
+        {'.','6','.','.','.','.','2','8','.'},
+        {'.','.','.','4','1','9','.','.','5'},
+        {'.','.','.','.','8','.','.','7','9'}
+    };
+    ASSERT_TRUE(Solution36::isValidSudoku(board1));
+
+    std::vector<std::vector<char>> board2 =
+    {
+        {'5','3','.','.','7','.','.','.','.'},
+        {'6','.','.','1','9','5','.','.','.'},
+        {'.','9','8','.','.','.','.','6','.'},
+        {'8','.','.','.','6','.','.','.','3'},
+        {'4','.','.','8','.','3','.','.','1'},
+        {'7','.','.','.','2','.','.','.','6'},
+        {'.','6','.','.','.','.','5','8','.'},
+        {'.','.','.','4','1','9','.','.','5'},
+        {'.','.','.','.','8','.','.','7','9'}
+    };
+    ASSERT_TRUE(Solution36::isValidSudoku(board2));
+}
+
+TEST(Leet, Solution146)
+{
+    auto cache = Solution146::LRUCache(2);
+    cache.put(1, 1); // cache is {1=1}
+    cache.put(2, 2); // cache is {1=1, 2=2}
+    ASSERT_EQ(1, cache.get(1));    // return 1
+    cache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
+    cache.get(2);    // returns -1 (not found)
+    cache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
+    ASSERT_EQ(-1, cache.get(1));    // return -1 (not found)
+    ASSERT_EQ(3, cache.get(3));    // return 3
+    ASSERT_EQ(4, cache.get(4));    // return 4
+}
+
+TEST(Leet, Solution12)
+{
+    ASSERT_EQ("MMMDCCXLIX", Solution12::intToRoman(3749));
+    ASSERT_EQ("LVIII", Solution12::intToRoman(58));
+    ASSERT_EQ("MCMXCIV", Solution12::intToRoman(1994));
+    ASSERT_EQ("IX", Solution12::intToRoman(9));
+}
+
+TEST(Leet, Solution22)
+{
+    // FIXME
+    std::vector<std::string> result = { "()" };
+    Solution22::generate(3, result);
+    std::cout <<  result << std::endl;
+}
+
+TEST(Leet, Solution17)
+{
+    // FIXME
+    Solution17 solution;
+    const auto result = solution.letterCombinations("235");
+    std::cout << result << std::endl;
+}
+
+TEST(Leet, Solution39)
+{
+    // FIXME
+    const auto results1 = Solution39::combinationSum({ 2, 3, 6, 7 }, 7);
+    for (const auto& result : results1)
+    {
+        std::cout << result << std::endl;
+    }
+
+    const auto results2 = Solution39::combinationSum({ 2, 3, 5 }, 8);
+    for (const auto& result : results2)
+    {
+        std::cout << result << std::endl;
+    }
 }

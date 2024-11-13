@@ -4,6 +4,7 @@
 
 #include "Generator.h"
 
+/*
 Generator<int> counter(int start, int end)
 {
     while (start < end)
@@ -12,16 +13,16 @@ Generator<int> counter(int start, int end)
         ++start;
     }
 };
-
+*/
 
 int main()
 {
-
+/*
     auto generator = counter(1, 7);
     for (auto i = 1 : generator)
     {
         std::cout << "i = " << i << std::endl;
     }
+*/
     return 0;
-*
 }

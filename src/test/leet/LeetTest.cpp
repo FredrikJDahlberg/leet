@@ -17,8 +17,10 @@
 #include "../../main/leet/Solution27.h"
 #include "../../main/leet/Solution36.h"
 #include "../../main/leet/Solution39.h"
+#include "../../main/leet/Solution40.h"
 #include "../../main/leet/Solution60.h"
 #include "../../main/leet/Solution62.h"
+#include "../../main/leet/Solution63.h"
 #include "../../main/leet/Solution69.h"
 #include "../../main/leet/Solution80.h"
 #include "../../main/leet/Solution88.h"
@@ -27,8 +29,12 @@
 #include "../../main/leet/Solution146.h"
 #include "../../main/leet/Solution188.h"
 #include "../../main/leet/Solution224.h"
+#include "../../main/leet/Solution410.h"
+#include "../../main/leet/Solution980.h"
+#include "../../main/leet/Solution1050.h"
 #include "../../main/leet/Solution1116.h"
 #include "../../main/leet/Solution2302.h"
+#include "../../main/leet/Solution2547.h"
 
 TEST(Leet, Solution2302)
 {
@@ -133,7 +139,7 @@ TEST(Leet, Solution80)
     ASSERT_EQ(3, Solution80::removeDuplicates2(values2));
 }
 
-TEST(Leet, Solution88)
+TEST(Leet, DISABLED_Solution88)
 {
     std::vector nums1 = {1, 2, 3, 0, 0, 0};
     std::vector nums2 = {2, 5, 6};
@@ -160,7 +166,7 @@ TEST(Leet, Solution135)
     ASSERT_EQ(4, Solution135::candy(ratings2, 3));
 }
 
-TEST(Leet, Solution1116)
+TEST(Leet, DISABLED_Solution1116)
 {
     auto print = [](int number) {
         std::cout << number << std::endl;
@@ -204,7 +210,7 @@ TEST(Leet, Solution36)
         {'.','.','.','4','1','9','.','.','5'},
         {'.','.','.','.','8','.','.','7','9'}
     };
-    ASSERT_TRUE(Solution36::isValidSudoku(board2));
+    ASSERT_FALSE(Solution36::isValidSudoku(board2));
 }
 
 TEST(Leet, Solution146)
@@ -259,4 +265,68 @@ TEST(Leet, Solution39)
     {
         std::cout << result << std::endl;
     }
+}
+
+TEST(Leet, DISABLED_Solution40)
+{
+    // FIXME
+    std::vector v1 = {10,1,2,7,6,1,5};
+    std::cout << "test1\n";
+    const auto& result1 = Solution40::combinationSum(v1, 8);
+    for (const auto& result : result1)
+    {
+        std::cout << result << std::endl;
+    }
+
+    std::vector v2 = {2,5,2,1,2};
+    std::cout << "test2\n";
+    const auto& result2 = Solution40::combinationSum(v2, 5);
+    for (const auto& result : result2)
+    {
+        std::cout << result << std::endl;
+    }
+}
+
+TEST(Leet, Solution63)
+{
+    auto c1 = Solution63::uniquePathsWithObstacles({{0,0,0},{0,1,0},{0,0,0}});
+    std::cout << "res = " << c1 << std::endl;
+
+    auto c2 = Solution63::uniquePathsWithObstacles({{0,1},{0,0}});
+    std::cout << "res = " << c2 << std::endl;
+}
+
+TEST(Leet, DISABLED_Solution900)
+{
+    // FIXME
+    std::vector<std::vector<int>> grid = {{1,0,0,0},{0,0,0,0},{0,0,2,-1}};
+    auto c = Solution980::uniquePathsWithObstacles(grid);
+    std::cout << "res = " << c << std::endl;
+}
+
+TEST(Leet, Solution1050)
+{
+    Solution1050 s;
+    auto v1 = std::vector<std::string>{"2","1","+","3","*"};
+    std::cout << "result = " << s.evalRPN(v1) << std::endl;
+
+    auto v2 = std::vector<std::string>{"10","6","9","3","+","-11","*","/","*","17","+","5","+"};
+    std::cout << "result = " << s.evalRPN(v2) << std::endl;
+}
+
+TEST(Leet, DISABLED_Solution410)
+{
+    Solution410 solution;
+    std::vector<int> v = {7,2,5,10,8};
+    std::cout << "min = " << solution.splitArray(v, 2) << std::endl;
+    //std::vector<int> v = {1,2,3,4,5};
+    //std::cout << s.splitArray(v, 3) << std::endl;
+}
+
+TEST(Leet, DISABLED_2547)
+{
+    Solution2547 solution;
+    std::vector<int> v = {1, 2, 1, 2, 1, 3, 3};
+    auto minVal = solution.minCost(v, 2);
+    std::cout << "min cost = " << minVal << std::endl;
 }

@@ -9,10 +9,10 @@ class Solution63
 private:
     using Path = std::vector<char>;
 
-    static void uniquePathsWithObstacles(int m,
-                                         int n,
-                                         int x,
-                                         int y,
+    static void uniquePathsWithObstacles(const int m,
+                                         const int n,
+                                         const int x,
+                                         const int y,
                                          const std::vector<std::vector<int> > &grid,
                                          Path &path,
                                          std::vector<Path> &paths)

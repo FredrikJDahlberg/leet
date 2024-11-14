@@ -7,9 +7,9 @@
 
 class Solution720 {
 public:
-    static std::string longestWord(std::vector<std::string>& words) {
+    static std::string longestWord(const std::vector<std::string>& words) {
         std::pmr::set<std::string> set;
-        for (auto word : words)
+        for (const auto& word : words)
         {
             set.insert(word);
         }

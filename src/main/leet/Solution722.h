@@ -12,7 +12,7 @@ class Solution722
 public:
     static std::vector<std::string> removeComments(std::vector<std::string> &source)
     {
-        for (auto s: source)
+        for (const auto& s: source)
         {
             std::cout << s << std::endl;
         }

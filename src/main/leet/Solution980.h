@@ -139,7 +139,7 @@ public:
             for (int y = 0; y < n; ++y)
             {
                 auto &row = grid[y];
-                switch (auto &ch = row[x])
+                switch (row[x])
                 {
                     case 0:
                         ++count;

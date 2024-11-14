@@ -12,7 +12,7 @@ class Solution1050
     struct Token
     {
         Type type;
-        int value;
+        long value;
 
         Token() = default;
 
@@ -23,17 +23,17 @@ class Solution1050
 
     std::stack<Token> stack;
 
-    long term(const std::string &str)
+    static long term(const std::string &str)
     {
         return std::strtol(str.c_str(), nullptr, 10);
     }
 
 public:
-    int evalRPN(const std::vector<std::string> &tokens)
+    long evalRPN(const std::vector<std::string> &tokens)
     {
         for (auto &str: tokens)
         {
-            int result = 0;
+            long result = 0;
             if (std::isdigit(str[0]))
             {
                 result = std::stoi(str);

@@ -13,19 +13,17 @@ private:
     std::set<std::string> words;
 
 public:
-    MagicDictionary()
-    {
-    }
+    MagicDictionary() = default;
 
-    void buildDict(std::vector<std::string> dictionary)
+    void buildDict(const std::vector<std::string> &dictionary)
     {
-        for (auto word: dictionary)
+        for (const auto& word: dictionary)
         {
             words.insert(word);
         }
     }
 
-    bool search(std::string searchWord) const
+    [[nodiscard]] bool search(std::string searchWord) const
     {
         for (auto &word: words)
         {

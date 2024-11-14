@@ -469,7 +469,7 @@ TEST(Leet, DISABLED_Solution2546)
 
 TEST(Leet, DISABLED_Solution930)
 {
-    Solution930::numSubarraysWithSum(std::vector<int>{1,0,1,0,1}, 2);
+    Solution930::numSubArraysWithSum(std::vector<int>{1,0,1,0,1}, 2);
 }
 
 TEST(Leet, DISABLED_Solution214)

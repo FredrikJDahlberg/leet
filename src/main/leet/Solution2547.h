@@ -35,7 +35,7 @@ private:
         return cost;
     }
 
-    int minCost(const int offset, const int length, const int k1, const int k, std::vector<int> &nums)
+    int minCost(const int offset, const size_t length, const int k1, const int k, std::vector<int> &nums)
     {
         if (k1 == 1)
         {

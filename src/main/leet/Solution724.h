@@ -7,12 +7,12 @@
 
 class Solution724 {
 public:
-    static int pivotIndex(std::vector<int>& nums)
+    static int pivotIndex(const std::vector<int>& nums)
     {
         int lo = 0;
         int hi = 0;
         int loIndex = 0;
-        int hiIndex = nums.size() - 1;
+        size_t hiIndex = nums.size() - 1;
         while (loIndex < hiIndex)
         {
             if (lo < hi)

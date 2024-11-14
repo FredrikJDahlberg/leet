@@ -11,9 +11,9 @@ private:
     std::vector<int> lengths;
 
 public:
-    int splitArray(const int size,
-                   const int k,
-                   const int offset,
+    int splitArray(const size_t size,
+                   const size_t k,
+                   const size_t offset,
                    const std::vector<int> &nums)
     {
         if (k == 1)
@@ -44,7 +44,7 @@ public:
         return minSum; // over all
     }
 
-    int splitArray(std::vector<int> &nums, int k)
+    int splitArray(const std::vector<int> &nums, int k)
     {
         return splitArray(nums.size(), k, 0, nums);
     }

@@ -7,7 +7,7 @@
 
 class Solution5 {
 private:
-    static bool palindrome(int offset, int length, std::string& s)
+    static bool palindrome(const int offset, const int length, std::string& s)
     {
         if (length == 1 || length == 2 && s[offset] == s[offset + 1])
         {

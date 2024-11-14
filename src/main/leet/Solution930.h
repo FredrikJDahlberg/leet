@@ -8,7 +8,7 @@
 class Solution930
 {
 public:
-    static int numSubarraysWithSum(const std::vector<int>& nums, int goal)
+    static int numSubArraysWithSum(const std::vector<int>& nums, const int goal)
     {
         int count = 0;
         for (int length = 1; length < nums.size(); ++length)

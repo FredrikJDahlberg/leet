@@ -22,7 +22,7 @@ public:
     }
 
 public:
-    static int maxRotateFunction(std::vector<int>& nums) {
+    static int maxRotateFunction(const std::vector<int>& nums) {
         auto t = nums;
 
         rotateRight(t,2);

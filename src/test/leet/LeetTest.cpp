@@ -28,6 +28,8 @@
 #include "../../main/leet/Solution80.h"
 #include "../../main/leet/Solution88.h"
 #include "../../main/leet/Solution123.h"
+#include "../../main/leet/Solution124.h"
+#include "../../main/leet/Solution127.h"
 #include "../../main/leet/Solution135.h"
 #include "../../main/leet/Solution146.h"
 #include "../../main/leet/Solution188.h"
@@ -48,6 +50,16 @@
 #include "../../main/leet/Solution2302.h"
 #include "../../main/leet/Solution2546.h"
 #include "../../main/leet/Solution2547.h"
+
+TEST(Leet, Solution124)
+{
+    using TreeNode = Solution124::TreeNode;
+    const auto tree1 = new TreeNode{1, new TreeNode{2}, new TreeNode{3}};
+    std::cout << Solution124::maxPathSum(tree1) << std::endl;
+
+    const auto tree2 = new TreeNode{-10, new TreeNode{9}, new TreeNode{20, new TreeNode{15}, new TreeNode{7}}};
+    std::cout << Solution124::maxPathSum(tree2) << std::endl;
+}
 
 TEST(Leet, DISABLED_Solution676)
 {
@@ -485,4 +497,11 @@ TEST(Leet, DISABLED_Solution396)
     //std::vector<int> v = {4,3,2,6};
     std::vector<int> v = {1,2,3,4,5};
     Solution396::maxRotateFunction(v);
+}
+
+TEST(Leet, Solution127)
+{
+    Solution127 solution;
+    std::vector<std::string> words = {"hot","dot","dog","lot","log","cog"};
+    std::cout << solution.ladderLength("hit", "cog", words) << std::endl;
 }

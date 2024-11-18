@@ -50,10 +50,17 @@
 #include "../../main/leet/Solution930.h"
 #include "../../main/leet/Solution980.h"
 #include "../../main/leet/Solution1050.h"
+#include "../../main/leet/Solution1044.h"
 #include "../../main/leet/Solution1116.h"
 #include "../../main/leet/Solution2302.h"
 #include "../../main/leet/Solution2546.h"
 #include "../../main/leet/Solution2547.h"
+
+TEST(Leet, Solution1043)
+{
+    ASSERT_EQ("ana", Solution1044::longestDupSubstring("banana"));
+    ASSERT_EQ("", Solution1044::longestDupSubstring("abcd"));
+}
 
 TEST(Leet, Solution295)
 {

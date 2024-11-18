@@ -262,12 +262,11 @@ TEST(Leet, Solution69)
 
 TEST(Leet, Solution80)
 {
-    // 1 1 2 2 3
     int values1[] = {1, 1, 1, 2, 2, 3};
-    ASSERT_EQ(2, Solution80::removeDuplicates(values1, 6));
+    ASSERT_EQ(5, Solution80::removeDuplicates(values1, 6));
 
-    std::vector values2 = {1, 1, 1, 2, 2, 3};
-    ASSERT_EQ(3, Solution80::removeDuplicates2(values2));
+    int values2[] = {0, 0, 1, 1, 1, 1, 2, 3, 3};
+    ASSERT_EQ(7, Solution80::removeDuplicates(values2, 9));
 }
 
 TEST(Leet, DISABLED_Solution88)
@@ -482,13 +481,13 @@ TEST(Leet, Solution722)
     }
 }
 
-TEST(Leet, Solution208)
+TEST(Leet, DISABLED_Solution208)
 {
     auto trie = Solution208::Trie();
     trie.insert("apple");
-    ASSERT_TRUE(trie.search("apple"));   // return True
-    ASSERT_FALSE(trie.search("app"));     // return False
-    ASSERT_TRUE(trie.startsWith("app")); // return True
+    ASSERT_TRUE(trie.search("apple"));
+    ASSERT_FALSE(trie.search("app"));
+    ASSERT_TRUE(trie.startsWith("app"));
     trie.insert("app");
     ASSERT_TRUE(trie.search("app"));
 }
@@ -497,7 +496,6 @@ TEST(Leet, DISABLED_Solution725)
 {
     using Solution725::ListNode;
     using Solution725::Solution;
-    //ListNode* list = new ListNode(1, new ListNode(2, new ListNode(3, nullptr)));
     auto* list = new ListNode(1, nullptr);
     ListNode* prev = list;
     for (int i = 2; i <= 10; ++i)

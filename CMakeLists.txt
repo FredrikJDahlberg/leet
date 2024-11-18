@@ -3,10 +3,10 @@ project(leet)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_subdirectory(src/test/gtest-lib)
-include_directories(src/test/gtest-lib/googletest/include src/test/gtest-lib/googletest)
+enable_testing()
+find_package(GTest REQUIRED)
 
-add_executable(test
+add_executable(leet_test
         src/test/cpp/leet/LeetTest.cpp
         src/main/cpp/leet/Solution40.h
         src/main/cpp/leet/Solution63.h
@@ -56,4 +56,4 @@ add_executable(test
         src/main/cpp/leet/Solution1289.h
         src/main/cpp/leet/Solution931.h
 )
-target_link_libraries(test gtest gtest_main)
+target_link_libraries(leet_test GTest::gtest GTest::gtest_main)

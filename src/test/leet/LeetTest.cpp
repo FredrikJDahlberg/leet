@@ -48,6 +48,7 @@
 #include "../../main/leet/Solution724.h"
 #include "../../main/leet/Solution725.h"
 #include "../../main/leet/Solution930.h"
+#include "../../main/leet/Solution931.h"
 #include "../../main/leet/Solution980.h"
 #include "../../main/leet/Solution1050.h"
 #include "../../main/leet/Solution1044.h"
@@ -56,6 +57,18 @@
 #include "../../main/leet/Solution2302.h"
 #include "../../main/leet/Solution2546.h"
 #include "../../main/leet/Solution2547.h"
+
+TEST(Leet, Solution931)
+{
+    try
+    {
+        ASSERT_EQ(13, Solution931::minFallingPathSum({{2,1,3},{6,5,4},{7,8,9}}));
+    }
+    catch (const std::exception& err)
+    {
+        std::cout << err.what() << std::endl;
+    }
+}
 
 TEST(Leet, Solution1289)
 {

@@ -39,6 +39,7 @@
 #include "../../main/leet/Solution214.h"
 #include "../../main/leet/Solution224.h"
 #include "../../main/leet/Solution239.h"
+#include "../../main/leet/Solution295.h"
 #include "../../main/leet/Solution720.h"
 #include "../../main/leet/Solution396.h"
 #include "../../main/leet/Solution410.h"
@@ -53,6 +54,16 @@
 #include "../../main/leet/Solution2302.h"
 #include "../../main/leet/Solution2546.h"
 #include "../../main/leet/Solution2547.h"
+
+TEST(Leet, Solution295)
+{
+    auto medianFinder = solution295::MedianFinder{};
+    medianFinder.addNum(1);
+    medianFinder.addNum(2);
+    EXPECT_NEAR(1.5, medianFinder.findMedian(), 1e-5);
+    medianFinder.addNum(3);
+    EXPECT_NEAR(2.0, medianFinder.findMedian(), 1e-5);
+}
 
 TEST(Leet, Solution239)
 {

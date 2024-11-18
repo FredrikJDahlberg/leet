@@ -10,37 +10,33 @@
 class Solution154 {
 public:
     static int findMin(const std::vector<int>& nums) {
-        auto max = INT_MIN;
-        auto min = INT_MAX;
+        auto lo = INT_MIN;
+        auto hi = INT_MAX;
         const auto size = nums.size();
         auto b = 0;
         auto e = size - 1;
         while (b < e)
         {
-            if (nums[b] >= max)
+            if (nums[b] >= lo)
             {
-                max = nums[b];
+                lo = nums[b];
                 ++b;
             }
             else
             {
                 return nums[b];
             }
-            if (nums[e] <= min)
+            if (nums[e] <= hi)
             {
-                min = nums[e];
+                hi = nums[e];
                 --e;
-            }
-            else
-            {
-                return min;
             }
         }
         if (size % 2 == 1)
         {
-            max = std::min(nums[b], max);
+            lo = std::min(nums[b], lo);
         }
-        return std::min(min, max);
+        return std::min(hi, lo);
     }
 };
 

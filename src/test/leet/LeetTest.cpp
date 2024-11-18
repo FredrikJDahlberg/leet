@@ -38,6 +38,7 @@
 #include "../../main/leet/Solution208.h"
 #include "../../main/leet/Solution214.h"
 #include "../../main/leet/Solution224.h"
+#include "../../main/leet/Solution239.h"
 #include "../../main/leet/Solution720.h"
 #include "../../main/leet/Solution396.h"
 #include "../../main/leet/Solution410.h"
@@ -52,6 +53,13 @@
 #include "../../main/leet/Solution2302.h"
 #include "../../main/leet/Solution2546.h"
 #include "../../main/leet/Solution2547.h"
+
+TEST(Leet, Solution239)
+{
+    const std::vector res{3,3,5,5,6,7};
+    ASSERT_EQ(res, Solution239::maxSlidingWindow({1,3,-1,-3,5,3,6,7}, 3));
+    ASSERT_EQ(res, Solution239::maxSlidingWindow2({1,3,-1,-3,5,3,6,7}, 3));
+}
 
 TEST(Leet, Solution154)
 {

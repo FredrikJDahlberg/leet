@@ -52,6 +52,8 @@ add_executable(leet src/main/leet/main.cpp src/main/leet/Print.h
         src/main/leet/Solution676.h
         src/main/leet/Solution127.h
         src/main/leet/Solution124.h
+        src/main/leet/Solution65.h
+        src/main/leet/Solution154.h
 )
 
 add_executable(coroutine
@@ -102,5 +104,7 @@ add_executable(test
         src/main/leet/Solution720.h
         src/main/leet/Solution676.h
         src/main/leet/Solution127.h
-        src/main/leet/Solution124.h)
+        src/main/leet/Solution124.h
+        src/main/leet/Solution65.h
+        src/main/leet/Solution154.h)
 target_link_libraries(test gtest gtest_main)

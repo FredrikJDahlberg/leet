@@ -24,6 +24,7 @@
 #include "../../main/leet/Solution61.h"
 #include "../../main/leet/Solution62.h"
 #include "../../main/leet/Solution63.h"
+#include "../../main/leet/Solution65.h"
 #include "../../main/leet/Solution69.h"
 #include "../../main/leet/Solution80.h"
 #include "../../main/leet/Solution88.h"
@@ -32,6 +33,7 @@
 #include "../../main/leet/Solution127.h"
 #include "../../main/leet/Solution135.h"
 #include "../../main/leet/Solution146.h"
+#include "../../main/leet/Solution154.h"
 #include "../../main/leet/Solution188.h"
 #include "../../main/leet/Solution208.h"
 #include "../../main/leet/Solution214.h"
@@ -50,6 +52,38 @@
 #include "../../main/leet/Solution2302.h"
 #include "../../main/leet/Solution2546.h"
 #include "../../main/leet/Solution2547.h"
+
+TEST(Leet, Solution154)
+{
+    ASSERT_EQ(0, Solution154::findMin(std::vector{5,6,7,0,1,4,5}));
+    ASSERT_EQ(0, Solution154::findMin(std::vector{5,6,7,0,1,4,5,5}));
+    ASSERT_EQ(0, Solution154::findMin(std::vector{4,5,6,7,0,1,4}));
+    ASSERT_EQ(1, Solution154::findMin(std::vector{1,3,5}));
+    ASSERT_EQ(0, Solution154::findMin(std::vector{2,2,2,0,1}));
+}
+
+TEST(Leet, Solution65)
+{
+    ASSERT_TRUE(Solution65::isNumber("2"));
+    ASSERT_TRUE(Solution65::isNumber("0089"));
+    ASSERT_TRUE(Solution65::isNumber("-0.1"));
+    ASSERT_TRUE(Solution65::isNumber("+3.14"));
+    ASSERT_TRUE(Solution65::isNumber("-.9"));
+    ASSERT_TRUE(Solution65::isNumber("2e10"));
+    ASSERT_TRUE(Solution65::isNumber("-90E3"));
+    ASSERT_TRUE(Solution65::isNumber("3e+7"));
+    ASSERT_TRUE(Solution65::isNumber("+6e-1"));
+    ASSERT_TRUE(Solution65::isNumber("53.5e93"));
+    ASSERT_TRUE(Solution65::isNumber("-123.456e789"));
+    ASSERT_FALSE(Solution65::isNumber("abc"));
+    ASSERT_FALSE(Solution65::isNumber("1a"));
+    ASSERT_FALSE(Solution65::isNumber("1e"));
+    ASSERT_FALSE(Solution65::isNumber("e3"));
+    ASSERT_FALSE(Solution65::isNumber("99e2.5"));
+    ASSERT_FALSE(Solution65::isNumber("--6"));
+    ASSERT_FALSE(Solution65::isNumber("-+3"));
+    ASSERT_FALSE(Solution65::isNumber("95a54e53"));
+}
 
 TEST(Leet, Solution124)
 {

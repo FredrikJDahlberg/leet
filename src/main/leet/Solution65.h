@@ -7,10 +7,85 @@
 
 class Solution65
 {
+    enum class State
+    {
+        INT, EXP, DEC
+    };
+
 public:
 
-    bool isNumber(std::string& s) {
+    static bool isNumber(const std::string& str) {
+        if (str.empty())
+        {
+            return false;
+        }
 
+        State state = State::INT;
+        bool digits = false;
+        for (int position = 0; position < str.length(); ++position)
+        {
+            auto ch = str[position];
+            switch (state)
+            {
+                case State::INT:
+                    if (ch == '+' || ch == '-')
+                    {
+                        if (position != 0)
+                        {
+                            return false;
+                        }
+                        digits = false;
+                    }
+                    else if (std::isdigit(ch))
+                    {
+                        digits = true;
+                    }
+                    else if ((ch == 'e' || ch == 'E') && digits)
+                    {
+                        state = State::EXP;
+                        digits = false;
+                    }
+                    else if (ch == '.')
+                    {
+                        state = State::DEC;
+                        digits = false;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    break;
+                case State::DEC:
+                    if (ch == 'e' || ch == 'E')
+                    {
+                        state = State::EXP;
+                        digits = false;
+                    }
+                    else if (std::isdigit(ch))
+                    {
+                        digits = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    break;
+                case State::EXP:
+                    if (ch == '+' || ch == '-')
+                    {
+                    }
+                    else if (std::isdigit(ch))
+                    {
+                        digits = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    break;
+            }
+        }
+        return digits;
     }
 };
 

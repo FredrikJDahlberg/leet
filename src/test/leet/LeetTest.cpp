@@ -52,9 +52,16 @@
 #include "../../main/leet/Solution1050.h"
 #include "../../main/leet/Solution1044.h"
 #include "../../main/leet/Solution1116.h"
+#include "../../main/leet/Solution1289.h"
 #include "../../main/leet/Solution2302.h"
 #include "../../main/leet/Solution2546.h"
 #include "../../main/leet/Solution2547.h"
+
+TEST(Leet, Solution1289)
+{
+    ASSERT_EQ(5, Solution1289::minFallingPathSum({{1,2},{3,4}}));
+    ASSERT_EQ(13, Solution1289::minFallingPathSum({{1,2,3},{4,5,6},{7,8,9} }));
+}
 
 TEST(Leet, Solution1043)
 {

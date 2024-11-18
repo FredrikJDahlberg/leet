@@ -5,13 +5,12 @@
 #ifndef SOLUTION1044_H
 #define SOLUTION1044_H
 
-#include <iostream>
 #include <string>
 
 class Solution1044 {
 public:
     static std::string longestDupSubstring(const std::string& str) {
-        auto size = str.length();
+        const auto size = str.length();
         int max = INT32_MIN;
         std::string maxSub{};
         int count = 0;

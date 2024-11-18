@@ -60,14 +60,8 @@
 
 TEST(Leet, Solution931)
 {
-    try
-    {
-        ASSERT_EQ(13, Solution931::minFallingPathSum({{2,1,3},{6,5,4},{7,8,9}}));
-    }
-    catch (const std::exception& err)
-    {
-        std::cout << err.what() << std::endl;
-    }
+    ASSERT_EQ(12, Solution931::minFallingPathSum({{2,1,3},{6,5,4},{7,8,9}}));
+    ASSERT_EQ(-59, Solution931::minFallingPathSum({{-19,57},{-40,-5}}));
 }
 
 TEST(Leet, Solution1289)

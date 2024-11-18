@@ -11,10 +11,7 @@ private:
     std::vector<int> lengths;
 
 public:
-    int splitArray(const size_t size,
-                   const size_t k,
-                   const size_t offset,
-                   const std::vector<int> &nums)
+    int splitArray(const size_t size, const size_t k, const size_t offset, const std::vector<int> &nums)
     {
         if (k == 1)
         {

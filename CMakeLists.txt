@@ -11,7 +11,7 @@ add_executable(leet_test
         src/main/cpp/leet/Solution40.h
         src/main/cpp/leet/Solution63.h
         src/main/cpp/leet/Solution980.h
-        src/main/cpp/leet/Solution1050.h
+        src/main/cpp/leet/Solution150.h
         src/main/cpp/leet/Solution410.h
         src/main/cpp/leet/Solution2547.h
         src/main/cpp/leet/Solution722.h
@@ -20,6 +20,7 @@ add_executable(leet_test
         src/main/cpp/leet/Solution61.h
         src/main/cpp/leet/Solution12.h
         src/main/cpp/leet/Solution17.h
+        src/main/cpp/leet/Solution17.cpp
         src/main/cpp/leet/Solution20.h
         src/main/cpp/leet/Solution22.h
         src/main/cpp/leet/Solution25.h
@@ -55,5 +56,6 @@ add_executable(leet_test
         src/main/cpp/leet/Solution1044.h
         src/main/cpp/leet/Solution1289.h
         src/main/cpp/leet/Solution931.h
+        src/main/cpp/leet/Solution17.cpp
 )
 target_link_libraries(leet_test GTest::gtest GTest::gtest_main)

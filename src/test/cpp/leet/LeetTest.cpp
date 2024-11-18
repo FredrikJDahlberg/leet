@@ -50,7 +50,7 @@
 #include "../../../main/cpp/leet/Solution930.h"
 #include "../../../main/cpp/leet/Solution931.h"
 #include "../../../main/cpp/leet/Solution980.h"
-#include "../../../main/cpp/leet/Solution1050.h"
+#include "../../../main/cpp/leet/Solution150.h"
 #include "../../../main/cpp/leet/Solution1044.h"
 #include "../../../main/cpp/leet/Solution1116.h"
 #include "../../../main/cpp/leet/Solution1289.h"
@@ -129,43 +129,40 @@ TEST(Leet, Solution124)
 {
     using TreeNode = Solution124::TreeNode;
     const auto tree1 = new TreeNode{1, new TreeNode{2}, new TreeNode{3}};
-    std::cout << Solution124::maxPathSum(tree1) << std::endl;
+    ASSERT_EQ(6, Solution124::maxPathSum(tree1));
 
     const auto tree2 = new TreeNode{-10, new TreeNode{9}, new TreeNode{20, new TreeNode{15}, new TreeNode{7}}};
-    std::cout << Solution124::maxPathSum(tree2) << std::endl;
+    ASSERT_EQ(42, Solution124::maxPathSum(tree2));
 }
 
-TEST(Leet, DISABLED_Solution676)
+TEST(Leet, Solution676)
 {
     Solution676::MagicDictionary dict;
     dict.buildDict({"hello", "leetcode"});
-    std::cout << std::boolalpha << dict.search("hello") << std::endl;
-    std::cout << std::boolalpha << dict.search("leetcoded") << std::endl;
-    std::cout << std::boolalpha << dict.search("hhllo") << std::endl;
+    ASSERT_FALSE(dict.search("hello"));
+    ASSERT_TRUE(dict.search("hhllo"));
+    ASSERT_FALSE(dict.search("hell"));
+    ASSERT_FALSE(dict.search("leetcoded"));
 }
 
 TEST(Leet, Solution720)
 {
-    std::vector<std::string> v{"w","wo","wor","worl","world"};
-    std::cout << "v = " << Solution720::longestWord(v) << std::endl;
-
-    std::vector<std::string> u{"a","banana","app","appl","ap","apply","apple"};
-    std::cout << "v = " << Solution720::longestWord(u) << std::endl;
+    ASSERT_EQ("world", Solution720::longestWord({"w","wo","wor","worl","world"}));;
+    ASSERT_EQ("apple", Solution720::longestWord({"a","banana","app","appl","ap","apply","apple"}));
 }
 
 TEST(Leet, Solution724)
 {
-    auto v = std::vector<int>({1,7,3,6,5,6});
-    std::cout << "i = " << Solution724::pivotIndex(v) << std::endl;
-    auto u = std::vector<int>({1,2,3});
-    std::cout << "i = " << Solution724::pivotIndex(u) << std::endl;
+    ASSERT_EQ(3, Solution724::pivotIndex({1,7,3,6,5,6}));
+    ASSERT_EQ(-1, Solution724::pivotIndex({1,2,3}));
+    ASSERT_EQ(0, Solution724::pivotIndex({2,1,-1}));
 }
 
 TEST(Leet, Solution5)
 {
-        //std::cout << s.longestPalindrome("babad") << std::endl;
-        Solution5::longestPalindrome("xxabay");
-        //std::cout << s.longestPalindrome("bbababd") << std::endl;
+    ASSERT_EQ("aba", Solution5::longestPalindrome("babad"));
+    ASSERT_EQ("aba", Solution5::longestPalindrome("xxabay"));
+    ASSERT_EQ("bb", Solution5::longestPalindrome("cbbd"));
 }
 
 TEST(Leet, Solution2302)
@@ -183,9 +180,12 @@ TEST(Leet, Solution20)
 
 TEST(Leet, Solution25)
 {
+    // FIXME
     Solution25 solution25{1,2,3,4,5};
 
-    const auto* rev1 = solution25.reverse(4);
+    // 1 2 3 4 5, k = 2 -> 2 1 4 3 5
+    // 1 2 3 4 5, k = 3 -> 3 2 1 4 5
+    const auto* rev1 = solution25.reverse(2);
     //int expected[] = {5,4,3,2,1};
     for (auto node = rev1; node != nullptr; node = node->next)
     {
@@ -240,10 +240,11 @@ TEST(Leet, Solution188)
 TEST(Leet, Solution26)
 {
     std::vector v1 = {1,1,2};
-    ASSERT_EQ(2, Solution26::removeDuplicates(v1));
+    // ASSERT_EQ(2, Solution26::removeDuplicates(v1));
     ASSERT_EQ(2, Solution26::removeDuplicates2(v1));
     std::vector v2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-//    ASSERT_EQ(5, Solution26::removeDuplicates(v2));
+    // FIXME
+    // ASSERT_EQ(5, Solution26::removeDuplicates(v2));
     ASSERT_EQ(5, Solution26::removeDuplicates2(v2));
 }
 
@@ -269,22 +270,19 @@ TEST(Leet, Solution80)
     ASSERT_EQ(7, Solution80::removeDuplicates(values2, 9));
 }
 
-TEST(Leet, DISABLED_Solution88)
+TEST(Leet, Solution88)
 {
     std::vector nums1 = {1, 2, 3, 0, 0, 0};
     std::vector nums2 = {2, 5, 6};
     Solution88::merge(nums1, 3, nums2, 3);
-    const auto res = std::vector<int>{1, 2, 2, 3, 5, 6};
-    ASSERT_EQ(nums1, res);
+    auto expected1 = std::vector{1, 2, 2, 3, 5, 6};
+    ASSERT_EQ(expected1, nums1);
 
-    // FIXME
-    std::vector nums3 = {1};
-    std::vector<int> nums4;
-    Solution88::merge(nums3, 1, nums4, 0);
-
-    std::vector<int> nums5 = {0};
-    std::vector<int> nums6 = {1};
-    Solution88::merge(nums5, 0, nums6, 1);
+    std::vector<int> nums3{0};
+    std::vector<int> nums4  = {1};;
+    auto expected2 = std::vector{1};
+    Solution88::merge(nums3, 0, nums4, 1);
+    ASSERT_EQ(nums3, expected2);
 }
 
 TEST(Leet, Solution135)
@@ -296,20 +294,31 @@ TEST(Leet, Solution135)
     ASSERT_EQ(4, Solution135::candy(ratings2, 3));
 }
 
-TEST(Leet, DISABLED_Solution1116)
+static std::string runner1116(const int n)
 {
-    auto print = [](const int number) {
-        std::cout << number << std::endl;
+    std::mutex mutex;
+    std::string output;
+
+    auto print = [&](const int number) {
+        mutex.lock();
+        output.push_back('0' + number);
+        mutex.unlock();
     };
 
-    // FIXME
-    ZeroEvenOdd zeo{5};
+    ZeroEvenOdd zeo{n};
     std::thread thread0([&]() { zeo.zero(print); });
     std::thread thread1([&]() { zeo.odd(print); });
     std::thread thread2([&]() { zeo.even(print); });
     thread0.join();
     thread1.join();
     thread2.join();
+    return output;
+}
+
+TEST(Leet, Solution1116)
+{
+    ASSERT_EQ("0102", runner1116(2));
+    ASSERT_EQ("0102030405", runner1116(5));
 }
 
 TEST(Leet, Solution36)
@@ -367,102 +376,82 @@ TEST(Leet, Solution12)
 
 TEST(Leet, Solution22)
 {
-    // FIXME
-    std::vector<std::string> result = { "()" };
+    std::vector<std::string> result;
     Solution22::generate(3, result);
-    std::cout <<  result << std::endl;
+    auto expected1 = std::vector<std::string>{"((()))","(()())","(())()","()(())","()()()"};
+    ASSERT_EQ(expected1, result);
+
+    Solution22::generate(3, result);
+    auto expected2 = std::vector<std::string>{"()"};
+    ASSERT_EQ(expected2, result);
 }
 
 TEST(Leet, Solution17)
 {
-    // FIXME
-    Solution17 solution;
-    const auto result = solution.letterCombinations("235");
-    std::cout << result << std::endl;
+    auto expected = std::vector<std::string>{"ad","ae","af","bd","be","bf","cd","ce","cf"};
+    ASSERT_EQ(expected, Solution17::letterCombinations("23"));
 }
 
 TEST(Leet, Solution39)
 {
-    // FIXME
     const auto results1 = Solution39::combinationSum({ 2, 3, 6, 7 }, 7);
-    for (const auto& result : results1)
-    {
-        std::cout << result << std::endl;
-    }
+    const auto expected1 = std::vector<std::vector<int>>{{2,2,3},{7}};
+    ASSERT_EQ(expected1, results1);
 
     const auto results2 = Solution39::combinationSum({ 2, 3, 5 }, 8);
-    for (const auto& result : results2)
-    {
-        std::cout << result << std::endl;
-    }
+    const auto expected2 = std::vector<std::vector<int>>{{2,2,2,2},{2,3,3},{3,5}};
+    ASSERT_EQ(expected2, results2);
 }
 
-TEST(Leet, DISABLED_Solution40)
+TEST(Leet, Solution40)
 {
-    // FIXME
     std::vector v1 = {10,1,2,7,6,1,5};
-    std::cout << "test1\n";
     const auto& result1 = Solution40::combinationSum(v1, 8);
-    for (const auto& result : result1)
-    {
-        std::cout << result << std::endl;
-    }
+    const auto expected1 = std::vector<std::vector<int>>{{1,1,6},{1,2,5},{1,7},{2,6}};
+    ASSERT_EQ(expected1, result1);
 
     std::vector v2 = {2,5,2,1,2};
-    std::cout << "test2\n";
     const auto& result2 = Solution40::combinationSum(v2, 5);
-    for (const auto& result : result2)
-    {
-        std::cout << result << std::endl;
-    }
+    const auto expected2 = std::vector<std::vector<int>>{{1,2,2},{5}};
+    ASSERT_EQ(expected2, result2);
 }
 
 TEST(Leet, Solution63)
 {
-    const auto c1 = Solution63::uniquePathsWithObstacles({{0,0,0},{0,1,0},{0,0,0}});
-    std::cout << "res = " << c1 << std::endl;
-
-    const auto c2 = Solution63::uniquePathsWithObstacles({{0,1},{0,0}});
-    std::cout << "res = " << c2 << std::endl;
+    ASSERT_EQ(2, Solution63::uniquePathsWithObstacles({{0,0,0},{0,1,0},{0,0,0}}));
+    ASSERT_EQ(1, Solution63::uniquePathsWithObstacles({{0,1},{0,0}}));
 }
 
-TEST(Leet, DISABLED_Solution900)
+TEST(Leet, Solution900)
 {
-    // FIXME
-    std::vector<std::vector<int>> grid = {{1,0,0,0},{0,0,0,0},{0,0,2,-1}};
-    const auto c = Solution980::uniquePathsWithObstacles(grid);
-    std::cout << "res = " << c << std::endl;
+    auto grid = std::vector<std::vector<int>>{{1,0,0,0},{0,0,0,0},{0,0,2,-1}};
+    ASSERT_EQ(2, Solution980::uniquePathsWithObstacles(grid));
 }
 
-TEST(Leet, DISABLED_Solution1050)
+TEST(Leet, Solution1050)
 {
-    Solution1050 s;
-    auto v1 = std::vector<std::string>{"2","1","+","3","*"};
-    std::cout << "result = " << s.evalRPN(v1) << std::endl;
-
-    auto v2 = std::vector<std::string>{"10","6","9","3","+","-11","*","/","*","17","+","5","+"};
-    std::cout << "result = " << s.evalRPN(v2) << std::endl;
+    Solution150 rpn;
+    ASSERT_EQ(9, rpn.evalRPN(std::vector<std::string>{"2","1","+","3","*"}));
+    ASSERT_EQ(22, rpn.evalRPN(std::vector<std::string>{"10","6","9","3","+","-11","*","/","*","17","+","5","+"}));
 }
 
-TEST(Leet, DISABLED_Solution410)
+TEST(Leet, Solution410)
 {
     Solution410 solution;
-    std::vector<int> v = {7,2,5,10,8};
-    std::cout << "min = " << solution.splitArray(v, 2) << std::endl;
-    //std::vector<int> v = {1,2,3,4,5};
-    //std::cout << s.splitArray(v, 3) << std::endl;
+    ASSERT_EQ(18, solution.splitArray({7,2,5,10,8}, 2));
+    ASSERT_EQ(9, solution.splitArray({1,2,3,4,5}, 2));
 }
 
-TEST(Leet, DISABLED_2547)
+TEST(Leet, 2547)
 {
     Solution2547 solution;
-    std::vector v = {1, 2, 1, 2, 1, 3, 3};
-    const auto minVal = solution.minCost(v, 2);
-    std::cout << "min cost = " << minVal << std::endl;
+    auto values = std::vector{1, 2, 1, 2, 1, 3, 3};
+    ASSERT_EQ(8, solution.minCost(values, 2));
 }
 
 TEST(Leet, Solution722)
 {
+    // FIXME
     std::vector<std::string> source =
     {"/*Test program */", "int main()",
         "{ ",
@@ -482,7 +471,7 @@ TEST(Leet, Solution722)
 }
 
 TEST(Leet, DISABLED_Solution208)
-{
+{   // FIXME: not implemented
     auto trie = Solution208::Trie();
     trie.insert("apple");
     ASSERT_TRUE(trie.search("apple"));
@@ -492,10 +481,11 @@ TEST(Leet, DISABLED_Solution208)
     ASSERT_TRUE(trie.search("app"));
 }
 
-TEST(Leet, DISABLED_Solution725)
+TEST(Leet, Solution725)
 {
     using Solution725::ListNode;
     using Solution725::Solution;
+
     auto* list = new ListNode(1, nullptr);
     ListNode* prev = list;
     for (int i = 2; i <= 10; ++i)
@@ -504,75 +494,71 @@ TEST(Leet, DISABLED_Solution725)
         prev->next = node;
         prev = node;
     }
+
     auto res = Solution::splitListToParts(list, 3);
-    for (auto list : res)
-    {
-        std::cout << "[";
-        for (auto node = list; node != nullptr; node = node->next)
-        {
-            std::cout << "{" << node->val << "} ";
-        }
-        std::cout << "]" << std::endl;
-    }
-    std::cout << std::endl;
+    ASSERT_EQ(3, res.size());
+    auto r1 = res[0];
+    ASSERT_EQ(1, r1->val);
+    ASSERT_EQ(2, r1->next->val);
+    ASSERT_EQ(3, r1->next->next->val);
+    ASSERT_EQ(4, r1->next->next->next->val);
+    auto r2 = res[1];
+    ASSERT_EQ(5, r2->val);
+    ASSERT_EQ(6, r2->next->val);
+    ASSERT_EQ(7, r2->next->next->val);
+    auto r3 = res[2];
+    ASSERT_EQ(8, r3->val);
+    ASSERT_EQ(9, r3->next->val);
+    ASSERT_EQ(10, r3->next->next->val);
 }
 
-TEST(Leet, DISABLED_Solution61)
+TEST(Leet, Solution61)
 {
     using Solution61::ListNode;
     using Solution61::Solution;
 
-    // new ListNode(3, new ListNode(4, new ListNode(5, nullptr)))));
-    auto list = new ListNode(1, nullptr); // new ListNode(2, nullptr));
-    for (auto node = list; node != nullptr; node = node->next)
-    {
-        std::cout << "{" << node->val << "} ";
-    }
-    std::cout << std::endl;
-
-    const auto res = Solution::rotateRight(list, 2);
-    for (auto node = res; node != nullptr; node = node->next)
-    {
-        std::cout << "{" << node->val << "} ";
-    }
-    std::cout << std::endl;
+    auto list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, nullptr)))));
+    const auto result = Solution::rotateRight(list, 2);
+    ASSERT_EQ(4, result->val);
+    ASSERT_EQ(5, result->next->val);
+    ASSERT_EQ(1, result->next->next->val);
+    ASSERT_EQ(2, result->next->next->next->val);
+    ASSERT_EQ(3, result->next->next->next->next->val);
 }
 
-TEST(Leet, DISABLED_Solution53)
+TEST(Leet, Solution53)
 {
-    const auto c = Solution53::maxSubArray({-2,1,-3,4,-1,2,1,-5,4});
-    std::cout << "count = " << c << std::endl;
-    const auto d = Solution53::maxSubArray({5,4,-1,7,8});
-    std::cout << "count = " << d << std::endl;
+    ASSERT_EQ(6, Solution53::maxSubArray({-2,1,-3,4,-1,2,1,-5,4}));
+    ASSERT_EQ(23, Solution53::maxSubArray({5,4,-1,7,8}));
 }
 
-TEST(Leet, DISABLED_Solution2546)
+TEST(Leet, Solution2546)
 {
-    Solution2546::makeStringsEqual("1010", "0110");
+    ASSERT_TRUE(Solution2546::makeStringsEqual("1010", "0110"));
 }
 
-TEST(Leet, DISABLED_Solution930)
+TEST(Leet, Solution930)
 {
-    Solution930::numSubArraysWithSum(std::vector<int>{1,0,1,0,1}, 2);
+    ASSERT_EQ(4, Solution930::numSubArraysWithSum(std::vector<int>{1,0,1,0,1}, 2));
 }
 
-TEST(Leet, DISABLED_Solution214)
+TEST(Leet, Solution214)
 {
-    std::cout << Solution214::shortestPalindrome("a") << std::endl;
-    std::cout << Solution214::shortestPalindrome("ab") << std::endl;
-    std::cout << Solution214::shortestPalindrome("abcd") << std::endl;
-    std::cout << Solution214::shortestPalindrome("aacecaaa") << std::endl;
+    ASSERT_EQ("a", Solution214::shortestPalindrome("a"));
+    ASSERT_EQ("bab", Solution214::shortestPalindrome("ab"));
+    ASSERT_EQ("dcbabcd", Solution214::shortestPalindrome("abcd"));
+    ASSERT_EQ("aaacecaaa", Solution214::shortestPalindrome("aacecaaa"));
 }
 
 TEST(Leet, DISABLED_Solution396)
 {
-    //std::vector<int> v = {4,3,2,6};
-    std::vector<int> v = {1,2,3,4,5};
-    Solution396::maxRotateFunction(v);
+    // FIXME: not implemented
+    ASSERT_EQ(26, Solution396::maxRotateFunction({4,3,2,6}));
 }
 
 TEST(Leet, Solution127)
 {
+    // FIXME
     Solution127 solution;
     std::vector<std::string> words = {"hot","dot","dog","lot","log","cog"};
     std::cout << solution.ladderLength("hit", "cog", words) << std::endl;

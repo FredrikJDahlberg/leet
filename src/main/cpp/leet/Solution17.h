@@ -5,6 +5,9 @@
 #ifndef SOLUTION17_H
 #define SOLUTION17_H
 
+#include <string>
+#include <vector>
+
 class Solution17
 {
 private:
@@ -12,22 +15,10 @@ private:
     {
         char chars[5];
     };
-    const char letters[10][5] =
-    {
-        {'?', '\0' },
-       {'?', '\0' },
-       { 'a', 'b', 'c', '\0' },
-       { 'd', 'e', 'f', '\0' },
-       { 'g', 'h', 'i', '\0' },
-       { 'j', 'k', 'l', '\0' },
-       { 'm', 'n', 'o', '\0' },
-       { 'p', 'q', 'r', 's', '\0' },
-       { 't', 'u', 'v', '\0'},
-       { 'w', 'x', 'y', 'z', '\0'}
-    };
+    static const char letters[10][5];
 
 public:
-    [[nodiscard]] std::vector<std::string> letterCombinations(const std::string& digits) const
+    static std::vector<std::string> letterCombinations(const std::string& digits)
     {
         std::vector<std::string> results = { "" };
         for (const auto digit : digits)

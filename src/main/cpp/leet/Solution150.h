@@ -5,7 +5,7 @@
 #ifndef SOLUTION1050_H
 #define SOLUTION1050_H
 
-class Solution1050
+class Solution150
 {
     enum class Type { PLUS, MINUS, DIV, MULT, NUMBER };
 

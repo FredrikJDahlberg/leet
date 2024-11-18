@@ -58,6 +58,50 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 
+TEST(Leet, DISABLED_Solution722)
+{
+    // FIXME
+    std::vector<std::string> source =
+    {"/*Test program */", "int main()",
+        "{ ",
+        "  // variable declaration ",
+        "int a, b, c;",
+        "/* This is a test",
+        "   multiline  ",
+        "   comment for ",
+        "   testing */",
+        "a = b + c;",
+        "}"};
+    Solution722::removeComments(source);
+    for (const auto& s : source)
+    {
+        std::cout << s << std::endl;
+    }
+}
+
+TEST(Leet, DISABLED_Solution208)
+{   // FIXME: not implemented
+    auto trie = Solution208::Trie();
+    trie.insert("apple");
+    ASSERT_TRUE(trie.search("apple"));
+    ASSERT_FALSE(trie.search("app"));
+    ASSERT_TRUE(trie.startsWith("app"));
+    trie.insert("app");
+    ASSERT_TRUE(trie.search("app"));
+}
+
+TEST(Leet, DISABLED_Solution396)
+{
+    // FIXME: not implemented
+    ASSERT_EQ(26, Solution396::maxRotateFunction({4,3,2,6}));
+}
+
+TEST(Leet, Solution127)
+{
+    Solution127 solution;
+    ASSERT_EQ(5, solution.ladderLength("hit", "cog", {"hot","dot","dog","lot","log","cog"}));
+}
+
 TEST(Leet, Solution931)
 {
     ASSERT_EQ(12, Solution931::minFallingPathSum({{2,1,3},{6,5,4},{7,8,9}}));
@@ -154,8 +198,9 @@ TEST(Leet, Solution720)
 TEST(Leet, Solution724)
 {
     ASSERT_EQ(3, Solution724::pivotIndex({1,7,3,6,5,6}));
-    ASSERT_EQ(-1, Solution724::pivotIndex({1,2,3}));
     ASSERT_EQ(0, Solution724::pivotIndex({2,1,-1}));
+    ASSERT_EQ(-1, Solution724::pivotIndex({1,2,3}));
+    ASSERT_EQ(2, Solution724::pivotIndex({4,1,2,3,4}));
 }
 
 TEST(Leet, Solution5)
@@ -376,19 +421,16 @@ TEST(Leet, Solution12)
 
 TEST(Leet, Solution22)
 {
-    std::vector<std::string> result;
-    Solution22::generate(3, result);
-    auto expected1 = std::vector<std::string>{"((()))","(()())","(())()","()(())","()()()"};
-    ASSERT_EQ(expected1, result);
+    const auto expected1 = std::vector<std::string>{ "((()))", "(())()", "()(())", "(()())", "()()()" };
+    ASSERT_EQ(expected1, Solution22::generateParenthesis(3));
 
-    Solution22::generate(3, result);
-    auto expected2 = std::vector<std::string>{"()"};
-    ASSERT_EQ(expected2, result);
+    const auto expected2 = std::vector<std::string>{"()"};
+    ASSERT_EQ(expected2, Solution22::generateParenthesis(1));
 }
 
 TEST(Leet, Solution17)
 {
-    auto expected = std::vector<std::string>{"ad","ae","af","bd","be","bf","cd","ce","cf"};
+    const auto expected = std::vector<std::string>{"ad","ae","af","bd","be","bf","cd","ce","cf"};
     ASSERT_EQ(expected, Solution17::letterCombinations("23"));
 }
 
@@ -447,38 +489,6 @@ TEST(Leet, 2547)
     Solution2547 solution;
     auto values = std::vector{1, 2, 1, 2, 1, 3, 3};
     ASSERT_EQ(8, solution.minCost(values, 2));
-}
-
-TEST(Leet, Solution722)
-{
-    // FIXME
-    std::vector<std::string> source =
-    {"/*Test program */", "int main()",
-        "{ ",
-        "  // variable declaration ",
-        "int a, b, c;",
-        "/* This is a test",
-        "   multiline  ",
-        "   comment for ",
-        "   testing */",
-        "a = b + c;",
-        "}"};
-    Solution722::removeComments(source);
-    for (const auto& s : source)
-    {
-        std::cout << s << std::endl;
-    }
-}
-
-TEST(Leet, DISABLED_Solution208)
-{   // FIXME: not implemented
-    auto trie = Solution208::Trie();
-    trie.insert("apple");
-    ASSERT_TRUE(trie.search("apple"));
-    ASSERT_FALSE(trie.search("app"));
-    ASSERT_TRUE(trie.startsWith("app"));
-    trie.insert("app");
-    ASSERT_TRUE(trie.search("app"));
 }
 
 TEST(Leet, Solution725)
@@ -548,18 +558,4 @@ TEST(Leet, Solution214)
     ASSERT_EQ("bab", Solution214::shortestPalindrome("ab"));
     ASSERT_EQ("dcbabcd", Solution214::shortestPalindrome("abcd"));
     ASSERT_EQ("aaacecaaa", Solution214::shortestPalindrome("aacecaaa"));
-}
-
-TEST(Leet, DISABLED_Solution396)
-{
-    // FIXME: not implemented
-    ASSERT_EQ(26, Solution396::maxRotateFunction({4,3,2,6}));
-}
-
-TEST(Leet, Solution127)
-{
-    // FIXME
-    Solution127 solution;
-    std::vector<std::string> words = {"hot","dot","dog","lot","log","cog"};
-    std::cout << solution.ladderLength("hit", "cog", words) << std::endl;
 }

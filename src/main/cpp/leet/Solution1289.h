@@ -6,7 +6,6 @@
 #define SOLUTION1289_H
 
 #include <vector>
-#include <mach/host_info.h>
 
 class Solution1289 {
 public:

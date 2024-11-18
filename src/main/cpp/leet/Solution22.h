@@ -8,17 +8,6 @@
 class Solution22
 {
 private:
-    // n = 1: ()
-    // n = 2: (()), ()()
-    // n = 3: ()()(), (()()), (())(), ()(())
-
-public:
-    static std::vector<std::string> generateParenthesis(int n) {
-        std::string str;
-
-        return std::vector<std::string>{};
-    }
-
     static void generate(const int n, std::vector<std::string> &result)
     {
         for (int i = 0; i < n -1; ++i)
@@ -38,17 +27,12 @@ public:
         }
     }
 
-    static void fibonacci(const int n)
-    {
-        std::vector sequence = { 0, 1 };
-        for (auto i = sequence.size(); i < n; ++i)
-        {
-            auto result = sequence[i - 1] + sequence[i - 2];
-            sequence.push_back(result);
-        }
-        std::cout << sequence << std::endl;
+public:
+    static auto generateParenthesis(const int n) {
+        std::vector<std::string> result{"()"};
+        generate(n, result);
+        return result;
     }
-
 };
 
 #endif //SOLUTION22_H

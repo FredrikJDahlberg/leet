@@ -12,7 +12,8 @@ public:
         int lo = 0;
         int hi = 0;
         int loIndex = 0;
-        size_t hiIndex = nums.size() - 1;
+        const size_t size = nums.size();
+        size_t hiIndex = size - 1;
         while (loIndex < hiIndex)
         {
             if (lo < hi)
@@ -33,14 +34,12 @@ public:
                 --hiIndex;
             }
         }
-        if (lo != hi)
+
+        if (hi == -1)
         {
-            return -1;
+            return 0;
         }
-        else
-        {
-            return loIndex + (loIndex == hiIndex ? 0 : 1);
-        }
+        return loIndex == hiIndex && lo < hi ? -1 : loIndex;
     }
 };
 

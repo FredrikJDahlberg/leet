@@ -56,6 +56,7 @@
 #include "../../../main/cpp/leet/Solution1116.h"
 #include "../../../main/cpp/leet/Solution1289.h"
 #include "../../../main/cpp/leet/Solution2302.h"
+#include "../../../main/cpp/leet/Solution2435.h"
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 
@@ -95,6 +96,18 @@ TEST(Leet, DISABLED_Solution396)
 {
     // FIXME: not implemented
     ASSERT_EQ(26, Solution396::maxRotateFunction({4,3,2,6}));
+}
+
+TEST(Leet, Solution2435)
+{
+    auto m1 = std::vector<std::vector<int>>{{5,2,4},{3,0,5},{0,7,2}};
+    ASSERT_EQ(2, Solution2435::numberOfPaths(m1, 3));
+
+    auto m2 = std::vector<std::vector<int>>{{0,0}};
+    ASSERT_EQ(1, Solution2435::numberOfPaths(m2, 5));
+
+    auto m3 = std::vector<std::vector<int>>{{7,3,4,9},{2,3,6,2},{2,3,7,0}};
+    ASSERT_EQ(10, Solution2435::numberOfPaths(m3, 1));
 }
 
 TEST(Leet, Solution79)

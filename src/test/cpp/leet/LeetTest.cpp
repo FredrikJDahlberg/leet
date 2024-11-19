@@ -34,6 +34,7 @@
 #include "../../../main/cpp/leet/Solution135.h"
 #include "../../../main/cpp/leet/Solution146.h"
 #include "../../../main/cpp/leet/Solution154.h"
+#include "../../../main/cpp/leet/Solution174.h"
 #include "../../../main/cpp/leet/Solution188.h"
 #include "../../../main/cpp/leet/Solution208.h"
 #include "../../../main/cpp/leet/Solution212.h"
@@ -96,6 +97,15 @@ TEST(Leet, DISABLED_Solution396)
 {
     // FIXME: not implemented
     ASSERT_EQ(26, Solution396::maxRotateFunction({4,3,2,6}));
+}
+
+TEST(Leet, Solution174)
+{
+    auto m1 = std::vector<std::vector<int>>{{-2,-3,3},{-5,-10,1},{10,30,-5}};
+    ASSERT_EQ(7, Solution174::calculateMinimumHP(m1));
+
+    auto m2 = std::vector<std::vector<int>>{{0}};
+    ASSERT_EQ(1, Solution174::calculateMinimumHP(m2));
 }
 
 TEST(Leet, Solution2435)

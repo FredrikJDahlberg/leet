@@ -16,7 +16,7 @@ private:
                               int sum,
                               const int xm,
                               const int ym,
-                              std::vector<std::vector<int>>& grid)
+                              const std::vector<std::vector<int>>& grid)
     {
         if (x < 0 || y < 0 || x >= xm || y >= ym)
         {
@@ -40,7 +40,8 @@ private:
     }
 
 public:
-    static int numberOfPaths(std::vector<std::vector<int>>& grid, int k) {
+    static int numberOfPaths(const std::vector<std::vector<int>>& grid, const int k)
+    {
         return numberOfPaths(k, 0, 0, 0, grid[0].size(), grid.size(), grid);
     }
 };

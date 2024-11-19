@@ -1,56 +1,44 @@
 //
-// Created by Fredrik Dahlberg on 2024-11-13.
+// Created by Fredrik Dahlberg on 2024-11-19.
 //
-#ifndef SOLUTION63_H
-#define SOLUTION63_H
 
-class Solution63
-{
+#ifndef SOLUTION63_2_H
+#define SOLUTION63_2_H
+
+#include <vector>
+
+class Solution63 {
 private:
-    using Path = std::vector<char>;
-
-    static void uniquePathsWithObstacles(const int m,
-                                         const int n,
-                                         const int x,
-                                         const int y,
-                                         const std::vector<std::vector<int> > &grid,
-                                         Path &path,
-                                         std::vector<Path> &paths)
+    static void uniquePathsWithObstacles(int x, int y, int ex, int ey, std::vector<std::vector<int>>& grid, int& count)
     {
-        if (m == x && n == y)
+        if (x < 0 || y < 0 || x == grid[0].size() || y == grid.size())
         {
-            paths.push_back(path);
-        } else
-        {
-            if (grid[y][x] != 0)
-            {
-                return;
-            }
-            if (x < m)
-            {
-                path.emplace_back('R');
-                uniquePathsWithObstacles(m, n, x + 1, y, grid, path, paths);
-                path.pop_back();
-            }
-            if (y < n)
-            {
-                path.emplace_back('D');
-                uniquePathsWithObstacles(m, n, x, y + 1, grid, path, paths);
-                path.pop_back();
-            }
+            return;
         }
+        if (x == ex && y == ey)
+        {
+            ++count;
+            return;
+        }
+
+        auto element = grid[y][x];
+        if (element == 1)
+        {
+            return;
+        }
+
+        uniquePathsWithObstacles(x + 1, y, ex, ey, grid, count);
+        uniquePathsWithObstacles(x, y + 1, ex, ey, grid, count);
     }
 
 public:
-    static int uniquePathsWithObstacles(const std::vector<std::vector<int> > &grid)
-    {
-        Path path;
-        std::vector<Path> paths;
-        const auto m = grid[0].size();
-        const auto n = grid.size();
-        uniquePathsWithObstacles(m - 1, n - 1, 0, 0, grid, path, paths);
-        return paths.size();
+    static int uniquePathsWithObstacles(std::vector<std::vector<int>>& grid) {
+        int ex = grid[0].size() - 1;
+        int ey = grid.size() - 1;
+        int count = 0;
+        uniquePathsWithObstacles(0, 0, ex, ey, grid, count);
+        return count;
     }
 };
 
-#endif //SOLUTION63_H
+#endif //SOLUTION63_2_H

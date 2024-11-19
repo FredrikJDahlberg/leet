@@ -9,7 +9,6 @@ find_package(GTest REQUIRED)
 add_executable(LeetTest
         src/test/cpp/leet/LeetTest.cpp
         src/main/cpp/leet/Solution40.h
-        src/main/cpp/leet/Solution63.h
         src/main/cpp/leet/Solution150.h
         src/main/cpp/leet/Solution410.h
         src/main/cpp/leet/Solution2547.h
@@ -57,7 +56,7 @@ add_executable(LeetTest
         src/main/cpp/leet/Solution931.h
         src/main/cpp/leet/Solution17.cpp
         src/main/cpp/leet/Solution980.h
-        src/main/cpp/leet/Solution63_2.h
+        src/main/cpp/leet/Solution63.h
         src/main/cpp/leet/Solution212.h
         src/main/cpp/leet/Solution79.h
 )

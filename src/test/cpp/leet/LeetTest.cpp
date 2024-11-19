@@ -23,7 +23,6 @@
 #include "../../../main/cpp/leet/Solution61.h"
 #include "../../../main/cpp/leet/Solution62.h"
 #include "../../../main/cpp/leet/Solution63.h"
-#include "../../../main/cpp/leet/Solution63_2.h"
 #include "../../../main/cpp/leet/Solution65.h"
 #include "../../../main/cpp/leet/Solution69.h"
 #include "../../../main/cpp/leet/Solution79.h"
@@ -108,7 +107,7 @@ TEST(Leet, Solution212)
 {
     auto board = std::vector<std::vector<char>>{{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
     auto words = std::vector<std::string>{"oath","pea","eat","rain"};
-    const auto expected = std::vector<std::string>{"eat", "oath"};
+    const auto expected = std::vector<std::string>{"oath", "eat"};
     Solution212 solution{};
     ASSERT_EQ(expected, solution.findWords(board, words));
 }
@@ -477,14 +476,11 @@ TEST(Leet, Solution40)
 
 TEST(Leet, Solution63)
 {
-    ASSERT_EQ(2, Solution63::uniquePathsWithObstacles({{0,0,0},{0,1,0},{0,0,0}}));
-    ASSERT_EQ(1, Solution63::uniquePathsWithObstacles({{0,1},{0,0}}));
-
     auto m1 = std::vector<std::vector<int>>{{0,0,0},{0,1,0},{0,0,0}};
-    ASSERT_EQ(2, Solution63_2::uniquePathsWithObstacles(m1));
+    ASSERT_EQ(2, Solution63::uniquePathsWithObstacles(m1));
 
     auto m2 = std::vector<std::vector<int>>{{0,1},{0,0}};
-    ASSERT_EQ(1, Solution63_2::uniquePathsWithObstacles(m2));
+    ASSERT_EQ(1, Solution63::uniquePathsWithObstacles(m2));
 }
 
 TEST(Leet, Solution980)

@@ -37,12 +37,10 @@ public:
             {
                 const auto n1 = static_cast<const char>(y[j] | y[i]);
                 const auto n2 = static_cast<const char>(y[j] ^ y[i]);
-                std::printf("i = %d, j = %d\n", i, j);
                 y[j] = n1;
                 y[i] = n2;
                 if (y == target)
                 {
-                    std::cout << y << std::endl;
                     return true;
                 }
             }

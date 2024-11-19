@@ -44,7 +44,6 @@ private:
         {
             auto remaining = nums.size() - offset;
             lengths.emplace_back(remaining);
-            std::cout << lengths << std::endl;
 
             int pos = 0;
             int cost = 0;

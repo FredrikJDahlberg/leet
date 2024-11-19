@@ -18,7 +18,6 @@ public:
         auto hi = std::next(lo);
         while (lo != hi)
         {
-            std::cout << *lo << " " << *std::next(lo) << std::endl;
             auto prefix = *lo;
             auto string = *hi;
             if (!string.starts_with(prefix) || prefix.size() + 1 != string.size())

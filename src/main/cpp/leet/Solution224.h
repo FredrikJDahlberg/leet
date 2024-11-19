@@ -81,8 +81,6 @@ public:
 
     int calculate(const std::string &expr) // copy
     {
-        std::cout << expr << std::endl;
-
         const std::string_view str{expr};
         int position = 0;
         auto remaining = expr.size();

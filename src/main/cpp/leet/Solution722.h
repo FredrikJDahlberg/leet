@@ -12,18 +12,12 @@ class Solution722
 public:
     static std::vector<std::string> removeComments(std::vector<std::string> &source)
     {
-        for (const auto& s: source)
-        {
-            std::cout << s << std::endl;
-        }
-
         auto state = State::KEEP;
         int line = 0;
         int col = 0;
         while (state != State::DONE)
         {
             const auto ch = source[line][col];
-            std::cout << "c = " << ch << " " << static_cast<int>(state) << std::endl;
             switch (state)
             {
                 case State::KEEP:

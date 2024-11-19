@@ -56,8 +56,6 @@ private:
 
     static bool insert(Node *node, const std::string &word, int offset)
     {
-        std::cout << "offset = " << offset << " " << node->value << std::endl;
-
         while (offset < word.size())
         {
             if (node->value == word[offset])

@@ -47,14 +47,11 @@ public:
             return -1;
         }
         const auto entry = cache.find(key);
-        const auto result = entry != cache.end() ? entry->second->value : -1;
-        std::cout << "get: key = " << key << " val = " << result << std::endl;
         return entry != cache.end() ? entry->second->value : -1;
     }
 
     void put(int key, const int value)
     {
-        std::cout << "put: key = " << key << " val = " << value << std::endl;
         const auto it = cache.find(key);
         Item *item = nullptr;
         if (it != cache.end())
@@ -79,7 +76,6 @@ public:
                 cache.insert(std::pair(key, item));
             } else
             {
-                //std::printf("replace: (%d, %d) -> (%d, %d)\n", tail->key, tail->value, key, value);
                 cache.erase(tail->key);
                 tail->key = key;
                 tail->value = value;

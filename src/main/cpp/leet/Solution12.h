@@ -5,6 +5,8 @@
 #ifndef SOLUTION12_H
 #define SOLUTION12_H
 
+#include <ranges>
+
 class Solution12 {
 private:
     struct Numeral
@@ -56,7 +58,6 @@ public:
                 result.append(string);
             }
         }
-        std::cout << "result = " << result << std::endl;
         return result;
     }
 };

@@ -16,7 +16,6 @@ public:
     */
     static int candy(const int *ratings, const int size)
     {
-        std::cout << "size = " << size << std::endl;
         int candy[size];
         std::ranges::fill(candy, candy + 3, 1);
 
@@ -36,7 +35,6 @@ public:
                 ++count;
             }
         }
-        std::cout << "min = " << count << std::endl;
         return count;
     }
 };

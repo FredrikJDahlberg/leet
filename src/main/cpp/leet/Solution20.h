@@ -11,10 +11,8 @@ private:
     std::stack<char> stack;
 
 public:
-    // true: ()[]{}, false (], true: ([])
     bool isValid(std::string&& s)
     {
-        std::cout << "str = " << s << std::endl;
         for (char ch : s)
         {
             if (ch == '(' || ch == '{' || ch == '[')
@@ -25,19 +23,16 @@ public:
             {
                 if (stack.empty())
                 {
-                    std::cout << "false\n";
                     return false;
                 }
                 const auto match = stack.top();
                 stack.pop();
                 if ((match != '(' || ch != ')') && (match != '{' || ch != '}') && (match != '[' || ch != ']'))
                 {
-                    std::cout << "false\n";
                     return false;
                 }
             }
         }
-        std::cout << "true\n";
         return true;
     }
 };

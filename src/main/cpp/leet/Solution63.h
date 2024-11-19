@@ -9,35 +9,31 @@
 
 class Solution63 {
 private:
-    static void uniquePathsWithObstacles(int x, int y, int ex, int ey, std::vector<std::vector<int>>& grid, int& count)
+    static int uniquePathsWithObstacles(const int x,
+                                         const int y,
+                                         const size_t ex,
+                                         const size_t ey,
+                                         const std::vector<std::vector<int>>& grid)
     {
-        if (x < 0 || y < 0 || x == grid[0].size() || y == grid.size())
-        {
-            return;
-        }
         if (x == ex && y == ey)
         {
-            ++count;
-            return;
+            return 1;
         }
-
-        auto element = grid[y][x];
-        if (element == 1)
+        if (x < 0 || y < 0 || x == grid[0].size() || y == grid.size())
         {
-            return;
+            return 0;
         }
-
-        uniquePathsWithObstacles(x + 1, y, ex, ey, grid, count);
-        uniquePathsWithObstacles(x, y + 1, ex, ey, grid, count);
+        if (grid[y][x] == 1)
+        {
+            return 0;
+        }
+        return uniquePathsWithObstacles(x + 1, y, ex, ey, grid) +
+               uniquePathsWithObstacles(x, y + 1, ex, ey, grid);
     }
 
 public:
-    static int uniquePathsWithObstacles(std::vector<std::vector<int>>& grid) {
-        int ex = grid[0].size() - 1;
-        int ey = grid.size() - 1;
-        int count = 0;
-        uniquePathsWithObstacles(0, 0, ex, ey, grid, count);
-        return count;
+    static int uniquePathsWithObstacles(const std::vector<std::vector<int>>& grid) {
+        return uniquePathsWithObstacles(0, 0, grid[0].size() - 1, grid.size() - 1, grid);
     }
 };
 

@@ -106,7 +106,7 @@ TEST(Leet, Solution79)
 TEST(Leet, Solution212)
 {
     auto board = std::vector<std::vector<char>>{{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
-    auto words = std::vector<std::string>{"oath","pea","eat","rain"};
+    const auto words = std::vector<std::string>{"oath","pea","eat","rain"};
     const auto expected = std::vector<std::string>{"oath", "eat"};
     Solution212 solution{};
     ASSERT_EQ(expected, solution.findWords(board, words));
@@ -360,9 +360,9 @@ static std::string runner1116(const int n)
     std::mutex mutex;
     std::string output;
 
-    auto print = [&](const int number) {
+    auto print = [&](const int8_t number) {
         mutex.lock();
-        output.push_back('0' + number);
+        output.push_back(static_cast<int8_t>('0' + number));
         mutex.unlock();
     };
 

@@ -63,9 +63,10 @@
 
 TEST(Leet, DISABLED_Solution722)
 {
-    // FIXME
     std::vector<std::string> source =
-    {"/*Test program */", "int main()",
+    {
+        "/*Test program */",
+        "int main()",
         "{ ",
         "  // variable declaration ",
         "int a, b, c;",
@@ -74,12 +75,17 @@ TEST(Leet, DISABLED_Solution722)
         "   comment for ",
         "   testing */",
         "a = b + c;",
-        "}"};
-    Solution722::removeComments(source);
-    for (const auto& s : source)
+        "}"
+    };
+    std::vector<std::string> expected =
     {
-        std::cout << s << std::endl;
-    }
+        "int main()",
+        "{ ",
+        "int a, b, c;",
+        "a = b + c;",
+        "}"
+    };
+    ASSERT_EQ(expected, Solution722::removeComments(source));
 }
 
 TEST(Leet, DISABLED_Solution208)
@@ -93,10 +99,10 @@ TEST(Leet, DISABLED_Solution208)
     ASSERT_TRUE(trie.search("app"));
 }
 
-TEST(Leet, DISABLED_Solution396)
+TEST(Leet, Solution396)
 {
-    // FIXME: not implemented
     ASSERT_EQ(26, Solution396::maxRotateFunction({4,3,2,6}));
+    ASSERT_EQ(0, Solution396::maxRotateFunction({100}));
 }
 
 TEST(Leet, Solution174)

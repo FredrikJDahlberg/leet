@@ -7,24 +7,19 @@
 
 class Solution396 {
 public:
-    static void rotateRight(std::vector<int>& nums, int k)
-    {
-        const auto size = nums.size();
-        for (int j = 0; j < k; ++j)
-        {
-            const auto tmp = nums[size - 1];
-            for (auto i = size - 1; i >= 1; --i)
-            {
-                nums[i] = nums[i - 1];
-            }
-            nums[0] = tmp;
-        }
-    }
-
     static int maxRotateFunction(const std::vector<int>& nums) {
-        auto t = nums;
-        rotateRight(t,2);
-        return 0;
+        int max = INT32_MIN;
+        const auto size = nums.size();
+        for (size_t i  = 0; i < size; ++i)
+        {
+            int value = 0;
+            for (size_t j = 0; j < size; ++j)
+            {
+                value += j * nums[(i + j) % size];
+            }
+            max = std::max(value, max);
+        }
+        return max;
     }
 };
 

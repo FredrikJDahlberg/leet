@@ -10,7 +10,7 @@
 
 class Solution212 {
 private:
-    constexpr char SKIP = '_';
+    static constexpr char SKIP = '_';
 
     std::vector<std::vector<char>>* board;
     const std::vector<std::string>* words;

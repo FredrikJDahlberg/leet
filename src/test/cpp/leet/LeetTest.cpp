@@ -26,6 +26,7 @@
 #include "../../../main/cpp/leet/Solution63_2.h"
 #include "../../../main/cpp/leet/Solution65.h"
 #include "../../../main/cpp/leet/Solution69.h"
+#include "../../../main/cpp/leet/Solution79.h"
 #include "../../../main/cpp/leet/Solution80.h"
 #include "../../../main/cpp/leet/Solution88.h"
 #include "../../../main/cpp/leet/Solution123.h"
@@ -95,6 +96,12 @@ TEST(Leet, DISABLED_Solution396)
 {
     // FIXME: not implemented
     ASSERT_EQ(26, Solution396::maxRotateFunction({4,3,2,6}));
+}
+
+TEST(Leet, Solution79)
+{
+    const auto list = std::vector<std::vector<char>>{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+    ASSERT_TRUE(Solution79::exist(list, "ABCCED"));
 }
 
 TEST(Leet, Solution212)

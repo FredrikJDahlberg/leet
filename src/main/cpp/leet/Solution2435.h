@@ -11,14 +11,14 @@ class Solution2435 {
 private:
 
     static int numberOfPaths(const int k,
-                              const int x,
-                              const int y,
-                              int sum,
-                              const int xm,
-                              const int ym,
-                              const std::vector<std::vector<int>>& grid)
+                             const size_t x,
+                             const size_t y,
+                             int sum,
+                             const size_t xm,
+                             const size_t ym,
+                             const std::vector<std::vector<int>>& grid)
     {
-        if (x < 0 || y < 0 || x >= xm || y >= ym)
+        if (x >= xm || y >= ym)
         {
             return 0;
         }

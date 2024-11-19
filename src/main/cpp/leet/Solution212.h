@@ -15,12 +15,14 @@ private:
     std::vector<std::vector<char>>* board;
     const std::vector<std::string>* words;
 
-    void findWords(const int x,
-                   const int y,
+    void findWords(const size_t x,
+                   const size_t y,
+                   const int xm,
+                   const int ym,
                    std::string word,
                    std::vector<std::string>& result)
     {
-        if (x < 0 || y < 0 || x == board->at(0).size() || y == board->size())
+        if (x >= xm || y >= ym)
         {
             word.clear();
             return;
@@ -38,10 +40,10 @@ private:
             result.emplace_back(word);
         }
         board->at(y).at(x) = SKIP;
-        findWords(x + 1, y, word, result);
-        findWords(x - 1, y, word, result);
-        findWords(x, y + 1, word, result);
-        findWords(x, y - 1, word, result);
+        findWords(x + 1, y, xm, ym, word, result);
+        findWords(x - 1, y, xm, ym, word, result);
+        findWords(x, y + 1, xm, ym, word, result);
+        findWords(x, y - 1, xm, ym, word, result);
         board->at(y).at(x) = ch;
         word.pop_back();
     }
@@ -59,7 +61,7 @@ public:
         {
             for (int c = 0; c < board[0].size(); ++c)
             {
-                findWords(c, r, word, result);
+                findWords(c, r, board[0].size(), board.size(), word, result);
             }
         }
         return result;

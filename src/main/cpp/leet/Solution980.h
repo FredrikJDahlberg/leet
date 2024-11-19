@@ -9,38 +9,43 @@
 
 class Solution980 {
 private:
-    using Grid = std::vector<std::vector<int>>;
-
-    static void uniquePaths(const int x, const int y, const int ex, const int ey, const int empty, Grid& grid, int& count)
+    static int uniquePaths(const size_t x,
+                           const size_t y,
+                           const size_t ex,
+                           const size_t ey,
+                           const int empty,
+                           std::vector<std::vector<int>>& grid)
     {
         if (x < 0 || x == grid[0].size() || y < 0 || y == grid.size())
         {
-            return;
+            return 0;
         }
         if (grid[y][x] < 0)
         {
-            return;
+            return 0;
         }
+        int count = 0;
         if (x == ex && y == ey)
         {
             if (empty == 0)
             {
-                ++count;
+                count = 1;
             }
         }
         else
         {
             grid[y][x] = -2;
-            uniquePaths(x + 1, y, ex, ey, empty - 1, grid, count);
-            uniquePaths(x - 1, y, ex, ey, empty - 1, grid, count);
-            uniquePaths(x, y + 1, ex, ey, empty - 1, grid, count);
-            uniquePaths(x, y - 1, ex, ey,  empty - 1, grid, count);
+            count += uniquePaths(x + 1, y, ex, ey, empty - 1, grid);
+            count += uniquePaths(x - 1, y, ex, ey, empty - 1, grid);
+            count += uniquePaths(x, y + 1, ex, ey, empty - 1, grid);
+            count += uniquePaths(x, y - 1, ex, ey,  empty - 1, grid);
             grid[y][x] = 0;
         }
+        return count;
     }
 
 public:
-    static int uniquePaths(Grid& grid)
+    static int uniquePaths( std::vector<std::vector<int>>& grid)
     {
         int bx = 0;
         int by = 0;
@@ -68,10 +73,7 @@ public:
                 }
             }
         }
-
-        int count = 0;
-        uniquePaths(bx, by, ex, ey, empty, grid, count);
-        return count;
+        return uniquePaths(bx, by, ex, ey, empty, grid);
     }
 };
 

@@ -9,8 +9,8 @@
 
 class Solution63 {
 private:
-    static int uniquePathsWithObstacles(const int x,
-                                         const int y,
+    static int uniquePathsWithObstacles(const size_t x,
+                                         const size_t y,
                                          const size_t ex,
                                          const size_t ey,
                                          const std::vector<std::vector<int>>& grid)
@@ -19,7 +19,7 @@ private:
         {
             return 1;
         }
-        if (x < 0 || y < 0 || x == grid[0].size() || y == grid.size())
+        if (x >= grid[0].size() || y >= grid.size())
         {
             return 0;
         }

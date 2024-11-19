@@ -7,7 +7,6 @@
 #include <thread>
 #include <gtest/gtest.h>
 
-#include "../../../main/cpp/leet/Print.h"
 #include "../../../main/cpp/leet/Solution5.h"
 #include "../../../main/cpp/leet/Solution12.h"
 #include "../../../main/cpp/leet/Solution17.h"
@@ -49,6 +48,7 @@
 #include "../../../main/cpp/leet/Solution725.h"
 #include "../../../main/cpp/leet/Solution930.h"
 #include "../../../main/cpp/leet/Solution931.h"
+// #include "../../../main/cpp/leet/Solution980.h"
 #include "../../../main/cpp/leet/Solution980.h"
 #include "../../../main/cpp/leet/Solution150.h"
 #include "../../../main/cpp/leet/Solution1044.h"
@@ -198,9 +198,9 @@ TEST(Leet, Solution720)
 TEST(Leet, Solution724)
 {
     ASSERT_EQ(3, Solution724::pivotIndex({1,7,3,6,5,6}));
-    ASSERT_EQ(0, Solution724::pivotIndex({2,1,-1}));
     ASSERT_EQ(-1, Solution724::pivotIndex({1,2,3}));
-    ASSERT_EQ(2, Solution724::pivotIndex({4,1,2,3,4}));
+    ASSERT_EQ(2, Solution724::pivotIndex({1,2,0,3}));
+    ASSERT_EQ(0, Solution724::pivotIndex({2,1,-1}));
 }
 
 TEST(Leet, Solution5)
@@ -464,10 +464,10 @@ TEST(Leet, Solution63)
     ASSERT_EQ(1, Solution63::uniquePathsWithObstacles({{0,1},{0,0}}));
 }
 
-TEST(Leet, Solution900)
+TEST(Leet, Solution980)
 {
     auto grid = std::vector<std::vector<int>>{{1,0,0,0},{0,0,0,0},{0,0,2,-1}};
-    ASSERT_EQ(2, Solution980::uniquePathsWithObstacles(grid));
+    ASSERT_EQ(2, Solution980::uniquePaths(grid));
 }
 
 TEST(Leet, Solution1050)

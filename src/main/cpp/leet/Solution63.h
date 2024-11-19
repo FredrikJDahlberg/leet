@@ -49,10 +49,6 @@ public:
         const auto m = grid[0].size();
         const auto n = grid.size();
         uniquePathsWithObstacles(m - 1, n - 1, 0, 0, grid, path, paths);
-        for (auto &p: paths)
-        {
-            std::cout << p << std::endl;
-        }
         return paths.size();
     }
 };

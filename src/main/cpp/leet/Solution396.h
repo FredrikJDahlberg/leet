@@ -24,7 +24,6 @@ public:
     static int maxRotateFunction(const std::vector<int>& nums) {
         auto t = nums;
         rotateRight(t,2);
-        std::cout << t << std::endl;
         return 0;
     }
 };

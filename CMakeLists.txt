@@ -6,11 +6,10 @@ set(CMAKE_CXX_STANDARD 20)
 enable_testing()
 find_package(GTest REQUIRED)
 
-add_executable(leet_test
+add_executable(LeetTest
         src/test/cpp/leet/LeetTest.cpp
         src/main/cpp/leet/Solution40.h
         src/main/cpp/leet/Solution63.h
-        src/main/cpp/leet/Solution980.h
         src/main/cpp/leet/Solution150.h
         src/main/cpp/leet/Solution410.h
         src/main/cpp/leet/Solution2547.h
@@ -57,5 +56,6 @@ add_executable(leet_test
         src/main/cpp/leet/Solution1289.h
         src/main/cpp/leet/Solution931.h
         src/main/cpp/leet/Solution17.cpp
+        src/main/cpp/leet/Solution980.h
 )
-target_link_libraries(leet_test GTest::gtest GTest::gtest_main)
+target_link_libraries(LeetTest GTest::gtest GTest::gtest_main)

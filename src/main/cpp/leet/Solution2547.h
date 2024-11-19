@@ -5,6 +5,9 @@
 #ifndef SOLUTION2547_H
 #define SOLUTION2547_H
 
+#include <iostream>
+#include "Print.h"
+
 class Solution2547
 {
 private:

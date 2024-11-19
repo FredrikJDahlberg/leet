@@ -23,6 +23,7 @@
 #include "../../../main/cpp/leet/Solution61.h"
 #include "../../../main/cpp/leet/Solution62.h"
 #include "../../../main/cpp/leet/Solution63.h"
+#include "../../../main/cpp/leet/Solution63_2.h"
 #include "../../../main/cpp/leet/Solution65.h"
 #include "../../../main/cpp/leet/Solution69.h"
 #include "../../../main/cpp/leet/Solution80.h"
@@ -35,6 +36,7 @@
 #include "../../../main/cpp/leet/Solution154.h"
 #include "../../../main/cpp/leet/Solution188.h"
 #include "../../../main/cpp/leet/Solution208.h"
+#include "../../../main/cpp/leet/Solution212.h"
 #include "../../../main/cpp/leet/Solution214.h"
 #include "../../../main/cpp/leet/Solution224.h"
 #include "../../../main/cpp/leet/Solution239.h"
@@ -48,7 +50,6 @@
 #include "../../../main/cpp/leet/Solution725.h"
 #include "../../../main/cpp/leet/Solution930.h"
 #include "../../../main/cpp/leet/Solution931.h"
-// #include "../../../main/cpp/leet/Solution980.h"
 #include "../../../main/cpp/leet/Solution980.h"
 #include "../../../main/cpp/leet/Solution150.h"
 #include "../../../main/cpp/leet/Solution1044.h"
@@ -94,6 +95,15 @@ TEST(Leet, DISABLED_Solution396)
 {
     // FIXME: not implemented
     ASSERT_EQ(26, Solution396::maxRotateFunction({4,3,2,6}));
+}
+
+TEST(Leet, Solution212)
+{
+    auto board = std::vector<std::vector<char>>{{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
+    auto words = std::vector<std::string>{"oath","pea","eat","rain"};
+    const auto expected = std::vector<std::string>{"eat", "oath"};
+    Solution212 solution{};
+    ASSERT_EQ(expected, solution.findWords(board, words));
 }
 
 TEST(Leet, Solution127)
@@ -462,6 +472,12 @@ TEST(Leet, Solution63)
 {
     ASSERT_EQ(2, Solution63::uniquePathsWithObstacles({{0,0,0},{0,1,0},{0,0,0}}));
     ASSERT_EQ(1, Solution63::uniquePathsWithObstacles({{0,1},{0,0}}));
+
+    auto m1 = std::vector<std::vector<int>>{{0,0,0},{0,1,0},{0,0,0}};
+    ASSERT_EQ(2, Solution63_2::uniquePathsWithObstacles(m1));
+
+    auto m2 = std::vector<std::vector<int>>{{0,1},{0,0}};
+    ASSERT_EQ(1, Solution63_2::uniquePathsWithObstacles(m2));
 }
 
 TEST(Leet, Solution980)
@@ -484,7 +500,7 @@ TEST(Leet, Solution410)
     ASSERT_EQ(9, solution.splitArray({1,2,3,4,5}, 2));
 }
 
-TEST(Leet, 2547)
+TEST(Leet, Solution2547)
 {
     Solution2547 solution;
     auto values = std::vector{1, 2, 1, 2, 1, 3, 3};

@@ -57,5 +57,7 @@ add_executable(LeetTest
         src/main/cpp/leet/Solution931.h
         src/main/cpp/leet/Solution17.cpp
         src/main/cpp/leet/Solution980.h
+        src/main/cpp/leet/Solution63_2.h
+        src/main/cpp/leet/Solution212.h
 )
 target_link_libraries(LeetTest GTest::gtest GTest::gtest_main)

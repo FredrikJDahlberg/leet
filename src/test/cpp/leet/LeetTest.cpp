@@ -63,7 +63,7 @@
 
 TEST(Leet, Solution722)
 {
-    std::vector<std::string> source =
+    const std::vector<std::string> source =
     {
         "/*Test program */",
         "int main()",
@@ -77,7 +77,7 @@ TEST(Leet, Solution722)
         "a = b + c;",
         "}"
     };
-    std::vector<std::string> expected =
+    const std::vector<std::string> expected =
     {
         "int main()",
         "{ ",
@@ -119,13 +119,13 @@ TEST(Leet, Solution174)
 
 TEST(Leet, Solution2435)
 {
-    auto m1 = std::vector<std::vector<int>>{{5,2,4},{3,0,5},{0,7,2}};
+    const auto m1 = std::vector<std::vector<int>>{{5,2,4},{3,0,5},{0,7,2}};
     ASSERT_EQ(2, Solution2435::numberOfPaths(m1, 3));
 
-    auto m2 = std::vector<std::vector<int>>{{0,0}};
+    const auto m2 = std::vector<std::vector<int>>{{0,0}};
     ASSERT_EQ(1, Solution2435::numberOfPaths(m2, 5));
 
-    auto m3 = std::vector<std::vector<int>>{{7,3,4,9},{2,3,6,2},{2,3,7,0}};
+    const auto m3 = std::vector<std::vector<int>>{{7,3,4,9},{2,3,6,2},{2,3,7,0}};
     ASSERT_EQ(10, Solution2435::numberOfPaths(m3, 1));
 }
 
@@ -239,7 +239,7 @@ TEST(Leet, Solution676)
 
 TEST(Leet, Solution720)
 {
-    ASSERT_EQ("world", Solution720::longestWord({"w","wo","wor","worl","world"}));;
+    ASSERT_EQ("world", Solution720::longestWord({"w","wo","wor","worl","world"}));
     ASSERT_EQ("apple", Solution720::longestWord({"a","banana","app","appl","ap","apply","apple"}));
 }
 
@@ -260,7 +260,7 @@ TEST(Leet, Solution5)
 
 TEST(Leet, Solution2302)
 {
-    ASSERT_EQ(5, Solution2302::countSubArrays(std::vector<int>{1,0,1,0,1}, 2));
+    ASSERT_EQ(5, Solution2302::countSubArrays(std::vector{1,0,1,0,1}, 2));
 }
 
 TEST(Leet, Solution20)
@@ -348,7 +348,7 @@ TEST(Leet, Solution26)
 
 TEST(Leet, Solution27)
 {
-    std::vector<int> v = {0, 1, 2, 2, 3, 0, 4, 2};
+    std::vector v = {0, 1, 2, 2, 3, 0, 4, 2};
     ASSERT_EQ(5, Solution27::removeElement(v, 2));
 }
 
@@ -373,12 +373,12 @@ TEST(Leet, Solution88)
     std::vector nums1 = {1, 2, 3, 0, 0, 0};
     std::vector nums2 = {2, 5, 6};
     Solution88::merge(nums1, 3, nums2, 3);
-    auto expected1 = std::vector{1, 2, 2, 3, 5, 6};
+    const auto expected1 = std::vector{1, 2, 2, 3, 5, 6};
     ASSERT_EQ(expected1, nums1);
 
-    std::vector<int> nums3{0};
-    std::vector<int> nums4  = {1};;
-    auto expected2 = std::vector{1};
+    std::vector nums3{0};
+    std::vector nums4  = {1};
+    const auto expected2 = std::vector{1};
     Solution88::merge(nums3, 0, nums4, 1);
     ASSERT_EQ(nums3, expected2);
 }
@@ -404,9 +404,9 @@ static std::string runner1116(const int n)
     };
 
     ZeroEvenOdd zeo{n};
-    std::thread thread0([&]() { zeo.zero(print); });
-    std::thread thread1([&]() { zeo.odd(print); });
-    std::thread thread2([&]() { zeo.even(print); });
+    std::thread thread0([&] { zeo.zero(print); });
+    std::thread thread1([&] { zeo.odd(print); });
+    std::thread thread2([&] { zeo.even(print); });
     thread0.join();
     thread1.join();
     thread2.join();
@@ -513,10 +513,10 @@ TEST(Leet, Solution40)
 
 TEST(Leet, Solution63)
 {
-    auto m1 = std::vector<std::vector<int>>{{0,0,0},{0,1,0},{0,0,0}};
+    const auto m1 = std::vector<std::vector<int>>{{0,0,0},{0,1,0},{0,0,0}};
     ASSERT_EQ(2, Solution63::uniquePathsWithObstacles(m1));
 
-    auto m2 = std::vector<std::vector<int>>{{0,1},{0,0}};
+    const auto m2 = std::vector<std::vector<int>>{{0,1},{0,0}};
     ASSERT_EQ(1, Solution63::uniquePathsWithObstacles(m2));
 }
 
@@ -526,7 +526,7 @@ TEST(Leet, Solution980)
     ASSERT_EQ(2, Solution980::uniquePaths(grid));
 }
 
-TEST(Leet, Solution1050)
+TEST(Leet, Solution150)
 {
     Solution150 rpn;
     ASSERT_EQ(9, rpn.evalRPN(std::vector<std::string>{"2","1","+","3","*"}));
@@ -561,18 +561,18 @@ TEST(Leet, Solution725)
         prev = node;
     }
 
-    auto res = Solution::splitListToParts(list, 3);
+    const auto res = Solution::splitListToParts(list, 3);
     ASSERT_EQ(3, res.size());
-    auto r1 = res[0];
+    const auto r1 = res[0];
     ASSERT_EQ(1, r1->val);
     ASSERT_EQ(2, r1->next->val);
     ASSERT_EQ(3, r1->next->next->val);
     ASSERT_EQ(4, r1->next->next->next->val);
-    auto r2 = res[1];
+    const auto r2 = res[1];
     ASSERT_EQ(5, r2->val);
     ASSERT_EQ(6, r2->next->val);
     ASSERT_EQ(7, r2->next->next->val);
-    auto r3 = res[2];
+    const auto r3 = res[2];
     ASSERT_EQ(8, r3->val);
     ASSERT_EQ(9, r3->next->val);
     ASSERT_EQ(10, r3->next->next->val);
@@ -583,7 +583,7 @@ TEST(Leet, Solution61)
     using solution61::ListNode;
     using solution61::Solution61;
 
-    auto list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, nullptr)))));
+    const auto list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, nullptr)))));
     const auto result = Solution61::rotateRight(list, 2);
     ASSERT_EQ(4, result->val);
     ASSERT_EQ(5, result->next->val);
@@ -605,7 +605,7 @@ TEST(Leet, Solution2546)
 
 TEST(Leet, Solution930)
 {
-    ASSERT_EQ(4, Solution930::numSubArraysWithSum(std::vector<int>{1,0,1,0,1}, 2));
+    ASSERT_EQ(4, Solution930::numSubArraysWithSum(std::vector{1,0,1,0,1}, 2));
 }
 
 TEST(Leet, Solution214)

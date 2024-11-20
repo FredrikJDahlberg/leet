@@ -12,7 +12,7 @@ class Solution127
 public:
     int ladderLength(const std::string &beginWord,
                      const std::string &endWord,
-                     std::vector<std::string> words)
+                     std::vector<std::string> words) const
     {
         std::unordered_set wordSet(words.begin(), words.end());
         if (!wordSet.contains(endWord))
@@ -22,7 +22,7 @@ public:
         std::queue<std::string> queue{{beginWord}};
         for (int step = 1; !queue.empty(); ++step)
         {
-            for (int sz = queue.size(); sz > 0; --sz)
+            for (auto sz = queue.size(); sz > 0; --sz)
             {
                 std::string word = queue.front();
                 queue.pop();

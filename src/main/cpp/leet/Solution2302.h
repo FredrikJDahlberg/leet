@@ -9,7 +9,7 @@
 
 class Solution2302 {
 public:
-    static std::int64_t countSubArrays(const std::vector<int>& nums, int64_t limit) {
+    static std::int64_t countSubArrays(const std::vector<int>& nums, const int64_t limit) {
         int count = 0;
         for (int length = 1; length <= nums.size(); ++length)
         {

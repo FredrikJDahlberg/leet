@@ -9,7 +9,7 @@ class Solution80
 {
 public:
 
-    static int removeDuplicates(int nums[], int count)
+    static int removeDuplicates(int nums[], const int count)
     {
         enum class State { NEW, SKIP, KEEP };
 

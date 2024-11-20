@@ -24,7 +24,7 @@ private:
         }
 
         int count = 0;
-        sum += grid[y][x];;
+        sum += grid[y][x];
         if (x == xm - 1 && y == ym - 1)
         {
             if (sum % k == 0)

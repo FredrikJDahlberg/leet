@@ -2,13 +2,11 @@
 // Created by Fredrik Dahlberg on 2024-11-13.
 //
 
-#ifndef SOLUTION1050_H
-#define SOLUTION1050_H
+#ifndef SOLUTION150_H
+#define SOLUTION150_H
 
 class Solution150
 {
-    enum class Type { PLUS, MINUS, DIV, MULT, NUMBER };
-
     struct Token
     {
         Type type;
@@ -23,22 +21,17 @@ class Solution150
 
     std::stack<Token> stack;
 
-    static long term(const std::string &str)
-    {
-        return std::strtol(str.c_str(), nullptr, 10);
-    }
-
 public:
-    long evalRPN(const std::vector<std::string> &tokens)
+    long evalRPN(const std::vector<std::string>& tokens)
     {
-        for (auto &str: tokens)
+        for (auto& str: tokens)
         {
             long result = 0;
             if (std::isdigit(str[0]))
             {
-                result = std::stoi(str);
+                result = std::strtol(str.c_str(), nullptr, 10);
             }
-            else
+            else if (stack.size() >= 2)
             {
                 const Token term1 = stack.top();
                 stack.pop();
@@ -64,8 +57,11 @@ public:
             }
             stack.emplace(Type::NUMBER, result);
         }
-        return stack.top().value;
+
+        const auto value = stack.top().value;
+        stack.pop();
+        return value;
     }
 };
 
-#endif //SOLUTION1050_H
+#endif //SOLUTION150_H

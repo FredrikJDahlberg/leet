@@ -24,7 +24,7 @@ public:
         bool digits = false;
         for (int position = 0; position < str.length(); ++position)
         {
-            auto ch = str[position];
+            const auto ch = str[position];
             switch (state)
             {
                 case State::INT:

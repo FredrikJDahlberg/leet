@@ -41,7 +41,7 @@ public:
         return minSum; // over all
     }
 
-    int splitArray(const std::vector<int> &nums, int k)
+    int splitArray(const std::vector<int> &nums, const int k)
     {
         return splitArray(nums.size(), k, 0, nums);
     }

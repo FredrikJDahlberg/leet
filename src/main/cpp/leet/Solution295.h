@@ -4,16 +4,9 @@
 
 #ifndef SOLUTION295_H
 #define SOLUTION295_H
-#include <limits>
 
 namespace solution295 {
 
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * MedianFinder* obj = new MedianFinder();
- * obj->addNum(num);
- * double param_2 = obj->findMedian();
- */
 class MedianFinder
 {
 private:
@@ -25,7 +18,7 @@ private:
 public:
     MedianFinder()  = default;
 
-    void addNum(int num) {
+    void addNum(const int num) {
         ++count;
         if (count == 1)
         {
@@ -45,7 +38,7 @@ public:
         }
     }
 
-    double findMedian() {
+    double findMedian() const {
         if (count == 0)
         {
             return 0.0;

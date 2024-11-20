@@ -6,7 +6,6 @@
 #define SOLUTION2547_H
 
 #include <iostream>
-#include "Print.h"
 
 class Solution2547
 {
@@ -68,7 +67,7 @@ private:
 public:
     Solution2547() = default;
 
-    int minCost(std::vector<int> &nums, int k)
+    int minCost(std::vector<int> &nums, const int k)
     {
         return minCost(0, nums.size(), k, k, nums);
     }

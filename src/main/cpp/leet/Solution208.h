@@ -7,8 +7,6 @@
 
 namespace Solution208 {
 
-#include <functional>
-
 /**
  * A very simplified trie.
  */
@@ -80,7 +78,7 @@ public:
     }
 
 private:
-    bool find(const std::string& word, int& offset, bool& hasValue, Node*& found) const
+    static bool find(const std::string& word, int& offset, bool& hasValue, Node*& found)
     {
         bool doValue = true;
         const auto size = word.size();
@@ -114,7 +112,7 @@ private:
         return offset == size;
     }
 
-    void insert(Node* node, const std::string& word, int offset, const bool hasValue)
+    static void insert(Node* node, const std::string& word, int offset, const bool hasValue)
     {
         const auto size = word.size();
         if (hasValue)
@@ -125,7 +123,7 @@ private:
         while (offset < size)
         {
             const auto key = word[offset] - 'a';
-            auto child = new Node();
+            const auto child = new Node();
             child->value = key;
             node->children[key] = child;
             node->complete = false;
@@ -135,9 +133,9 @@ private:
         node->complete = true;
     }
 
-    void forEach(Node* node)
+    static void forEach(Node* node)
     {
-        for (auto child : node->children)
+        for (const auto child : node->children)
         {
             if (child != nullptr)
             {

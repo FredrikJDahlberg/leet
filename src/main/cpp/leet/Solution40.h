@@ -36,7 +36,7 @@ private:
     }
 
 public:
-    static std::vector<std::vector<int> > combinationSum(std::vector<int> &candidates, int target)
+    static std::vector<std::vector<int> > combinationSum(std::vector<int> &candidates, const int target)
     {
         std::vector<std::vector<int> > results;
         std::vector<int> result;

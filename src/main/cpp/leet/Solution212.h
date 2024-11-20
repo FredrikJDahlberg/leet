@@ -56,7 +56,7 @@ public:
         this->board = &board;
         this->words = &words;
         std::vector<std::string> result;
-        std::string word;
+        const std::string word;
         for (int r = 0; r < board.size(); ++r)
         {
             for (int c = 0; c < board[0].size(); ++c)

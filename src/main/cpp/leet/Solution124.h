@@ -19,10 +19,10 @@ public:
          TreeNode() : val(0), left(nullptr), right(nullptr)
          {
          }
-         explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr)
+         explicit TreeNode(const int x) : val(x), left(nullptr), right(nullptr)
          {
          }
-         TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right)
+         TreeNode(const int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right)
          {
          }
      };

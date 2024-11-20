@@ -15,9 +15,9 @@ public:
         ListNode *next;
         ListNode() : val(0), next(nullptr) {
         }
-        explicit ListNode(int x) : val(x), next(nullptr) {
+        explicit ListNode(const int x) : val(x), next(nullptr) {
         }
-        ListNode(int x, ListNode *next) : val(x), next(next) {
+        ListNode(const int x, ListNode *next) : val(x), next(next) {
         }
     };
 

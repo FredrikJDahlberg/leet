@@ -9,7 +9,7 @@
 
 class Solution1289 {
 public:
-    static int minFallingPathSum(const std::vector<std::vector<int>>& grid)
+    static auto minFallingPathSum(const std::vector<std::vector<int>>& grid)
     {
         return minFallingPathSum(grid, grid.size(), grid.size(), 0, INT32_MAX);
     }

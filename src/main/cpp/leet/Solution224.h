@@ -16,7 +16,7 @@ private:
         int value;
         Type type;
 
-        [[nodiscard]] bool match(Type type) const
+        [[nodiscard]] bool match(const Type type) const
         {
             return this->type == type;
         }
@@ -25,7 +25,7 @@ private:
     std::array<Token, 32> tokens{};
     int paren{};
 
-    static int tokenize(const std::string_view &str, const size_t position, size_t remaining, Token &token)
+    static int tokenize(const std::string_view &str, const size_t position, const size_t remaining, Token &token)
     {
         if (remaining <= 0)
         {

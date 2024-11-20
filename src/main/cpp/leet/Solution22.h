@@ -8,9 +8,9 @@
 class Solution22
 {
 private:
-    static void generate(const int n, std::vector<std::string> &result)
+    static void generate(const int n, std::vector<std::string>& result)
     {
-        for (int i = 0; i < n -1; ++i)
+        for (int i = 0; i < n - 1; ++i)
         {
             const auto size = result.size();
             for (auto j = 0; j < size; ++j)
@@ -19,7 +19,8 @@ private:
                 result.push_back("(" + str + ")");
                 result.push_back(str + "()");
                 if (str.find("((") != std::string::npos)
-                {  // skip duplicates
+                {
+                    // skip duplicates
                     result.push_back("()" + str);
                 }
             }
@@ -28,7 +29,8 @@ private:
     }
 
 public:
-    static auto generateParenthesis(const int n) {
+    static auto generateParenthesis(const int n)
+    {
         std::vector<std::string> result{"()"};
         generate(n, result);
         return result;

@@ -53,7 +53,7 @@ public:
     }
 
 private:
-    static bool checkRow(const std::vector<char> &row, int offset, size_t length, std::bitset<16> &presence)
+    static bool checkRow(const std::vector<char> &row, const int offset, const size_t length, std::bitset<16> &presence)
     {
         for (int i = 0; i < length; ++i)
         {
@@ -65,7 +65,7 @@ private:
         return true;
     }
 
-    static bool valid(char ch, std::bitset<16> &presence)
+    static bool valid(const char ch, std::bitset<16> &presence)
     {
         if (ch == '.')
         {

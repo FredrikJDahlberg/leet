@@ -18,8 +18,8 @@ public:
         State state = State::CODE;
         for (auto line : source)
         {
+            const size_t length = line.size();
             size_t begin = 0;
-            size_t length = line.size();
             std::string value;
             size_t col = 0;
             while (col < length)

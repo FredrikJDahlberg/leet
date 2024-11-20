@@ -15,7 +15,7 @@ class LRUCache
         Item *prev;
         Item *next;
 
-        Item(const int key, const int value, const int sequence)
+        Item(const int key, const int value)
         {
             this->key = key;
             this->value = value;
@@ -64,7 +64,7 @@ public:
             if (count < capacity)
             {
                 ++count;
-                item = new Item(key, value, count);
+                item = new Item(key, value);
                 if (head == nullptr)
                 {
                     head = item;

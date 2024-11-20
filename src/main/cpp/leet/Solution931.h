@@ -10,13 +10,12 @@
 class Solution931 {
 public:
     static int minFallingPathSum(const std::vector<std::vector<int>>& matrix) {
-        return minFallingPathSum(matrix, matrix.size(), matrix.size(), 0, INT32_MAX);
+        return minFallingPathSum(matrix, matrix.size(), 0, INT32_MAX);
     }
 
 private:
     static int minFallingPathSum(const std::vector<std::vector<int>>& matrix,
                                  const size_t row,
-                                 const size_t col,
                                  const int sum,
                                  const int min)
     {
@@ -28,7 +27,7 @@ private:
         auto nextMin = min;
         for (int c = 0; c < matrix.size(); ++c)
         {
-            nextMin = minFallingPathSum(matrix, row - 1, c, sum + matrix[row - 1][c], nextMin);
+            nextMin = minFallingPathSum(matrix, row - 1, sum + matrix[row - 1][c], nextMin);
         }
         return nextMin;
     }

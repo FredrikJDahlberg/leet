@@ -9,7 +9,7 @@
 
 class Solution239 {
 public:
-    static std::vector<int> maxSlidingWindow(const std::vector<int>& nums, int k) {
+    static std::vector<int> maxSlidingWindow(const std::vector<int>& nums, const int k) {
         std::vector<int> result;
         for (int i = 0; i <= nums.size() - k; ++i)
         {
@@ -23,7 +23,7 @@ public:
         return result;
     }
 
-    static std::vector<int> maxSlidingWindow2(const std::vector<int>& nums, int k) {
+    static std::vector<int> maxSlidingWindow2(const std::vector<int>& nums, const int k) {
         std::vector<int> result;
         for (auto i = nums.begin(); i != nums.end() - k + 1; ++i)
         {

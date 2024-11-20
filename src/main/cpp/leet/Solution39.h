@@ -11,7 +11,7 @@ private:
                                const int remaining,
                                std::vector<std::vector<int>>& results,
                                std::vector<int>& result,
-                               int offset)
+                               const int offset)
     {
         int i = offset;
         if (remaining == 0) {

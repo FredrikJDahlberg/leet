@@ -10,7 +10,7 @@
 class Solution27
 {
 public:
-    static size_t removeElement(std::vector<int> &nums, int val)
+    static size_t removeElement(std::vector<int> &nums, const int val)
     {
         auto it = nums.begin();
         while (it != nums.end())

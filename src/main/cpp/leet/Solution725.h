@@ -11,13 +11,13 @@ namespace Solution725
         int val;
         ListNode *next;
         ListNode() : val(0), next(nullptr) {}
-        explicit ListNode(int x) : val(x), next(nullptr) {}
-        ListNode(int x, ListNode *next) : val(x), next(next) {}
+        explicit ListNode(const int x) : val(x), next(nullptr) {}
+        ListNode(const int x, ListNode *next) : val(x), next(next) {}
     };
 
    class Solution {
    public:
-       static std::vector<ListNode*> splitListToParts(ListNode* head, int k)
+       static std::vector<ListNode*> splitListToParts(ListNode* head, const int k)
        {
            std::vector<ListNode*> result;
            int remaining = 0;

@@ -10,7 +10,7 @@ class Solution62
 public:
     static int uniquePaths(const int m, const int n)
     {
-        return (m <= 1 || n <= 1) ? 1 : uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
+        return m <= 1 || n <= 1 ? 1 : uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
     }
 };
 

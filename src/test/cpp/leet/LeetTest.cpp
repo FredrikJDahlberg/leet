@@ -61,7 +61,7 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 
-TEST(Leet, DISABLED_Solution722)
+TEST(Leet, Solution722)
 {
     std::vector<std::string> source =
     {
@@ -81,6 +81,7 @@ TEST(Leet, DISABLED_Solution722)
     {
         "int main()",
         "{ ",
+        "   ",
         "int a, b, c;",
         "a = b + c;",
         "}"
@@ -88,8 +89,8 @@ TEST(Leet, DISABLED_Solution722)
     ASSERT_EQ(expected, Solution722::removeComments(source));
 }
 
-TEST(Leet, DISABLED_Solution208)
-{   // FIXME: not implemented
+TEST(Leet, Solution208)
+{
     auto trie = Solution208::Trie();
     trie.insert("apple");
     ASSERT_TRUE(trie.search("apple"));
@@ -97,6 +98,8 @@ TEST(Leet, DISABLED_Solution208)
     ASSERT_TRUE(trie.startsWith("app"));
     trie.insert("app");
     ASSERT_TRUE(trie.search("app"));
+
+    trie.clear();
 }
 
 TEST(Leet, Solution396)
@@ -268,20 +271,27 @@ TEST(Leet, Solution20)
     ASSERT_FALSE(s.isValid("([]))"));
 }
 
+void checkList(const Solution25::ListNode* list, const Solution25::ListNode* expected)
+{
+    auto r = list;
+    auto e = expected;
+    while (r != nullptr && e != nullptr)
+    {
+        ASSERT_EQ(r->val, e->val);
+        r = r->next;
+        e = e->next;
+    }
+    ASSERT_EQ(r, nullptr);
+    ASSERT_EQ(e, nullptr);
+}
+
 TEST(Leet, Solution25)
 {
-    // FIXME
-    Solution25 solution25{1,2,3,4,5};
+    Solution25 solution1{1,2,3,4,5};
+    checkList(solution1.reverse(2), Solution25::makeList({2, 1, 4, 3, 5}));
 
-    // 1 2 3 4 5, k = 2 -> 2 1 4 3 5
-    // 1 2 3 4 5, k = 3 -> 3 2 1 4 5
-    const auto* rev1 = solution25.reverse(2);
-    //int expected[] = {5,4,3,2,1};
-    for (auto node = rev1; node != nullptr; node = node->next)
-    {
-      //  ASSERT_EQ(expected[p++], rev1->val);
-        std::cout << "val = " << node->val << std::endl;
-    }
+    Solution25 solution2{1,2,3,4,5};
+    checkList(solution2.reverse(3), Solution25::makeList({3, 2, 1, 4, 5}));
 }
 
 TEST(Leet, Solution224)
@@ -572,11 +582,11 @@ TEST(Leet, Solution725)
 
 TEST(Leet, Solution61)
 {
-    using Solution61::ListNode;
-    using Solution61::Solution;
+    using solution61::ListNode;
+    using solution61::Solution61;
 
     auto list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, nullptr)))));
-    const auto result = Solution::rotateRight(list, 2);
+    const auto result = Solution61::rotateRight(list, 2);
     ASSERT_EQ(4, result->val);
     ASSERT_EQ(5, result->next->val);
     ASSERT_EQ(1, result->next->next->val);

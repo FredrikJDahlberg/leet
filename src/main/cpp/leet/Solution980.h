@@ -16,7 +16,7 @@ private:
                            const int empty,
                            std::vector<std::vector<int>>& grid)
     {
-        if (x < 0 || x == grid[0].size() || y < 0 || y == grid.size())
+        if (x >= grid[0].size() || y >= grid.size())
         {
             return 0;
         }

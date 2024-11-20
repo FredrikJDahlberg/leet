@@ -5,11 +5,9 @@
 #ifndef SOLUTION61_H
 #define SOLUTION61_H
 
-namespace Solution61
+namespace solution61
 {
-/*
-  Definition for singly-linked list.
-*/
+
 struct ListNode {
     int val;
     ListNode *next;
@@ -18,7 +16,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution {
+class Solution61 {
 public:
     static ListNode* rotateRight(ListNode* head, int k)
     {

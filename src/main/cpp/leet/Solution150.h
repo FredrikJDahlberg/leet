@@ -37,7 +37,8 @@ public:
             if (std::isdigit(str[0]))
             {
                 result = std::stoi(str);
-            } else
+            }
+            else
             {
                 const Token term1 = stack.top();
                 stack.pop();

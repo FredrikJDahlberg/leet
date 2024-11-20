@@ -8,7 +8,7 @@
 
 class Solution25
 {
-private:
+public:
     struct ListNode
     {
         int val;
@@ -21,6 +21,7 @@ private:
         }
     };
 
+private:
     void free(const ListNode* list)
     {
         auto node = list;
@@ -52,12 +53,13 @@ private:
     }
 
 
-ListNode* head;
+    ListNode* head;
 
 public:
-
-    Solution25(std::initializer_list<int> list)
+    Solution25(const std::initializer_list<int> list)
     {
+        head = makeList(list);
+        /*
         ListNode* prev = nullptr;
         for (auto& value : list)
         {
@@ -72,6 +74,7 @@ public:
             }
             prev = node;
         }
+        */
     }
 
     ~Solution25()
@@ -79,10 +82,30 @@ public:
         free(head);
     }
 
+    static ListNode* makeList(const std::initializer_list<int> values)
+    {
+        ListNode* prev = nullptr;
+        ListNode* list = nullptr;
+        for (const auto& value : values)
+        {
+            auto* node = new ListNode(value);
+            if (prev == nullptr)
+            {
+                list = node;
+            }
+            else
+            {
+                prev->next = node;
+            }
+            prev = node;
+        }
+        return list;
+    }
+
     ListNode* reverse(/*ListNode* node,*/ const int k)
     {
-        //ListNode* head = nullptr;
         ListNode* node = head;
+        head = nullptr;
         ListNode* lastInGroup = nullptr;
         ListNode* lastInPrevGroup = nullptr;
         for (auto remaining = count(node); remaining >= k; remaining -= k)

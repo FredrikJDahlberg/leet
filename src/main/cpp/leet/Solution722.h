@@ -7,74 +7,75 @@
 
 class Solution722
 {
-    enum class State { COMMENT, MULTI, MULTI_END, REMOVE, KEEP, NEXT, DONE };
+private:
+
+    enum class State { CODE, MULTI, NONE };
 
 public:
-    static std::vector<std::string> removeComments(std::vector<std::string> &source)
+    static std::vector<std::string> removeComments(const std::vector<std::string>& source)
     {
-        auto state = State::KEEP;
-        int line = 0;
-        int col = 0;
-        while (state != State::DONE)
+        std::vector<std::string> result;
+        State state = State::CODE;
+        for (auto line : source)
         {
-            const auto ch = source[line][col];
-            switch (state)
+            size_t begin = 0;
+            size_t length = line.size();
+            std::string value;
+            size_t col = 0;
+            while (col < length)
             {
-                case State::KEEP:
-                    if (ch == '/')
-                    {
+                switch (state)
+                {
+                    case State::CODE:
+                        if (line[col] == '/' && col + 1 < length && line[col + 1] == '*')
+                        {
+                            state = State::MULTI;
+                            if (begin != col)
+                            {
+                                value.append(line.substr(begin, col - begin - 1));
+                            }
+                            ++col;
+                        }
+                        else if (line[col] == '/' && col + 1 < length && line[col + 1] == '/')
+                        {
+                            state = State::NONE;
+                            if (begin != col)
+                            {
+                                value.append(line.substr(begin, col - begin - 1));
+                                col += length;
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            value.push_back(line[col]);
+                        }
                         ++col;
-                        state = State::COMMENT;
-                    } else
-                    {
+                        break;
+                    case State::MULTI:
+                        if (line[col] == '*' && col + 1 < length && line[col + 1] == '/')
+                        {
+                            state = State::CODE;
+                            begin = col + 2;
+                            ++col;
+                        }
                         ++col;
-                    }
-                    break;
-                case State::COMMENT:
-                    if (ch == '*')
-                    {
-                        state = State::MULTI;
-                        source[line].erase(col);
-                    } else if (ch == '/')
-                    {
-                        source[line].erase(col);
-                        state = State::KEEP;
-                    } else
-                    {
-                        source[line].erase(col);
-                    }
-                    break;
-                case State::MULTI:
-                    if (ch == '*')
-                    {
-                        state = State::MULTI_END;
-                    } else
-                    {
-                        source[line].erase(col);
-                    }
-                    break;
-                case State::MULTI_END:
-                    if (ch == '/')
-                    {
-                        source[line].erase(col, col + 1);
-                    } else
-                    {
-                        state = State::MULTI;
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
-            if (col >= source[line].size())
+            if (state != State::MULTI)
             {
-                ++line;
-            }
-            if (line == source[line].size())
-            {
-                state = State::DONE;
+                state = State::CODE;
+                if (!value.empty())
+                {
+                    result.emplace_back(value);
+                    value.clear();
+                }
             }
         }
-        return source;
+        return result;
     }
 };
 

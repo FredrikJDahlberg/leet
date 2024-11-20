@@ -6,14 +6,18 @@
 #define SOLUTION208_H
 
 namespace Solution208 {
+
+#include <functional>
+
+/**
+ * A very simplified trie.
+ */
 class Trie
 {
 private:
-    static constexpr int EMPTY = 0;
-
     struct Node
     {
-        Node() : value{0}, complete{false}, children{nullptr}
+        Node() : value{CHAR_MAX}, complete{false}, children{nullptr}
         {
         }
 
@@ -23,93 +27,126 @@ private:
 
         char value;
         bool complete;
-        Node *children[256];
+        Node* children[32];
     };
 
-    Node *root;
-
-    static Node *find(Node *node, const std::string &word, int &offset)
-    {
-        auto next = node;
-        const auto size = word.size();
-        while (next != nullptr && next->value == word[offset])
-        {
-            if (next->value == word[offset])
-            {
-                if (offset == size)
-                {
-                    return next->complete ? next : nullptr;
-                }
-                ++offset;
-
-                const auto child = next->children[word[offset]];
-                ++offset;
-                if (child == nullptr)
-                {
-                    return next;
-                }
-                next = child;
-            }
-        }
-        return next;
-    }
-
-    static bool insert(Node *node, const std::string &word, int offset)
-    {
-        while (offset < word.size())
-        {
-            if (node->value == word[offset])
-            {
-                ++offset;
-
-                const auto child = node->children[word[offset]];
-                const auto ch = word[offset];
-                if (child == nullptr)
-                {
-                    node->children[ch] = new Node(ch, word.size() == offset);
-                } else
-                {
-                    // Node* parent = new Node(EMPTY, false);
-                    // no common suffix
-                }
-                node = node->children[ch];
-            }
-        }
-        return true;
-    }
+    Node* root;
 
 public:
-    Trie(): root(nullptr)
+    Trie(): root(new Node())
     {
     }
 
-    void insert(const std::string &word)
+    void insert(const std::string& word)
     {
-        if (root == nullptr)
+        if (word.empty())
         {
-            int offset = 0;
-            root = new Node(word[0], word.size() == 1);
-            ++offset;
+            return;
         }
 
-        // Node *node = find(root, word, offset);
+        int offset = 0;
+        auto found = root;
+        bool hasValue = true;
+        if (find(word, offset, hasValue, found))
+        {
+            found->complete = true;
+        }
+        else
+        {
+            insert(found, word, offset, hasValue);
+        }
     }
 
-    [[nodiscard]] bool search(const std::string& word) const
+    bool search(const std::string& word) const
     {
-        int offset = 0;
-        const auto node = find(root, word, offset);
-        return node != nullptr ? node->complete : false;
+        int position = 0;
+        bool hasValue = true;
+        auto node = root;
+        return find(word, position, hasValue, node) && node->complete;
     }
 
-    [[nodiscard]] bool startsWith(const std::string& prefix) const
+    bool startsWith(const std::string& prefix) const
     {
-        int offset = 0;
-        const auto node = find(root, prefix, offset);
-        return node != nullptr;
+        int position = 0;
+        bool hasValue = true;
+        auto node = root;
+        return find(prefix, position, hasValue, node);
+    }
+
+    void clear()
+    {
+        const auto child = root;
+        forEach(child);
+    }
+
+private:
+    bool find(const std::string& word, int& offset, bool& hasValue, Node*& found) const
+    {
+        bool doValue = true;
+        const auto size = word.size();
+        while (found != nullptr && offset < size)
+        {
+            const auto key = word[offset] - 'a';
+            if (doValue)
+            {
+                hasValue = true;
+                if (key != found->value)
+                {
+                    return false;
+                }
+                doValue = false;
+                ++offset;
+            }
+            else
+            {
+                hasValue = false;
+                if (found->children[key] != nullptr)
+                {
+                    found = found->children[key];
+                }
+                else
+                {
+                    return false;
+                }
+                doValue = true;
+            }
+        }
+        return offset == size;
+    }
+
+    void insert(Node* node, const std::string& word, int offset, const bool hasValue)
+    {
+        const auto size = word.size();
+        if (hasValue)
+        {
+            node->value = word[offset] - 'a';
+            ++offset;
+        }
+        while (offset < size)
+        {
+            const auto key = word[offset] - 'a';
+            auto child = new Node();
+            child->value = key;
+            node->children[key] = child;
+            node->complete = false;
+            node = child;
+            ++offset;
+        }
+        node->complete = true;
+    }
+
+    void forEach(Node* node)
+    {
+        for (auto child : node->children)
+        {
+            if (child != nullptr)
+            {
+                forEach(child);
+            }
+        }
+        delete node;
     }
 };
 }
-
 
 #endif //SOLUTION208_H

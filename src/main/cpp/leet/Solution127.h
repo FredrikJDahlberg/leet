@@ -10,9 +10,9 @@
 class Solution127
 {
 public:
-    int ladderLength(const std::string &beginWord,
-                     const std::string &endWord,
-                     std::vector<std::string> words) const
+    static int ladderLength(const std::string &beginWord,
+                            const std::string &endWord,
+                            std::vector<std::string> words)
     {
         std::unordered_set wordSet(words.begin(), words.end());
         if (!wordSet.contains(endWord))

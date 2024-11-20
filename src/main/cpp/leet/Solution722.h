@@ -15,7 +15,7 @@ public:
     static std::vector<std::string> removeComments(const std::vector<std::string>& source)
     {
         std::vector<std::string> result;
-        State state = State::CODE;
+        auto state = State::CODE;
         for (auto line : source)
         {
             const size_t length = line.size();

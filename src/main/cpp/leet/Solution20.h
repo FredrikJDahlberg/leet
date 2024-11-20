@@ -10,10 +10,18 @@ class Solution20
 private:
     std::stack<char> stack;
 
-public:
-    bool isValid(std::string&& s)
+    void clear()
     {
-        for (char ch : s)
+        while (!stack.empty())
+        {
+            stack.pop();
+        }
+    }
+
+public:
+    bool isValid(std::string&& str)
+    {
+        for (auto ch : str)
         {
             if (ch == '(' || ch == '{' || ch == '[')
             {
@@ -25,6 +33,7 @@ public:
                 {
                     return false;
                 }
+
                 const auto match = stack.top();
                 stack.pop();
                 if ((match != '(' || ch != ')') && (match != '{' || ch != '}') && (match != '[' || ch != ']'))

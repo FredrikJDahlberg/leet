@@ -20,7 +20,7 @@ public:
             return false;
         }
 
-        State state = State::INT;
+        auto state = State::INT;
         bool digits = false;
         for (int position = 0; position < str.length(); ++position)
         {

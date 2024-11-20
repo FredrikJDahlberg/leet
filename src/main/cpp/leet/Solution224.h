@@ -168,7 +168,7 @@ public:
         return true;
     }
 
-    [[nodiscard]] bool hasRemaining(int position) const
+    [[nodiscard]] bool hasRemaining(const int position) const
     {
         return tokens[position].type != Type::EMPTY;
     }

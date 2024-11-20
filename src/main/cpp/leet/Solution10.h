@@ -7,21 +7,21 @@
 
 #include <string>
 
-class Solution10 {
-
+class Solution10
+{
     enum class State { CHAR, WILD, MISMATCH };
 
-    constexpr static char ANY = CHAR_MIN;
+    constexpr static char ANY = '.';
+    constexpr static char WILD = '*';
 
 public:
-
-    static bool isMatch(std::string string, std::string pattern)
+    static bool isMatch(const std::string& string, const std::string& pattern)
     {
-        int stringPos = 0;
-        auto stringSize = string.size();
-        int patternPos = 0;
+        const size_t stringSize = string.size();
+        size_t stringPos = 0;
+        size_t patternPos = 0;
         char match = ANY;
-        State state = State::CHAR;
+        auto state = State::CHAR;
         while (stringPos < stringSize)
         {
             auto p = pattern[patternPos];
@@ -29,47 +29,41 @@ public:
             switch (state)
             {
                 case State::CHAR:
-                    if (s == p)
+                    if (s == p || p == ANY)
                     {
-                        match = s;
+                        match = p;
                         ++stringPos;
                         ++patternPos;
                     }
-                    else if (p == '.')
-                    {
-                        match = ANY;
-                        ++patternPos;
-                        ++stringPos;
-                    }
-                    else if (p == '*')
+                    else if (p == WILD)
                     {
                         state = State::WILD;
                     }
                     else
                     {
-                        ++patternPos;
                         state = State::MISMATCH;
+                        ++patternPos;
                     }
                     break;
                 case State::WILD:
-                    if (s == match || match == ANY)
+                    if (match == s || match == ANY)
                     {
                         ++stringPos;
                     }
                     else
                     {
-                        ++patternPos;
                         state = State::CHAR;
+                        ++patternPos;
                     }
                     break;
                 case State::MISMATCH:
-                    if (p == '*')
+                    if (p == WILD)
                     {
                         state = State::WILD;
                     }
                     else
                     {
-                        return false;
+                        stringPos = stringSize;
                     }
                     break;
                 default:

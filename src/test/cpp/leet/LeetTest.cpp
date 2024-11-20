@@ -8,6 +8,7 @@
 #include <gtest/gtest.h>
 
 #include "../../../main/cpp/leet/Solution5.h"
+#include "../../../main/cpp/leet/Solution10.h"
 #include "../../../main/cpp/leet/Solution12.h"
 #include "../../../main/cpp/leet/Solution17.h"
 #include "../../../main/cpp/leet/Solution20.h"
@@ -61,6 +62,20 @@
 #include "../../../main/cpp/leet/Solution2435.h"
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
+
+TEST(Leet, Solution10)
+{
+    ASSERT_TRUE(Solution10::isMatch("c", "a*c"));
+    ASSERT_FALSE(Solution10::isMatch("abc", "a*c"));
+    ASSERT_TRUE(Solution10::isMatch("aac", "a*c"));
+
+    ASSERT_TRUE(Solution10::isMatch("abcd", ".*"));
+    ASSERT_TRUE(Solution10::isMatch("aa", "aa"));
+    ASSERT_FALSE(Solution10::isMatch("aa", "a"));
+
+    ASSERT_TRUE(Solution10::isMatch("abc", "a.c"));
+    ASSERT_TRUE(Solution10::isMatch("abc", "a.*c"));
+}
 
 TEST(Leet, Solution115)
 {

@@ -340,11 +340,9 @@ TEST(Leet, Solution188)
 TEST(Leet, Solution26)
 {
     std::vector v1 = {1,1,2};
-    // ASSERT_EQ(2, Solution26::removeDuplicates(v1));
     ASSERT_EQ(2, Solution26::removeDuplicates2(v1));
+
     std::vector v2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-    // FIXME
-    // ASSERT_EQ(5, Solution26::removeDuplicates(v2));
     ASSERT_EQ(5, Solution26::removeDuplicates2(v2));
 }
 

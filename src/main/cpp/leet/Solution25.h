@@ -22,7 +22,7 @@ public:
     };
 
 private:
-    void free(const ListNode* list)
+    static void free(const ListNode* list)
     {
         auto node = list;
         while (node != nullptr)
@@ -33,7 +33,7 @@ private:
         }
     }
 
-    void print(const ListNode* list)
+    static void print(const ListNode* list)
     {
         for (auto node = list; node != nullptr; node = node->next)
         {
@@ -42,7 +42,7 @@ private:
         std::cout << std::endl;
     }
 
-    int count(const ListNode* list)
+    static int count(const ListNode* list)
     {
         int count = 0;
         for (auto node = list; node != nullptr; node = node->next)

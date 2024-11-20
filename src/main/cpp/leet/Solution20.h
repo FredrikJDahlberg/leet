@@ -21,6 +21,7 @@ private:
 public:
     bool isValid(std::string&& str)
     {
+        clear();
         for (auto ch : str)
         {
             if (ch == '(' || ch == '{' || ch == '[')

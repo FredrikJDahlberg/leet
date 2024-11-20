@@ -28,6 +28,7 @@
 #include "../../../main/cpp/leet/Solution79.h"
 #include "../../../main/cpp/leet/Solution80.h"
 #include "../../../main/cpp/leet/Solution88.h"
+#include "../../../main/cpp/leet/Solution115.h"
 #include "../../../main/cpp/leet/Solution123.h"
 #include "../../../main/cpp/leet/Solution124.h"
 #include "../../../main/cpp/leet/Solution127.h"
@@ -60,6 +61,15 @@
 #include "../../../main/cpp/leet/Solution2435.h"
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
+
+TEST(Leet, Solution115)
+{
+    // (ra)b(bbit), (rab)b(bit), (rabb)b(it)
+    ASSERT_EQ(3, Solution115::numDistinct("rabbbit", "rabbit"));
+
+    // (b)abgb(ag), ba(b)gb(ag), babg(b)(ag), (ba)b(g)bag, (ba)bgba(g), babg(ba)(g)
+    ASSERT_EQ(6, Solution115::numDistinct("babgbag", "bag"));
+}
 
 TEST(Leet, Solution722)
 {
@@ -146,7 +156,7 @@ TEST(Leet, Solution212)
 
 TEST(Leet, Solution127)
 {
-    Solution127 solution;
+    const Solution127 solution;
     ASSERT_EQ(5, solution.ladderLength("hit", "cog", {"hot","dot","dog","lot","log","cog"}));
 }
 

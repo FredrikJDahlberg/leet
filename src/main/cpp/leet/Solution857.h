@@ -14,7 +14,7 @@ public:
                                        const int length)
     {
         std::vector<std::pair<double, int>> workers;
-        auto size = wages.size();
+        const auto size = wages.size();
         workers.reserve(size);
         for (int i = 0; i < size; ++i)
         {
@@ -26,7 +26,7 @@ public:
 
         int qualitySum = 0;
         double cost = DBL_MAX;
-        std::priority_queue<int> queue;
+        std::priority_queue<int> queue; // 5, 4, 3, ...
         for (auto& [wageQuality, quality] : workers)
         {
             queue.push(quality);

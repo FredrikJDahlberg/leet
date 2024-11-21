@@ -69,16 +69,12 @@
 
 TEST(Leet, Solution857)
 {
-    auto quality1 = std::vector<int>{10,20,5};
-    auto wages1 = std::vector<int>{70,50,30};
-    EXPECT_DOUBLE_EQ(105.00000, Solution857::minCostToHireWorkers(quality1, wages1, 2));
+    EXPECT_DOUBLE_EQ(105.00000, Solution857::minCostToHireWorkers({10,20,5}, {70,50,30}, 2));
 }
 
 TEST(Leet, Solution2542)
 {
-    const auto v1 = std::vector{1,3,3,2};
-    const auto v2 = std::vector{2,1,3,4};
-    ASSERT_EQ(12, Solution2542::maxScore(v1, v2, 3));
+    ASSERT_EQ(12, Solution2542::maxScore({1,3,3,2}, {2,1,3,4}, 3));
 }
 
 TEST(Leet, Solution2813)

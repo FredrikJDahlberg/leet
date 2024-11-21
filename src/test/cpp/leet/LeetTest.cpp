@@ -61,8 +61,29 @@
 #include "../../../main/cpp/leet/Solution1289.h"
 #include "../../../main/cpp/leet/Solution2302.h"
 #include "../../../main/cpp/leet/Solution2435.h"
+#include "../../../main/cpp/leet/Solution2542.h"
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
+#include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution2542)
+{
+    const auto v1 = std::vector{1,3,3,2};
+    const auto v2 = std::vector{2,1,3,4};
+    ASSERT_EQ(12, Solution2542::maxScore(v1, v2, 3));
+}
+
+TEST(Leet, Solution2813)
+{
+    auto items1 = std::vector<std::vector<int>>{{3,2},{5,1},{10,1}};
+    ASSERT_EQ(17, Solution2813::findMaximumElegance(items1, 2));
+
+    auto items3 = std::vector<std::vector<int>>{{1,1},{2,1},{3,1}};
+    ASSERT_EQ(7, Solution2813::findMaximumElegance(items3, 3));
+
+    auto items2 = std::vector<std::vector<int>>{{3,1},{3,1},{2,2},{5,3}};
+    ASSERT_EQ(19, Solution2813::findMaximumElegance(items2, 3));
+}
 
 TEST(Leet, Solution502)
 {
@@ -73,7 +94,6 @@ TEST(Leet, Solution502)
     std::vector profits2{1,2,3};
     std::vector capitals2{0,1,2};
     ASSERT_EQ(6, Solution502::findMaximizedCapital(3, 0, profits1, capitals1));
-
 }
 
 TEST(Leet, Solution10)

@@ -52,6 +52,7 @@
 #include "../../../main/cpp/leet/Solution722.h"
 #include "../../../main/cpp/leet/Solution724.h"
 #include "../../../main/cpp/leet/Solution725.h"
+#include "../../../main/cpp/leet/Solution857.h"
 #include "../../../main/cpp/leet/Solution930.h"
 #include "../../../main/cpp/leet/Solution931.h"
 #include "../../../main/cpp/leet/Solution980.h"
@@ -65,6 +66,13 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution857)
+{
+    auto quality1 = std::vector<int>{10,20,5};
+    auto wages1 = std::vector<int>{70,50,30};
+    EXPECT_DOUBLE_EQ(105.00000, Solution857::minCostToHireWorkers(quality1, wages1, 2));
+}
 
 TEST(Leet, Solution2542)
 {

@@ -44,6 +44,7 @@
 #include "../../../main/cpp/leet/Solution224.h"
 #include "../../../main/cpp/leet/Solution239.h"
 #include "../../../main/cpp/leet/Solution295.h"
+#include "../../../main/cpp/leet/Solution502.h"
 #include "../../../main/cpp/leet/Solution720.h"
 #include "../../../main/cpp/leet/Solution396.h"
 #include "../../../main/cpp/leet/Solution410.h"
@@ -63,16 +64,27 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 
+TEST(Leet, Solution502)
+{
+    std::vector profits1{1,2,3};
+    std::vector capitals1{0,1,1};
+    ASSERT_EQ(4, Solution502::findMaximizedCapital(2, 0, profits1, capitals1));
+
+    std::vector profits2{1,2,3};
+    std::vector capitals2{0,1,2};
+    ASSERT_EQ(6, Solution502::findMaximizedCapital(3, 0, profits1, capitals1));
+
+}
+
 TEST(Leet, Solution10)
 {
+    // egrep -w
     ASSERT_TRUE(Solution10::isMatch("c", "a*c"));
     ASSERT_FALSE(Solution10::isMatch("abc", "a*c"));
     ASSERT_TRUE(Solution10::isMatch("aac", "a*c"));
-
     ASSERT_TRUE(Solution10::isMatch("abcd", ".*"));
     ASSERT_TRUE(Solution10::isMatch("aa", "aa"));
     ASSERT_FALSE(Solution10::isMatch("aa", "a"));
-
     ASSERT_TRUE(Solution10::isMatch("abc", "a.c"));
     ASSERT_TRUE(Solution10::isMatch("abc", "a.*c"));
 }

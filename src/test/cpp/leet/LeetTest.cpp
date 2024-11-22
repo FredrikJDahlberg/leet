@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <thread>
+#include <vector>
 #include <gtest/gtest.h>
 
 #include "../../../main/cpp/leet/Solution5.h"
@@ -48,6 +49,7 @@
 #include "../../../main/cpp/leet/Solution502.h"
 #include "../../../main/cpp/leet/Solution720.h"
 #include "../../../main/cpp/leet/Solution396.h"
+#include "../../../main/cpp/leet/Solution406.h"
 #include "../../../main/cpp/leet/Solution410.h"
 #include "../../../main/cpp/leet/Solution676.h"
 #include "../../../main/cpp/leet/Solution722.h"
@@ -70,10 +72,16 @@
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
 
-#include <algorithm>
-#include <functional>
-#include <string>
-#include <vector>
+TEST(Leet, Solution406)
+{
+    auto people1 = std::vector<std::vector<int>>{{7,0},{4,4},{7,1},{5,0},{6,1},{5,2}};
+    const auto expected1 = std::vector<std::vector<int>>{{5,0},{7,0},{5,2},{6,1},{4,4},{7,1}};
+    ASSERT_EQ(expected1, Solution406::reconstructQueue(people1));
+
+    auto people2 = std::vector<std::vector<int>>{{6,0},{5,0},{4,0},{3,2},{2,2},{1,4}};
+    const auto expected2 = std::vector<std::vector<int>>{{4,0},{5,0},{2,2},{3,2},{1,4},{6,0}};
+    ASSERT_EQ(expected2, Solution406::reconstructQueue(people2));
+}
 
 TEST(Leet, Solution2512)
 {

@@ -65,9 +65,48 @@
 #include "../../../main/cpp/leet/Solution2302.h"
 #include "../../../main/cpp/leet/Solution2435.h"
 #include "../../../main/cpp/leet/Solution2542.h"
+#include "../../../main/cpp/leet/Solution2512.h"
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+#include <algorithm>
+#include <functional>
+#include <string>
+#include <vector>
+
+TEST(Leet, Solution2512)
+{
+    const auto positive = std::vector<std::string>{"smart","brilliant","studious"};
+    const auto negative = std::vector<std::string>{"not"};
+
+    const auto ids4 = std::vector{1,2,3,4};
+    const auto report4 = std::vector<std::string>{
+        "this student is not studious", "the student is smart", "snart and studious", "not smart"
+    };
+    const auto expected4 = std::vector{2,3,1};
+    ASSERT_EQ(expected4, Solution2512::topStudents(positive, negative, report4, ids4, 3));
+
+    const auto ids = std::vector{1,2};
+    const auto report1 = std::vector<std::string>{
+        "this student is studious","the student is smart"
+    };
+    const auto expected1 = std::vector{1,2};
+    ASSERT_EQ(expected1, Solution2512::topStudents(positive, negative, report1, ids, 2));
+
+    const auto ids3 = std::vector{1,2,3};
+    const auto report3 = std::vector<std::string>{
+        "this student is not studious", "the student is smart", "smart and studious"
+    };
+    const auto expected3 = std::vector{3,2};
+    ASSERT_EQ(expected3, Solution2512::topStudents(positive, negative, report3, ids3, 2));
+
+    const auto report2 = std::vector<std::string>{
+        "this student is not studious","the student is smart"
+    };
+    const auto expected2 = std::vector{2,1};
+    ASSERT_EQ(expected2, Solution2512::topStudents(positive, negative, report2, ids, 2));
+}
 
 TEST(Leet, Solution2146)
 {
@@ -230,8 +269,7 @@ TEST(Leet, Solution212)
 
 TEST(Leet, Solution127)
 {
-    const Solution127 solution;
-    ASSERT_EQ(5, solution.ladderLength("hit", "cog", {"hot","dot","dog","lot","log","cog"}));
+    ASSERT_EQ(5, Solution127::ladderLength("hit", "cog", {"hot","dot","dog","lot","log","cog"}));
 }
 
 TEST(Leet, Solution931)

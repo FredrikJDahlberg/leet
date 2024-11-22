@@ -62,7 +62,6 @@
 #include "../../../main/cpp/leet/Solution1116.h"
 #include "../../../main/cpp/leet/Solution1289.h"
 #include "../../../main/cpp/leet/Solution2146.h"
-#include "../../../main/cpp/leet/Solution2146_1.h"
 #include "../../../main/cpp/leet/Solution2302.h"
 #include "../../../main/cpp/leet/Solution2435.h"
 #include "../../../main/cpp/leet/Solution2542.h"

@@ -22,21 +22,21 @@ public:
             const auto quality = qualities[i];
             workers.emplace_back(wage / quality, quality);
         }
-        std::ranges::sort(workers);
+        std::ranges::sort(workers); // sorted by wages / quality
 
         int qualitySum = 0;
         double cost = DBL_MAX;
-        std::priority_queue<int> queue; // 5, 4, 3, ...
+        std::priority_queue<int> qualityQueue; // 5, 4, 3, ...
         for (auto& [wageQuality, quality] : workers)
         {
-            queue.push(quality);
+            qualityQueue.push(quality);
             qualitySum += quality;
-            if (queue.size() > length)
+            if (qualityQueue.size() > length)
             {
-                qualitySum -= queue.top();
-                queue.pop();
+                qualitySum -= qualityQueue.top();
+                qualityQueue.pop();
             }
-            if (queue.size() == length)
+            if (qualityQueue.size() == length)
             {
                 cost = std::min(cost, qualitySum * wageQuality);
             }

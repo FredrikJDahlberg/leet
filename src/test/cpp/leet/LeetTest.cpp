@@ -41,6 +41,7 @@
 #include "../../../main/cpp/leet/Solution208.h"
 #include "../../../main/cpp/leet/Solution212.h"
 #include "../../../main/cpp/leet/Solution214.h"
+#include "../../../main/cpp/leet/Solution215.h"
 #include "../../../main/cpp/leet/Solution224.h"
 #include "../../../main/cpp/leet/Solution239.h"
 #include "../../../main/cpp/leet/Solution295.h"
@@ -60,12 +61,35 @@
 #include "../../../main/cpp/leet/Solution1044.h"
 #include "../../../main/cpp/leet/Solution1116.h"
 #include "../../../main/cpp/leet/Solution1289.h"
+#include "../../../main/cpp/leet/Solution2146.h"
+#include "../../../main/cpp/leet/Solution2146_1.h"
 #include "../../../main/cpp/leet/Solution2302.h"
 #include "../../../main/cpp/leet/Solution2435.h"
 #include "../../../main/cpp/leet/Solution2542.h"
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution2146)
+{
+    const auto grid1 = std::vector<std::vector<int>>{{1,2,0,1},{1,3,0,1},{0,2,5,1}};
+    const auto pricing1 = std::vector{2,5};
+    const auto start1 = std::vector{0, 0};
+    const auto expected1 = std::vector<std::vector<int>>{{0,1},{1,1},{2,1}};
+    ASSERT_EQ(expected1, Solution2146::highestRankedKItems(grid1, pricing1, start1, 3));
+
+    const auto grid2 = std::vector<std::vector<int>>{{1,2,0,1},{1,3,3,1},{0,2,5,1}};
+    const auto pricing2 = std::vector{2,3};
+    const auto start2 = std::vector{2,3};
+    const auto expected2 = std::vector<std::vector<int>>{{2,1},{1,2}};
+    ASSERT_EQ(expected2, Solution2146::highestRankedKItems(grid2, pricing2, start2, 2));
+}
+
+TEST(Leet, Solution215)
+{
+    ASSERT_EQ(5, Solution215::findKthLargest({3,2,1,5,6,4}, 2));
+    ASSERT_EQ(4, Solution215::findKthLargest({3,2,3,1,2,4,5,5,6}, 4));
+}
 
 TEST(Leet, Solution857)
 {

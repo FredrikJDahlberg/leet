@@ -8,6 +8,7 @@
 #include <vector>
 #include <gtest/gtest.h>
 
+#include "../../../main/cpp/leet/Solution4.h"
 #include "../../../main/cpp/leet/Solution5.h"
 #include "../../../main/cpp/leet/Solution10.h"
 #include "../../../main/cpp/leet/Solution12.h"
@@ -73,6 +74,12 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution4)
+{
+    EXPECT_DOUBLE_EQ(2.00000, Solution4::findMedianSortedArrays(std::vector{1,3},std::vector{2}));
+    EXPECT_DOUBLE_EQ(2.50000, Solution4::findMedianSortedArrays(std::vector{1,2},std::vector{3,4}));
+}
 
 TEST(Leet, Solution327)
 {

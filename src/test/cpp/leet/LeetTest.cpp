@@ -46,6 +46,8 @@
 #include "../../../main/cpp/leet/Solution224.h"
 #include "../../../main/cpp/leet/Solution239.h"
 #include "../../../main/cpp/leet/Solution295.h"
+#include "../../../main/cpp/leet/Solution315.h"
+#include "../../../main/cpp/leet/Solution327.h"
 #include "../../../main/cpp/leet/Solution502.h"
 #include "../../../main/cpp/leet/Solution720.h"
 #include "../../../main/cpp/leet/Solution396.h"
@@ -71,6 +73,31 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution327)
+{
+    ASSERT_EQ(3, Solution327::countRangeSum(std::vector{-2,5,-1}, -2, 2));
+    ASSERT_EQ(1, Solution327::countRangeSum(std::vector{0}, 0, 0));
+    ASSERT_EQ(8, Solution327::countRangeSum(std::vector{-2,1,3,-3,5,4}, -1, 3));
+
+    ASSERT_EQ(3, Solution327::countRangeSum2(std::vector{-2,5,-1}, -2, 2));
+    ASSERT_EQ(1, Solution327::countRangeSum2(std::vector{0}, 0, 0));
+    ASSERT_EQ(8, Solution327::countRangeSum2(std::vector{-2,1,3,-3,5,4}, -1, 3));
+}
+
+TEST(Leet, Solution315)
+{
+    const auto expected1 = std::vector{2,1,1,0};
+    ASSERT_EQ(expected1, Solution315::countSmaller(std::vector{5,2,6,1}));
+
+    const auto expected2 = std::vector{0};
+    ASSERT_EQ(expected2, Solution315::countSmaller(std::vector{-1}));
+
+    const auto expected3 = std::vector{0,0};
+    ASSERT_EQ(expected3, Solution315::countSmaller(std::vector{-1,-1}));
+
+    ASSERT_EQ(expected1, Solution315::countSmaller2(std::vector{5,2,6,1}));
+}
 
 TEST(Leet, Solution406)
 {

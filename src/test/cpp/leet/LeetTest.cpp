@@ -31,6 +31,7 @@
 #include "../../../main/cpp/leet/Solution79.h"
 #include "../../../main/cpp/leet/Solution80.h"
 #include "../../../main/cpp/leet/Solution88.h"
+#include "../../../main/cpp/leet/Solution105.h"
 #include "../../../main/cpp/leet/Solution115.h"
 #include "../../../main/cpp/leet/Solution123.h"
 #include "../../../main/cpp/leet/Solution124.h"
@@ -74,6 +75,16 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution105)
+{
+    auto tree = Solution105::buildTree(std::vector{3,9,20,15,7},std::vector{9,3,15,20,7});
+    EXPECT_EQ(3, tree->val);
+    EXPECT_EQ(9, tree->left->val);
+    EXPECT_EQ(20, tree->right->val);
+    EXPECT_EQ(15, tree->right->left->val);
+    EXPECT_EQ(7, tree->right->right->val);
+}
 
 TEST(Leet, Solution4)
 {

@@ -16,7 +16,7 @@ public:
         size_t totalProfit = 0;
         std::unordered_set<int> categories;
         std::stack<int> duplicateProfits;
-        std::ranges::sort(items, std::greater<>());
+        std::ranges::sort(items, std::greater{});
         for (int i = 0; i < length; i++) {
             const auto& item = items[i];
             const int profit = item.front();

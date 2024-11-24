@@ -81,6 +81,12 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+#include "../../../main/cpp/leet/Solution2926.h"
+
+TEST(Leet, DISABLED_Solution2926)
+{
+    ASSERT_EQ(14, Solution2926::maxBalancedSubsequenceSum({3,3,5,6}));
+}
 
 TEST(Leet, Solution1738)
 {
@@ -123,7 +129,7 @@ TEST(Leet, Solution1985)
 
 TEST(Leet, Solution105)
 {
-    auto tree = Solution105::buildTree(std::vector{3,9,20,15,7},std::vector{9,3,15,20,7});
+    const auto tree = Solution105::buildTree(std::vector{3,9,20,15,7},std::vector{9,3,15,20,7});
     ASSERT_EQ(3, tree->val);
     ASSERT_EQ(9, tree->left->val);
     ASSERT_EQ(20, tree->right->val);
@@ -251,12 +257,12 @@ TEST(Leet, Solution2813)
 
 TEST(Leet, Solution502)
 {
-    std::vector profits1{1,2,3};
-    std::vector capitals1{0,1,1};
+    const std::vector profits1{1,2,3};
+    const std::vector capitals1{0,1,1};
     ASSERT_EQ(4, Solution502::findMaximizedCapital(2, 0, profits1, capitals1));
 
-    std::vector profits2{1,2,3};
-    std::vector capitals2{0,1,2};
+    const std::vector profits2{1,2,3};
+    const std::vector capitals2{0,1,2};
     ASSERT_EQ(6, Solution502::findMaximizedCapital(3, 0, profits1, capitals1));
 }
 

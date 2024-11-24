@@ -49,7 +49,7 @@ public:
                     const int cy = j + dy;
                     if (cx >= 0 && cx < xm && cy >= 0 && cy < ym)
                     {
-                        auto element = grid[cy][cx];
+                        const auto element = grid[cy][cx];
                         if (!visited[cy][cx])
                         {
                             if (element >= low && element <= high)
@@ -69,7 +69,7 @@ public:
                     const int x2 = b[1];
                     const int p1 = grid[y1][x1];
                     const int p2 = grid[y2][x2];
-                    return p1 != p2 ? p1 < p2 : (y1 == y2 ? x1 < x2 : y1 < y2);
+                    return p1 != p2 ? p1 < p2 : y1 == y2 ? x1 < x2 : y1 < y2;
             });
             for (const std::vector<int>& neighbour : neighbours) {
                 const auto size = result.size();

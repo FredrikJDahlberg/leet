@@ -18,7 +18,6 @@ public:
 
         const std::vector<int> left = beautifulArray((n + 1) >> 1);
         const std::vector<int> right = beautifulArray(n >> 1);
-
         int pos = -1;
         std::vector<int> result(n);
         for (const auto& value : left)

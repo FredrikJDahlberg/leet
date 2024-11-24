@@ -12,7 +12,7 @@ class Solution918
 public:
     static int maxSubarraySumCircular(const std::vector<int>& nums)
     {
-        auto size = nums.size();
+        const auto size = nums.size();
         int max = INT_MIN;
         for (int len = 1; len <= size; ++len)
         {

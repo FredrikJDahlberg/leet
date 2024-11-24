@@ -24,8 +24,8 @@ public:
         auto state = State::CHAR;
         while (stringPos < stringSize)
         {
-            auto p = pattern[patternPos];
-            auto s = string[stringPos];
+            const auto p = pattern[patternPos];
+            const auto s = string[stringPos];
             switch (state)
             {
                 case State::CHAR:
@@ -65,8 +65,6 @@ public:
                     {
                         stringPos = stringSize;
                     }
-                    break;
-                default:
                     break;
             }
         }

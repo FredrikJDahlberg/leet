@@ -12,8 +12,8 @@ public:
     static double findMedianSortedArrays(const std::vector<int>& nums1, const std::vector<int>& nums2)
     {
         std::priority_queue<int> maxHeap;
-        auto size1 = nums1.size();
-        auto size2 = nums2.size();
+        const auto size1 = nums1.size();
+        const auto size2 = nums2.size();
         for (int i = 0; i < std::max(size1, size2); ++i)
         {
             if (i < size1)

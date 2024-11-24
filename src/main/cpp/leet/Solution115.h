@@ -16,8 +16,8 @@ public:
         {
             for (int preOff = 0; preOff < longStr.length(); ++preOff)
             {
-                auto longSize = longStr.size();
-                auto shortSize = shortStr.size();
+                const auto longSize = longStr.size();
+                const auto shortSize = shortStr.size();
                 const auto sufLen = shortSize - preLen;
                 for (int sufOff = preOff + preLen; sufOff <= longSize - sufLen; ++sufOff)
                 {

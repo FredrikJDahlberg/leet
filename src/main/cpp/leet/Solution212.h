@@ -56,11 +56,11 @@ public:
         this->board = &board;
         this->words = &words;
         std::vector<std::string> result;
-        const std::string word;
         for (int r = 0; r < board.size(); ++r)
         {
             for (int c = 0; c < board[0].size(); ++c)
             {
+                const std::string word;
                 findWords(c, r, board[0].size(), board.size(), word, result);
             }
         }

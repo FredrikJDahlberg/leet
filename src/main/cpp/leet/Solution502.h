@@ -41,7 +41,7 @@ public:
                                     const std::vector<int>& profits,
                                     const std::vector<int>& capitals)
     {
-        return findMaxCap(count, capital, const_cast<std::vector<int>&>(profits), capitals);;
+        return findMaxCap(count, capital, const_cast<std::vector<int>&>(profits), capitals);
     }
 };
 

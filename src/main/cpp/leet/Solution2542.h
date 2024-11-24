@@ -20,7 +20,7 @@ public:
             values.emplace_back(nums2[i], nums1[i]);
         }
         // values in descending order: (4,2) (3,3) (2,1) (1,3)
-        std::ranges::sort(values, std::greater<>{});
+        std::ranges::sort(values, std::greater{});
 
         int sum = 0;
         int score = 0;

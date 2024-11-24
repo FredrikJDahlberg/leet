@@ -68,6 +68,7 @@
 #include "../../../main/cpp/leet/Solution150.h"
 #include "../../../main/cpp/leet/Solution1044.h"
 #include "../../../main/cpp/leet/Solution1116.h"
+#include "../../../main/cpp/leet/Solution1738.h"
 #include "../../../main/cpp/leet/Solution1985.h"
 #include "../../../main/cpp/leet/Solution1289.h"
 #include "../../../main/cpp/leet/Solution1763.h"
@@ -80,6 +81,12 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution1738)
+{
+    ASSERT_EQ(7, Solution1738::kthLargestValue(std::vector<std::vector<int>>{{5,2},{1,6}}, 1));
+    ASSERT_EQ(5, Solution1738::kthLargestValue(std::vector<std::vector<int>>{{5,2},{1,6}}, 2));
+}
 
 TEST(Leet, Solution2426)
 {

@@ -6,7 +6,6 @@
 #define SOLUTION2426_H
 
 #include <vector>
-#include <cstdio>
 
 class Solution2426 {
     public:

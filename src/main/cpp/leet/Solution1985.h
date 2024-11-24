@@ -13,16 +13,16 @@ class Solution1985 {
 public:
     static std::string kthLargestNumber(const std::vector<std::string>& nums, const int k)
     {
-        std::priority_queue<std::string> maxHeap;
+        std::priority_queue<int, std::vector<int>, std::greater<>> maxHeap;
         for (auto num : nums)
         {
-            maxHeap.push(num);
+            maxHeap.push(std::stoi(num));
             if (maxHeap.size() > k)
             {
                 maxHeap.pop();
             }
         }
-        return maxHeap.top();
+        return std::to_string(maxHeap.top());
     }
 };
 

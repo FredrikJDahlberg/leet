@@ -73,6 +73,7 @@
 #include "../../../main/cpp/leet/Solution1763.h"
 #include "../../../main/cpp/leet/Solution2146.h"
 #include "../../../main/cpp/leet/Solution2302.h"
+#include "../../../main/cpp/leet/Solution2426.h"
 #include "../../../main/cpp/leet/Solution2435.h"
 #include "../../../main/cpp/leet/Solution2542.h"
 #include "../../../main/cpp/leet/Solution2512.h"
@@ -80,9 +81,17 @@
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
 
+TEST(Leet, Solution2426)
+{
+    ASSERT_EQ(3, Solution2426::numberOfPairs({3,2,5},{2,2,1}, 1));
+    ASSERT_EQ(0, Solution2426::numberOfPairs({3,-1},{-2,2}, -1));
+}
+
 TEST(Leet, Solution1763)
 {
+    ASSERT_EQ("Bb", Solution1763::longestNiceSubstring("Bb"));
     ASSERT_EQ("aAa", Solution1763::longestNiceSubstring("YazaAay"));
+    ASSERT_EQ("", Solution1763::longestNiceSubstring("c"));
 }
 
 TEST(Leet, Solution918)
@@ -92,10 +101,10 @@ TEST(Leet, Solution918)
     ASSERT_EQ(-2, Solution918::maxSubarraySumCircular({-3,-2, -3}));
 }
 
-TEST(Leet, DISABLED_Solution932)
+TEST(Leet, Solution932)
 {
-    const auto expected1 = std::vector{2,1,4,3};
-    ASSERT_EQ(expected1, Solution932::beautifulArray2(4));
+    //const auto expected1 = std::vector{2,1,4,3};
+    const auto expected1 = std::vector{1,3,2,4};
     ASSERT_EQ(expected1, Solution932::beautifulArray(4));
 }
 
@@ -531,11 +540,6 @@ TEST(Leet, Solution123)
 TEST(Leet, Solution188)
 {
     std::vector v = {1,2,3,4};
-    for (auto i = v.rbegin(); i != v.rend() - 1; ++i)
-    {
-        std::cout << *i << " " << *(i + 1) << std::endl;
-    }
-
     ASSERT_EQ(7, Solution188::maxProfit(2, {1,4,2,2,6}));
     ASSERT_EQ(10, Solution188::maxProfit(2, {1,4,2,2,6,3,1,6}));
     ASSERT_EQ(11, Solution188::maxProfit(3, {1,4,2,2,5,3,1,6}));

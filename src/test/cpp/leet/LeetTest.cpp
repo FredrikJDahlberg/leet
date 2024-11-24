@@ -60,6 +60,7 @@
 #include "../../../main/cpp/leet/Solution724.h"
 #include "../../../main/cpp/leet/Solution725.h"
 #include "../../../main/cpp/leet/Solution857.h"
+#include "../../../main/cpp/leet/Solution918.h"
 #include "../../../main/cpp/leet/Solution930.h"
 #include "../../../main/cpp/leet/Solution931.h"
 #include "../../../main/cpp/leet/Solution932.h"
@@ -77,6 +78,13 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution918)
+{
+    ASSERT_EQ(3, Solution918::maxSubarraySumCircular({1,-2,3,-2}));
+    ASSERT_EQ(10, Solution918::maxSubarraySumCircular({5,-3,5}));
+    ASSERT_EQ(-2, Solution918::maxSubarraySumCircular({-3,-2, -3}));
+}
 
 TEST(Leet, DISABLED_Solution932)
 {

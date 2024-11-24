@@ -70,6 +70,7 @@
 #include "../../../main/cpp/leet/Solution1116.h"
 #include "../../../main/cpp/leet/Solution1985.h"
 #include "../../../main/cpp/leet/Solution1289.h"
+#include "../../../main/cpp/leet/Solution1763.h"
 #include "../../../main/cpp/leet/Solution2146.h"
 #include "../../../main/cpp/leet/Solution2302.h"
 #include "../../../main/cpp/leet/Solution2435.h"
@@ -78,6 +79,11 @@
 #include "../../../main/cpp/leet/Solution2546.h"
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
+
+TEST(Leet, Solution1763)
+{
+    ASSERT_EQ("aAa", Solution1763::longestNiceSubstring("YazaAay"));
+}
 
 TEST(Leet, Solution918)
 {

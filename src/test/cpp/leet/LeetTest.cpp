@@ -62,10 +62,12 @@
 #include "../../../main/cpp/leet/Solution857.h"
 #include "../../../main/cpp/leet/Solution930.h"
 #include "../../../main/cpp/leet/Solution931.h"
+#include "../../../main/cpp/leet/Solution932.h"
 #include "../../../main/cpp/leet/Solution980.h"
 #include "../../../main/cpp/leet/Solution150.h"
 #include "../../../main/cpp/leet/Solution1044.h"
 #include "../../../main/cpp/leet/Solution1116.h"
+#include "../../../main/cpp/leet/Solution1985.h"
 #include "../../../main/cpp/leet/Solution1289.h"
 #include "../../../main/cpp/leet/Solution2146.h"
 #include "../../../main/cpp/leet/Solution2302.h"
@@ -76,14 +78,27 @@
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
 
+TEST(Leet, DISABLED_Solution932)
+{
+    const auto expected1 = std::vector{2,1,4,3};
+    ASSERT_EQ(expected1, Solution932::beautifulArray2(4));
+    ASSERT_EQ(expected1, Solution932::beautifulArray(4));
+}
+
+TEST(Leet, Solution1985)
+{
+    ASSERT_EQ("3", Solution1985::kthLargestNumber({"3","6","7","10"}, 4));
+    ASSERT_EQ("2", Solution1985::kthLargestNumber({"2","21","12","1"}, 3));
+}
+
 TEST(Leet, Solution105)
 {
     auto tree = Solution105::buildTree(std::vector{3,9,20,15,7},std::vector{9,3,15,20,7});
-    EXPECT_EQ(3, tree->val);
-    EXPECT_EQ(9, tree->left->val);
-    EXPECT_EQ(20, tree->right->val);
-    EXPECT_EQ(15, tree->right->left->val);
-    EXPECT_EQ(7, tree->right->right->val);
+    ASSERT_EQ(3, tree->val);
+    ASSERT_EQ(9, tree->left->val);
+    ASSERT_EQ(20, tree->right->val);
+    ASSERT_EQ(15, tree->right->left->val);
+    ASSERT_EQ(7, tree->right->right->val);
 }
 
 TEST(Leet, Solution4)

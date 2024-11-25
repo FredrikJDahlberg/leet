@@ -21,6 +21,7 @@
 #include "../../../main/cpp/leet/Solution36.h"
 #include "../../../main/cpp/leet/Solution39.h"
 #include "../../../main/cpp/leet/Solution40.h"
+#include "../../../main/cpp/leet/Solution41.h"
 #include "../../../main/cpp/leet/Solution53.h"
 #include "../../../main/cpp/leet/Solution60.h"
 #include "../../../main/cpp/leet/Solution61.h"
@@ -83,6 +84,13 @@
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
 #include "../../../main/cpp/leet/Solution2926.h"
+
+TEST(Leet, Solution41)
+{
+    ASSERT_EQ(2, Solution41::firstMissingPositive({-1,1,3,4}));
+    ASSERT_EQ(3, Solution41::firstMissingPositive({1,2,0}));
+    ASSERT_EQ(1, Solution41::firstMissingPositive({7,8,9,11,12}));
+}
 
 TEST(Leet, Solution148)
 {

@@ -7,9 +7,11 @@
 
 #include <vector>
 
-class Solution2926 {
+class Solution2926
+{
 public:
-    static int64_t maxBalancedSubsequenceSum(const std::vector<int>& nums) {
+    static int64_t maxBalancedSubsequenceSum(const std::vector<int>& nums)
+    {
         const auto size = nums.size();
         std::vector<int> sub;
         int maxSum = INT_MIN;

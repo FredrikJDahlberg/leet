@@ -38,6 +38,7 @@
 #include "../../../main/cpp/leet/Solution127.h"
 #include "../../../main/cpp/leet/Solution135.h"
 #include "../../../main/cpp/leet/Solution146.h"
+#include "../../../main/cpp/leet/Solution148.h"
 #include "../../../main/cpp/leet/Solution154.h"
 #include "../../../main/cpp/leet/Solution174.h"
 #include "../../../main/cpp/leet/Solution188.h"
@@ -82,6 +83,16 @@
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
 #include "../../../main/cpp/leet/Solution2926.h"
+
+TEST(Leet, Solution148)
+{
+    using Node = Solution148::ListNode;
+    auto sorted = Solution148::selectionSort(new Node(4, new Node(2, new Node(1, new Node(3)))));
+    ASSERT_EQ(1, sorted->val);
+    ASSERT_EQ(2, sorted->next->val);
+    ASSERT_EQ(3, sorted->next->next->val);
+    ASSERT_EQ(4, sorted->next->next->next->val);
+}
 
 TEST(Leet, Solution2926)
 {

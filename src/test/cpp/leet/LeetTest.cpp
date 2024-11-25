@@ -83,9 +83,11 @@
 #include "../../../main/cpp/leet/Solution2813.h"
 #include "../../../main/cpp/leet/Solution2926.h"
 
-TEST(Leet, DISABLED_Solution2926)
+TEST(Leet, Solution2926)
 {
+    ASSERT_EQ(13, Solution2926::maxBalancedSubsequenceSum({5,-1,-3,8}));
     ASSERT_EQ(14, Solution2926::maxBalancedSubsequenceSum({3,3,5,6}));
+    ASSERT_EQ(-1, Solution2926::maxBalancedSubsequenceSum({-2,-1}));
 }
 
 TEST(Leet, Solution1738)

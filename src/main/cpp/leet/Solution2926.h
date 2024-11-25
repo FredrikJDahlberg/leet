@@ -10,21 +10,44 @@
 class Solution2926 {
 public:
     static int64_t maxBalancedSubsequenceSum(const std::vector<int>& nums) {
-
-        //
-        return 0;
+        const auto size = nums.size();
+        std::vector<int> sub;
+        int maxSum = INT_MIN;
+        for (int len = 1; len <= size; ++len)
+        {
+            for (int i = 0; i < size - len; ++i)
+            {
+                if ((i == 0 || balanced(nums, 0, i - 1)) && balanced(nums, i + len, size - len))
+                {
+                    int sum = 0;
+                    if (i >= 1)
+                    {
+                        sum += nums[0];
+                        sum = std::accumulate(nums.begin() + 1, nums.begin() + i, sum);
+                    }
+                    sum += nums[i + len];
+                    sum = std::accumulate(nums.begin() + i + len + 1, nums.end(), sum);
+                    maxSum = std::max(maxSum, sum);
+                }
+            }
+        }
+        return maxSum;
     }
 
 private:
-
-    static std::vector<int> generate(int k, std::vector<int> nums)
+    static bool balanced(const std::vector<int>&nums, const int offset, const int length)
     {
-        if (k == 1)
+        bool balanced = true;
+        for (int i = offset; i < offset + length; ++i)
         {
-            return nums;
+            for (int j = i + 1; j < length; ++j)
+            {
+                balanced &= nums[i] - nums[j - 1] <= j - i;
+            }
         }
-        return {};
+        return balanced;
     }
+
 };
 
 #endif //SOLUTION2926_H

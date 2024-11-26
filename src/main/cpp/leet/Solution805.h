@@ -17,8 +17,8 @@ public:
             return false;
         }
 
-        std::vector<bool> used(nums.size(), false);
-        return splitArraySameAverage(0, 0, 0, 0, nums, used);
+        std::vector used(nums.size(), false);
+        return splitArraySameAverage(0, 0, 0, 0, nums.size(), nums, used);
     }
 
 private:
@@ -26,13 +26,13 @@ private:
                                       const int sum2,
                                       const int count1,
                                       const int count2,
-                                      const std::vector<int>& nums,
+                                      const size_t size,
+                                      const std::vector<int>& numbers,
                                       std::vector<bool>& used)
     {
-        const auto size = nums.size();
         if (count1 >= size || count2 >= size || count1 + count2 >= size)
         {
-            return  static_cast<double>(sum1) / count1 == static_cast<double>(sum2) / count2;
+            return sum1 / count1 == sum2 / count2 && sum1 % count1 == sum2 % count2;
         }
 
         const auto found = std::ranges::find(used, false);
@@ -40,12 +40,11 @@ private:
         {
             return false;
         }
-
         const auto pos = std::distance(used.begin(), found);
-        const auto num = nums[pos];
+        const auto number = numbers[pos];
         used[pos] = true;
-        const auto result = splitArraySameAverage(sum1 + num, sum2, count1 + 1, count2, nums, used) ||
-                            splitArraySameAverage(sum1, sum2 + num, count1, count2 + 1, nums, used);
+        const auto result = splitArraySameAverage(sum1 + number, sum2, count1 + 1, count2, size, numbers, used) ||
+                            splitArraySameAverage(sum1, sum2 + number, count1, count2 + 1, size, numbers, used);
         used[pos] = false;
         return result;
     }

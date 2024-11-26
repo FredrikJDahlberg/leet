@@ -63,6 +63,7 @@
 #include "../../../main/cpp/leet/Solution722.h"
 #include "../../../main/cpp/leet/Solution724.h"
 #include "../../../main/cpp/leet/Solution725.h"
+#include "../../../main/cpp/leet/Solution805.h"
 #include "../../../main/cpp/leet/Solution857.h"
 #include "../../../main/cpp/leet/Solution918.h"
 #include "../../../main/cpp/leet/Solution930.h"
@@ -86,6 +87,13 @@
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
 #include "../../../main/cpp/leet/Solution2926.h"
+
+TEST(Leet, Solution805)
+{
+    ASSERT_TRUE(Solution805::splitArraySameAverage({4,3,1,2}));
+    ASSERT_TRUE(Solution805::splitArraySameAverage({1,2,3,4,5,6,7,8}));
+    ASSERT_FALSE(Solution805::splitArraySameAverage({3,1}));
+}
 
 TEST(Leet, Solution51)
 {

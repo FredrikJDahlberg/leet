@@ -8,6 +8,7 @@
 #include <vector>
 #include <gtest/gtest.h>
 
+#include "../../../main/cpp/leet/Solution1.h"
 #include "../../../main/cpp/leet/Solution4.h"
 #include "../../../main/cpp/leet/Solution5.h"
 #include "../../../main/cpp/leet/Solution10.h"
@@ -22,6 +23,7 @@
 #include "../../../main/cpp/leet/Solution39.h"
 #include "../../../main/cpp/leet/Solution40.h"
 #include "../../../main/cpp/leet/Solution41.h"
+#include "../../../main/cpp/leet/Solution51.h"
 #include "../../../main/cpp/leet/Solution53.h"
 #include "../../../main/cpp/leet/Solution60.h"
 #include "../../../main/cpp/leet/Solution61.h"
@@ -84,6 +86,27 @@
 #include "../../../main/cpp/leet/Solution2547.h"
 #include "../../../main/cpp/leet/Solution2813.h"
 #include "../../../main/cpp/leet/Solution2926.h"
+
+TEST(Leet, Solution51)
+{
+    auto list = Solution51::solveNQueens(4);
+    for (auto l : list)
+    {
+        for (auto s : l)
+        {
+            std::cout << s << std::endl;
+        }
+    }
+}
+
+TEST(Leet, Solution1)
+{
+    const auto expected1 = std::vector<int>{0, 1};
+    ASSERT_EQ(expected1, Solution1::twoSum({2,7,11,15}, 9));
+
+    const auto expected2 = std::vector<int>{1, 2};
+    ASSERT_EQ(expected2, Solution1::twoSum({3,2,4}, 6));
+}
 
 TEST(Leet, Solution41)
 {
